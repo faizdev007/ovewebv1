@@ -58,3 +58,33 @@ body {
   white-space: nowrap;
   animation: marquee 15s linear infinite;
 }
+
+
+/* Customize the scrollbar width */
+::-webkit-scrollbar {
+  width: 12px;  /* width of the scrollbar */
+  height: 12px; /* height of the horizontal scrollbar */
+}
+
+/* Customize the scrollbar track (the area the thumb slides within) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light gray track */
+  border-radius: 10px;  /* Rounded corners */
+}
+
+/* Customize the scrollbar thumb (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Darker gray thumb */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Customize the scrollbar thumb when hovered */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker gray thumb on hover */
+}
+
+/* Customize the scrollbar button (optional) */
+::-webkit-scrollbar-button {
+  background: #f1f1f1;
+  display: none; /* Hide buttons */
+}

@@ -21,27 +21,30 @@ export default function AboutPage()
     ];
 
     const team = [
-        {name: 'Dharmesh Shah', role: 'Joint Managing Director', image: '/assets/ove/ds.jpg'},
-        {name: 'Shantanu Dublish', role: 'Joint Managing Director', image: '/assets/ove/sd.jpg'},
-        {name: 'Kartik Sharma', role: 'Non-Executive Director - IT', image: '/assets/ove/cto.png'},
-        {name: 'Marc Bishop', role: 'General Manager-Operations', image: '/assets/ove/manager.jpg'},
-        {name: 'Ragbhendra Kumar Jha', role: 'CFO', image: '/assets/ove/cfo.webp'},
-        {name: 'Ronnie R Arora', role: 'VP-Growth', image: '/assets/ove/ronnie.jpg'},
+        {name: 'Dharmesh Shah', linkedin:'https://www.linkedin.com/in/otsdharmeshshah/', role: 'Joint Managing Director', image: '/assets/ove/ds.jpg'},
+        {name: 'Shantanu Dublish', linkedin:'https://www.linkedin.com/in/shantanu-dublish-55819233/', role: 'Joint Managing Director', image: '/assets/ove/sd.jpg'},
+        {name: 'Kartik Sharma', linkedin:'https://www.linkedin.com/in/kartiksharmaiit/', role: 'Non-Executive Director - IT', image: '/assets/ove/cto.png'},
+        // {name: 'Marc Bishop', role: 'General Manager-Operations', image: '/assets/ove/manager.jpg'},
+        {name: 'Ragbhendra Kumar Jha', linkedin:'#', role: 'CFO', image: '/assets/ove/cfo.webp'},
+        {name: 'Ronnie R Arora', linkedin:'https://www.linkedin.com/in/ronnie-rahul-arora-ba12b26/', role: 'VP-Growth', image: '/assets/ove/ronnie.jpg'},
+        {name: 'Samta Sharma', linkedin:'https://www.linkedin.com/in/samtasharma/', role: 'VP-Technology', image: '/assets/ove/samta.webp'},
     ];
 
     return(
         <>
-            <section className="bg-black p-12 justify-between relative flex md:flex-row flex-col dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
-                <div className="relative md:w-[30%]">
-                    <div className="md:p-10 md:absolute p-4 -end-40 md:top-10 md:rounded-md rounded-t bg-stone-800">
+            <section className="bg-black p-12 justify-between relative flex lg:flex-row flex-col dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
+                <div className="relative lg:w-[30%]">
+                    <div className="md:p-10 lg:absolute p-4 -end-40 md:top-10 md:rounded-md rounded-t bg-stone-800">
                         <h1 className="xl:text-4xl md:text-2xl text-xl md:mb-10 mb-4">Empowering Global Businesses with Elite Tech Talent</h1>
-                        <p className="lg:text-lg text-xs mb-2">At Optimal Virtual Employee, we believe great technology begins with great people. Since our founding in 2008, we’ve been on a mission to bridge the talent gap for startups, growing businesses, and enterprise brands across the globe by offering flexible, reliable, and scalable staff augmentation solutions.</p>
-                        <p className="lg:text-lg text-xs mb-2">Whether you're a founder building your first MVP or an enterprise scaling your development team, we help you find highly skilled full-time developers who are committed to your success—just like in-house team members.</p>
-                        <p className="lg:text-lg text-xs mb-2">We don’t just fill positions. We help you build the right team, faster—with our unique combination of human vetting and AI-assisted shortlisting to match you with professionals who deliver from day one.</p>
+                        <div className="md:max-h-48 2xl:max-h-full overflow-y-auto">
+                            <p className="lg:text-lg text-xs mb-2">At Optimal Virtual Employee, we believe great technology begins with great people. Since our founding in 2008, we’ve been on a mission to bridge the talent gap for startups, growing businesses, and enterprise brands across the globe by offering flexible, reliable, and scalable staff augmentation solutions.</p>
+                            <p className="lg:text-lg text-xs mb-2">Whether you're a founder building your first MVP or an enterprise scaling your development team, we help you find highly skilled full-time developers who are committed to your success—just like in-house team members.</p>
+                            <p className="lg:text-lg text-xs mb-2">We don’t just fill positions. We help you build the right team, faster—with our unique combination of human vetting and AI-assisted shortlisting to match you with professionals who deliver from day one.</p>
+                        </div>
                     </div>
                 </div>
-                <div className="md:w-[70%] md:rounded-md rounded-b-md">
-                    <Image src={'/assets/about/img1.webp'} alt="aboutimg1" className="object-cover w-full" height={500} width={1000}/>
+                <div className="lg:w-[70%] md:rounded-md rounded-b-md">
+                    <Image src={'/assets/about/1.jpg'} alt="aboutimg1" className="object-cover w-full" height={500} width={1000}/>
                 </div>
             </section>
             <div className="bg-black py-12">
@@ -62,15 +65,15 @@ export default function AboutPage()
                                     </ul>
                                 </div>
                             </div>
-                            <div className="flex justify-center items-center">
-                                <Image src={'/assets/about/image2.webp'} alt="slide" width={500} height={200} className="object-cover"/>
+                            <div className="flex aspect-[2/1] w-full justify-end items-center">
+                                <Image src={'/assets/about/4.webp'} alt="slide" width={500} height={200} className="object-cover"/>
                             </div>
                         </div>
                     </section>
                     <section className="relative md:flex md:flex-rows flex-col-reverse dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
                         <div className="md:grid flex flex-col items-center md:grid-cols-2 gap-4 mb-4">
-                            <div className="flex justify-center items-center">
-                                <Image src={'/assets/about/image2.webp'} alt="slide" width={500} height={200} className="object-cover"/>
+                            <div className="flex justify-center aspect-[2/1] w-full justify-start items-center">
+                                <Image src={'/assets/about/2.webp'} alt="slide" width={500} height={200} className="object-cover"/>
                             </div>
                             <div className="flex flex-col gap-4 justify-center">
                                 <div className="mb-10">
@@ -102,8 +105,8 @@ export default function AboutPage()
                                     </ul>
                                 </div>
                             </div>
-                            <div className="flex justify-center items-center">
-                                <Image src={'/assets/about/image2.webp'} alt="slide" width={500} height={200} className="object-cover"/>
+                            <div className="flex aspect-[2/1] w-full justify-end items-center">
+                                <Image src={'/assets/about/3.webp'} alt="slide" width={500} height={333} className="object-cover"/>
                             </div>
                         </div>
                     </section>
@@ -112,12 +115,24 @@ export default function AboutPage()
 
             <section className="dark:bg-gray-800 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-8">Our Executive Team</h2>
-                <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="container mx-auto grid items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     {team.map((member, index) => (
-                        <div key={index} className="flex flex-col text-white items-center aspect-[1/1] text-center p-6 bg-gray-700 rounded-lg">
-                            <Image src={member.image} alt={member.name} width={300} height={300} className="mb-4 w-full h-auto object-cover"/>
-                            <h3 className="text-xl font-bold">{member.name}</h3>
-                            <p className="text-sm text-gray-300">{member.role}</p>
+                        <div key={index} className="flex flex-col text-white w-full p-6 bg-stone-800 rounded-lg">
+                            <div className="mb-4 flex gap-2">
+                                <div className="relative">
+                                    <div className="aspect-[1/1] flex w-20 h-20 rounded-full overflow-hidden ">
+                                        <Image src={member.image} alt={member.name} width={300} height={300} className="w-auto h-auto object-container"/>
+                                    </div>
+                                    <a href={member.linkedin} aria-label="LinkedIn" className="absolute -bottom-3 -left-3 p-1 overflow-hidden rounded-full">
+                                        <Image src={'/assets/sociallinks/linkedin2.png'} width={30} height={30} className="object-cover" alt="LinkedIn"/>
+                                    </a>
+                                </div>
+                                <div className="text-start flex flex-col">
+                                    <h3 className="xl:text-lg text-md font-bold">{member.name}</h3>
+                                    <p className="text-sm text-gray-300">{member.role}</p>
+                                </div>
+                            </div>
+                            <p></p>
                         </div>
                     ))}
                 </div>

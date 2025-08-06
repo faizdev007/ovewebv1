@@ -23,16 +23,16 @@ export default function ContactPage() {
 
     const contactinfo = [
         {name:'UK',flag:'/assets/flags/UK.webp',numbers: [
-            { number: '+61 489921411', label: 'Sales' },
+            { number: '+44 7411118134', label: 'Sales' },
         ],},
         {name:'Australia',flag:'/assets/flags/AUSTRALIA.webp',numbers: [
-            { number: '+44 7411118134', label: 'Sales' },
+            { number: '+61 489921411', label: 'Sales' },
         ],},
         {name:'USA',flag:'/assets/flags/USA.webp',numbers: [
             { number: '+1 2028499199', label: 'Sales' },
         ],},
         {name:'India',flag:'/assets/flags/INDIA.webp',numbers: [
-            { number: '+98 9999979934', label: 'Sales' },
+            { number: '+91 9999979934', label: 'Sales' },
         ],},
     ];
 
@@ -68,7 +68,7 @@ export default function ContactPage() {
         {
             name:'India',
             image:'/assets/offices/INDIA.webp',
-            address: 'B27, Sector 132, Noida, Uttar Pradesh 201301.'
+            address: 'B27, Images Tower, Sector 132, Noida,  Uttar Pradesh 201301.'
         }
     ];
 

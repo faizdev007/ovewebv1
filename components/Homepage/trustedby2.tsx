@@ -13,10 +13,10 @@ const companies = [
 ];
 
 const stats = [
-  { count: '3000+', label: 'Apps and Digital Projects Delivered' },
-  { count: '3000+', label: 'Apps and Digital Projects Delivered' },
-  { count: '3000+', label: 'Apps and Digital Projects Delivered' },
-  { count: '3000+', label: 'Apps and Digital Projects Delivered' },
+  { count: '17+', label: 'Years of Experience' },
+  { count: '400+', label: 'Developers' },
+  { count: '50+', label: 'Industries Served' },
+  { count: '97%', label: 'Client Retention Rate' },
 ];
 
 export default function TrustedBySection() {

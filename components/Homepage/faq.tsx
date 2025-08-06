@@ -21,16 +21,8 @@ const faqs = [
     answer: 'Absolutely. You can conduct interviews, assign test tasks, and choose only the developers who meet your expectations.',
   },
   {
-    question: 'What’s included in the AUD 999 management fee?',
-    answer: 'Everything: dedicated support, performance reviews, developer retention, reporting, time tracking',
-  },
-  {
     question: 'How do I communicate with my developer?',
     answer: 'Directly via Slack, Zoom, or your preferred tools. You’re in full control — we’re here to support, not interfere.',
-  },
-  {
-    question: 'What happens if I’m not satisfied with a developer?',
-    answer: 'No problem — we offer a free replacement within 7 days, no questions asked.',
   },
   {
     question: 'How do you ensure code quality and accountability?',
@@ -49,6 +41,15 @@ const faqs = [
     answer: 'Our talent is based across India and Southeast Asia — fluent in English and overlapping your working hours.',
   },
 ];
+
+// {
+//     question: 'What’s included in the AUD 999 management fee?',
+//     answer: 'Everything: dedicated support, performance reviews, developer retention, reporting, time tracking',
+//   },
+// {
+//     question: 'What happens if I’m not satisfied with a developer?',
+//     answer: 'No problem — we offer a free replacement within 7 days, no questions asked.',
+//   },
 
 export default function FaqSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);

@@ -37,13 +37,13 @@ export default function TrustedBy() {
     <section ref={elementRef} className="py-10 text-center">
       <div className={`mx-auto flex items-center overflow-hidden animate-fade animate-once animate-ease-linear`}>
         {/* Left Static Text */}
-        <div className="min-w-[150px] text-white border-r border-gray-700 dark:border-black">
+        <div className="min-w-[150px] text-white dark:border-black">
           <h3 className='text-lg md:text-2xl font-bold'>Trusted by</h3>
           <p className="md:text-sm text-sm text-gray-400">Top companies</p>
         </div>
 
         {/* Marquee Section */}
-        <div className="flex-1 px-4 overflow-hidden relative">
+        <div className="flex-1 pe-4 border-s-2 border-gray-700 overflow-hidden relative">
           <div className="relative flex-1 gap-4 overflow-hidden px-4 sm:px-6 lg:px-8 mx-auto ">
               <div className="logo-slider flex w-max md:space-x-8 space-x-4">
                   {logos.map((logo, index) => (

@@ -11,7 +11,7 @@ export default function Footer()
             name:'Australia',
             image:'/assets/offices/AUSTRALIA.webp',
             address: 'Level 15, 333 Collins St, Melbourne 3000, Victoria, Australia',
-            tel:'+44 7411118134'
+            tel:'+61 489921411'
         },
         {
             name:'USA',
@@ -24,13 +24,13 @@ export default function Footer()
             name:'UK',
             image:'/assets/offices/UK.webp',
             address: '4TH Floor, Rex House, 4-12 Regent Street, London SW1Y 4PE(UK)',
-            tel:'+61 489921411'
+            tel:'+44 7411118134'
         },
         {
             name:'India',
             image:'/assets/offices/INDIA.webp',
-            address: 'B27, Sector 132, Noida, Uttar Pradesh 201301.',
-            tel:'+98 9999979934'
+            address: 'B27, Images Tower, Sector 132, Noida,  Uttar Pradesh 201301.',
+            tel:'+91 9999979934'
         }
     ];
     return(
@@ -64,9 +64,9 @@ export default function Footer()
                 </div>
                 <div className="">
                     <nav className="flex gap-3">
-                        <a href="" aria-label="facebook"><Image src={'/assets/sociallinks/facebook.png'} width={100} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" height={100} alt="facebook"/></a>
-                        <a href="" aria-label="linkedin"><Image src={'/assets/sociallinks/linkedin.png'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="linkedin"/></a>
-                        <a href="" aria-label="youtube"><Image src={'/assets/sociallinks/youtube.png'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="youtube"/></a>
+                        <a href="https://www.facebook.com/Optimal-virtual-Employee-2093585584194627/" aria-label="facebook"><Image src={'/assets/sociallinks/facebook.png'} width={100} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" height={100} alt="facebook"/></a>
+                        <a href="https://www.linkedin.com/company/optimal-virtual-employee-ove/" aria-label="linkedin"><Image src={'/assets/sociallinks/linkedin.png'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="linkedin"/></a>
+                        <a href="https://twitter.com/OptimalVE" aria-label="X"><Image src={'/assets/sociallinks/social-media.png'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="youtube"/></a>
                     </nav>
                 </div>
             </div>

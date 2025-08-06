@@ -63,7 +63,7 @@ export default function DevelopersSlider() {
             320: { slidesPerView: 1 },
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
-            1450: { slidesPerView: 4 },
+            1440: { slidesPerView: 4 },
             1850: { slidesPerView: 5 },
           }}
         >
