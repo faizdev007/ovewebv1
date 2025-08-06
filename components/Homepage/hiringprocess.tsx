@@ -119,7 +119,7 @@ export default function HiringProcess()
             </div>
             ))}
         </div>
-        <div className='w-full flex justify-center mt-10'>  
+        <div className='w-full hidden justify-center mt-10'>  
             <button className='md:w-1/3 w-1/2 cursor-pointer hover:bg-green-700 drop-shadow shadow hover:shadow-xl bg-green-600 text-white lg:p-3 p-2 xl:text-3xl text-nowarp font-bold rounded'>Hire a talent</button>
         </div>
     </section>
