@@ -57,7 +57,7 @@ export default function HireBy() {
                 {roles.map((role, i) => (
                     <div key={i} className="bg-[#1b1b1b] dark:bg-gray-700 rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
-                            <div className='aspect-[3/1] flex items-center justify-center'>
+                            <div className='aspect-[1/1] flex items-center justify-center'>
                                 <Image src={role.logo} alt={role.name} width={60} height={60} className="hover:grayscale object-container h-20 w-auto" />
                             </div>
                             <h4 className='capitalize font-bold'>{role.name}</h4>
@@ -83,7 +83,7 @@ export default function HireBy() {
                 {hirebyskill.map((skill, i) => (
                     <div key={i} className="bg-[#1b1b1b] dark:bg-gray-700 rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
-                            <div className='aspect-[3/1] flex items-center justify-center'>
+                            <div className='aspect-[1/1] flex items-center justify-center'>
                                 <Image src={skill.logo} alt={skill.name} width={60} height={60} className="object-container h-20 w-auto" />
                             </div>
                             <h4 className='capitalize font-bold'>{skill.name}</h4>
