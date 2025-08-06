@@ -75,9 +75,9 @@ const companyM = [{
         {/* Logo */}
         <a href={'/'} className="flex items-center">
           { darkmod ? (
-            <Image src={"/assets/logo2.webp"} width={125} height={100} className='h-auto w-auto' alt="OVE" />
+            <Image src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
           ) : (
-            <Image src={"/assets/logo.webp"} width={125} height={100} className='h-auto w-auto' alt="OVE" />
+            <Image src={"/assets/logo.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
           ) }
         </a>
 
