@@ -42,7 +42,7 @@ export default function DevelopersSlider() {
         <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-12">Meet Our Developers</h2>
 
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation,Autoplay]}
           spaceBetween={30}
           slidesPerView={5}
           loop={true}

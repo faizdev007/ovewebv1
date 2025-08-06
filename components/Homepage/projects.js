@@ -55,7 +55,7 @@ export default function OurProjectsSlider() {
 
       <div className="relative container mx-auto">
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation,Autoplay]}
           autoplay={{ delay: 4000 }}
           navigation={{ prevEl: prevProj.current, nextEl: nextProj.current }}
           onInit={(swiper) => {
