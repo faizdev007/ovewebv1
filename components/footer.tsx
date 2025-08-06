@@ -35,7 +35,6 @@ export default function Footer()
     ];
     return(
         <div className="gird divide-y-2 footerbg divide-gray-300">
-            <Footerlinks/>
             <section className="dark:bg-gray-800 text-white relative px-4 md:py-10 py-2 sm:px-6 lg:px-8 mx-auto pt-10">
                 <div className="">
                     <h3 className="text-center hidden text-2xl md:text-3xl lg:text-4xl xl-text-5xl 2xl:text-6xl font-bold mb-8">OUR OFFICE LOCATIONS</h3>
