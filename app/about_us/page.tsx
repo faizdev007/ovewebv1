@@ -25,7 +25,7 @@ export default function AboutPage()
         {name: 'Shantanu Dublish', linkedin:'https://www.linkedin.com/in/shantanu-dublish-55819233/', role: 'Joint Managing Director', image: '/assets/ove/sd.jpg'},
         {name: 'Kartik Sharma', linkedin:'https://www.linkedin.com/in/kartiksharmaiit/', role: 'Non-Executive Director - IT', image: '/assets/ove/cto.png'},
         // {name: 'Marc Bishop', role: 'General Manager-Operations', image: '/assets/ove/manager.jpg'},
-        {name: 'Ragbhendra Kumar Jha', linkedin:'#', role: 'CFO', image: '/assets/ove/cfo.webp'},
+        {name: 'Ragbhendra Kumar Jha', linkedin:'https://www.linkedin.com/in/ca-raghbendra-kumar-jha-013741127/', role: 'CFO', image: '/assets/ove/cfo.webp'},
         {name: 'Ronnie R Arora', linkedin:'https://www.linkedin.com/in/ronnie-rahul-arora-ba12b26/', role: 'VP-Growth', image: '/assets/ove/ronnie.jpg'},
         {name: 'Samta Sharma', linkedin:'https://www.linkedin.com/in/samtasharma/', role: 'VP-Technology', image: '/assets/ove/samta.webp'},
     ];
