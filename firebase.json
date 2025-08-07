@@ -4,16 +4,17 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
-        "source": "**",
+        "source": "/**",
         "destination": "/index.html"
       }
     ],
     "redirects": [
       {
-        "source": "**",
-        "destination": "https://optimalvirtualemployee.com",
+        "source": "http://optimalvirtualemployee.com/**",
+        "destination": "https://www.optimalvirtualemployee.com/:splat",
         "type": 301
       }
-    ]
+    ],
+    "errorPage": "/index.html"  // 404 error handling
   }
 }
