@@ -12,8 +12,8 @@ export async function POST(request) {
     const transporter = nodemailer.createTransport({
         service: 'gmail', // or use SMTP
         auth: {
-        user: 'faizdev007@gmail.com',     // Your email
-        pass: 'sekmsdpycyaonbnk',     // App password (not your real password!)
+        user: 'digital@optimalvirtualemployee.com',     // Your email
+        pass: 'qzhbrhgbbyoyohwx',     // App password (not your real password!)
         },
     });
 
