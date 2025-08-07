@@ -67,7 +67,7 @@ export default function HireBy() {
                 <div key='action1' className="bg-[#1b1b1b] dark:bg-gray-700 rounded shadow-md">
                     <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                         <h4 className='font-bold'>Looking for Other role?</h4>
-                        <a href='/contact' className='border border-green-600 text-green-600 font-bold md:text-lg text-sm rounded p-2 cursor-pointer'>Pleace Request</a>
+                        <a href='/contact' className='border border-green-600 text-green-600 font-bold md:text-lg text-sm rounded p-2 cursor-pointer'>Place Request</a>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ export default function HireBy() {
                 <div key='action2' className="bg-[#1b1b1b] dark:bg-gray-700 rounded shadow-md">
                     <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                         <h4 className='font-bold'>Looking for Other Skill?</h4>
-                        <a href='/contact' className='border border-green-600 text-green-600 font-bold md:text-lg text-sm rounded p-2 cursor-pointer'>Pleace Request</a>
+                        <a href='/contact' className='border border-green-600 text-green-600 font-bold md:text-lg text-sm rounded p-2 cursor-pointer'>Place Request</a>
                     </div>
                 </div>
             </div>
