@@ -104,10 +104,6 @@ export async function POST(request) {
                                     <td style="padding: 8px; border: 1px solid #ccc;">${data.phone}</td> 
                                 </tr> 
                                 <tr> 
-                                    <td style="padding: 8px; border: 1px solid #ccc;">Service</td> 
-                                    <td style="padding: 8px; border: 1px solid #ccc;">${data.service}</td> 
-                                </tr> 
-                                <tr> 
                                     <td style="padding: 8px; border: 1px solid #ccc;">Message</td> 
                                     <td style="padding: 8px; border: 1px solid #ccc;">${data.message}</td> 
                                 </tr>

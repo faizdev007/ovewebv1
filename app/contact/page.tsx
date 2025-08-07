@@ -10,7 +10,6 @@ export default function ContactPage() {
         email: '',
         country: '',
         phone: '',
-        service: '',
         message: ''
     });
 
@@ -93,7 +92,7 @@ export default function ContactPage() {
             if (res.ok) {
                 setresMessage('Message Send Successfully!');
                 setStatus(false);
-                setFormData({ name: '', email: '', country: '', phone: '', service: '', message: '' });
+                setFormData({ name: '', email: '', country: '', phone: '', message: '' });
             } else {
                 setStatus(false);
             }
@@ -114,8 +113,8 @@ export default function ContactPage() {
                     <div>
                     <div className='md:flex justify-between'>
                         <div className=''>
-                            <h1 className="text-3xl lg:text-5xl font-bold mb-2">Get In Touch</h1>
-                            <p className="text-gray-600 mb-4">Our team will get back to you within 8 business hours or less.</p>
+                            <h1 className="text-3xl lg:text-5xl font-bold mb-2">Let’s Talk!</h1>
+                            <p className="text-gray-600 mb-4">Fill in your details and We’ll reach out to you shortly.</p>
                         </div>
                         <div className='hidden flex-wrap justify-center'>
                             {trustedbages.map((link,key)=>(
@@ -139,13 +138,7 @@ export default function ContactPage() {
                         <input type="text" name="country" placeholder="Country (Optional)" value={formData.country} onChange={handleChange} className="p-3 border rounded w-full" />
                         <input type="tel" name="phone" onInput={onlyNumber} maxLength={15} placeholder="Phone Number *" value={formData.phone} onChange={handleChange} className="p-3 border rounded w-full" required/>
                         </div>
-                        <select name="service" value={formData.service} onChange={handleChange} className="p-3 border rounded w-full" required>
-                            <option value="">Please select from the dropdown</option>
-                            <option value="Web Development">Web Development</option>
-                            <option value="Mobile App">Mobile App</option>
-                            <option value="UI/UX Design">UI/UX Design</option>
-                        </select>
-                        <textarea name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="How Can We Help?*" className="p-3 border rounded w-full" required />
+                        <textarea name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="Please share your requirements *" className="p-3 border rounded w-full" required />
                         <input type="file" className="w-full hidden border rounded p-2 text-sm" disabled={true} />
                         <div className=''>{resMessage}</div>
                         <button type="submit" className="bg-lime-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-lime-600 transition-all cursor-pointer" disabled={status}>
@@ -181,9 +174,9 @@ export default function ContactPage() {
                         <h3 className="text-xl lg:text-3xl font-semibold text-white/60">Trusted by startups and Fortune 500 companies</h3>
                         </div>
                         <ul className="space-y-4 text-white text-sm lg:text-lg">
-                        <li>🏆 <strong className='text-white/80'>20+ years of experience</strong><br /><span className='text-white/60'>We can handle projects of all complexities.</span></li>
-                        <li>👍 <strong className='text-white/80'>2500+ satisfied customers</strong><br /><span className='text-white/60'>Startups to Fortune 500, we have worked with all.</span></li>
-                        <li>👨‍💻 <strong className='text-white/80'>675+ in-house team</strong><br /><span className='text-white/60'>Top 1% industry talent to ensure your digital success.</span></li>
+                        <li>🏆 <strong className='text-white/80'>17+ Years of Experience</strong><br /><span className='text-white/60'>We can handle projects of all complexities.</span></li>
+                        <li>👍 <strong className='text-white/80'>150+ Satisfied Customer</strong><br /><span className='text-white/60'>Startups to Fortune 500, we have worked with all.</span></li>
+                        <li>👨‍💻 <strong className='text-white/80'>400+ Developers</strong><br /><span className='text-white/60'>Top 1% industry talent to ensure your digital success.</span></li>
                         </ul>
                     </div>
 
