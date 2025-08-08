@@ -110,10 +110,10 @@ const companyM = [{
 
             {/* Simple dropdown */}
             <div className="absolute left-0 top-full -top-3 w-48 bg-white dark:bg-gray-800 shadow-md rounded-md hidden overflow-hidden group-hover:block z-40">
-              <a href="/about_us" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+              <a href="/about-us" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                 About Us
               </a>
-              <a href="/privacy_policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+              <a href="/privacy-policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                 Privacy Policy
               </a>
               <a href="/guides" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
@@ -128,7 +128,7 @@ const companyM = [{
             </div>
           </div>
 
-          <a href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+          <a href="/contact-us" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
             Contact Us
           </a>
         </nav>
@@ -214,10 +214,10 @@ const companyM = [{
             </summary>
             <div className='max-h-32 overflow-y-auto'>
               <div className={`ml-4 mt-2 space-y-1 text-sm animate-flip-down animate-ease-in-out overflow-y-auto ${companyOpen ? 'block' : 'hidden'}`}>
-                <a href="/about" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                <a href="/about-us" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   About Us
                 </a>
-                <a href="/privacy_policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                <a href="/privacy-policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   Privacy Policy
                 </a>
                 <a href="/guides" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
@@ -233,8 +233,8 @@ const companyM = [{
             </div>
           </details>
 
-          <a href="/contact" className="block hover:text-blue-600 dark:hover:text-blue-400">
-            Contact
+          <a href="/contact-us" className="block hover:text-blue-600 dark:hover:text-blue-400">
+            Contact Us
           </a>
           <a href="/contact" className="block text-center border-2 border-oveblue hover:bg-blue-700 hover:dark:bg-gray-700 text-oveblue hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
               Get Started
