@@ -60,7 +60,7 @@ export default function Hire()
         <div className="relative -top-15 2xl:top-0">
             <section className="blackgradiant md:h-screen 2xl:h-[600] pt-16 lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
                 <div className="flex w-full flex-col h-full justify-between gap-8 items-center md:items-start py-6">
-                    <h1 className="text-blue-700 md:text-6xl text-3xl font-bold">Hire Full-Stack Developer</h1>
+                    <h1 className="text-oveblue md:text-6xl text-3xl font-bold">Hire Full-Stack Developer</h1>
                     <p className="md:text-xl text-sm">Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
                     <button className="bg-blue-600 p-2 rounded w-max md:text-xl px-6 font-bold border-5 border-blue-100/0 cursor-pointer flex gap-2 items-center hover:border-blue-500/90">Hire Full-Stack Developer
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 font-bold">
@@ -96,7 +96,7 @@ export default function Hire()
                 </div>
             </section>
             <section className="py-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                <h2 className="text-blue-700 mb-18 capitalize text-center font-bold text-4xl">How to Hire Python developer through OVE</h2>
+                <h2 className="text-oveblue mb-18 capitalize text-center font-bold text-4xl">How to Hire Python developer through OVE</h2>
                 <div className="grid 2xl:grid-cols-4 md:grid-cols-2 gap-6 mb-6">
                     <div className="flex relative flex-col items-center gap-3">
                         <div className="relative z-10 w-max px-18 flex flex-col justify-center items-center">
@@ -132,7 +132,7 @@ export default function Hire()
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <a href="/contact" className="bg-blue-600 p-2 rounded w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
+                    <a href="/contact" className="bg-oveblue p-2 rounded w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
                 </div>
             </section>
 
@@ -184,7 +184,7 @@ export default function Hire()
             <section className="py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                 <div className="md:flex gap-4 items-center">
                     <div className="flex flex-col gap-6">
-                        <h4 className="text-blue-700 mb-8 capitalize font-bold text-4xl">Why search for Python programmers for hir through Lemon.io ?</h4>
+                        <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for Python programmers for hir through Lemon.io ?</h4>
                         <p>If you’ve ever tried to hire remote developers you know the struggle. You can’t meet them in person, which makes assessing their real talents almost impossible. So, you end up with a churn rate that’s through the roof. Now, you’re spending all your time policing contractors or finding devs to hire.</p>
                     </div>
                     <Image src={'/assets/hire/choose.webp'} alt="choose" width={300} height={300}/>
@@ -220,7 +220,7 @@ export default function Hire()
                                     i === 0
                                     ? 'text-white relative border-gray-800 bg-gray-700 rounded-t-md'
                                     :
-                                    i === 1 ? 'bg-blue-600 text-white border-blue-700 rounded-t-lg relative' : 'border-x border-t rounded-t-lg relative bg-gray-700 border-gray-800'
+                                    i === 1 ? 'bg-oveblue text-white border-blue-700 rounded-t-lg relative' : 'border-x border-t rounded-t-lg relative bg-gray-700 border-gray-800'
                                     }`}
                                 >
                                     {i === 1 && (
@@ -243,7 +243,7 @@ export default function Hire()
                                         i === 0
                                         ? ' font-semibold border-s border-b border-gray-700'
                                         : i === 1
-                                        ? 'text-md border-x-2 border-blue-600 border-b font-bold'
+                                        ? 'text-md border-x-2 border-oveblue border-b font-bold'
                                         : 'border-x border-b border-gray-700'
                                     } ${
                                         idx === data.rows.length - 1
@@ -260,9 +260,9 @@ export default function Hire()
                             <tfoot>
                                 <tr>
                                     <td className="font-semibold border-s border-b text-white border-gray-700"></td>
-                                    <td className="text-black border-x-2 border-blue-600 border-b-2 font-medium rounded-b">
+                                    <td className="text-black border-x-2 border-oveblue border-b-2 font-medium rounded-b">
                                         <div className="p-4 flex justify-center">
-                                            <button className="bg-blue-600 text-white text-sm font-semibold px-4 py-2">
+                                            <button className="bg-oveblue text-white text-sm font-semibold px-4 py-2">
                                                 Build Your Team!
                                             </button>
                                         </div>

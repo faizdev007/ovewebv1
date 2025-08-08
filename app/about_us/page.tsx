@@ -24,8 +24,7 @@ export default function AboutPage()
         {name: 'Dharmesh Shah', linkedin:'https://www.linkedin.com/in/otsdharmeshshah/', role: 'Joint Managing Director', image: '/assets/ove/ds.jpg'},
         {name: 'Shantanu Dublish', linkedin:'https://www.linkedin.com/in/shantanu-dublish-55819233/', role: 'Joint Managing Director', image: '/assets/ove/sd.jpg'},
         {name: 'Kartik Sharma', linkedin:'https://www.linkedin.com/in/kartiksharmaiit/', role: 'Non-Executive Director - IT', image: '/assets/ove/cto.png'},
-        // {name: 'Marc Bishop', role: 'General Manager-Operations', image: '/assets/ove/manager.jpg'},
-        {name: 'Ragbhendra Kumar Jha', linkedin:'https://www.linkedin.com/in/ca-raghbendra-kumar-jha-013741127/', role: 'CFO', image: '/assets/ove/cfo.webp'},
+        {name: 'Ragbhendra Kumar Jha', linkedin:'#', role: 'CFO', image: '/assets/ove/cfo.webp'},
         {name: 'Ronnie R Arora', linkedin:'https://www.linkedin.com/in/ronnie-rahul-arora-ba12b26/', role: 'VP-Growth', image: '/assets/ove/ronnie.jpg'},
         {name: 'Samta Sharma', linkedin:'https://www.linkedin.com/in/samtasharma/', role: 'VP-Technology', image: '/assets/ove/samta.webp'},
     ];
@@ -139,7 +138,7 @@ export default function AboutPage()
             </section>
             
             <section className="p-12 hidden dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
-                <h2 className="text-blue-700 mb-10 text-center font-bold text-4xl">
+                <h2 className="text-oveblue mb-10 text-center font-bold text-4xl">
                     Here are a few words shared by our Employees
                 </h2>
 

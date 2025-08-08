@@ -16,7 +16,7 @@ export default async function Contact()
             {skills.map((skill: any) => (
                 <section className="blackgradiant md:h-screen 2xl:h-[600] pt-16 lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
                     <div className="flex w-full flex-col h-full justify-between gap-8 items-center md:items-start py-6">
-                        <h1 className="text-blue-700 md:text-6xl text-3xl font-bold">Hire {skill.title.rendered.toUpperCase()}</h1>
+                        <h1 className="text-oveblue md:text-6xl text-3xl font-bold">Hire {skill.title.rendered.toUpperCase()}</h1>
                         <p className="md:text-xl text-sm">Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
                         <button className="bg-blue-600 p-2 rounded w-max md:text-xl px-6 font-bold border-5 border-blue-100/0 cursor-pointer flex gap-2 items-center hover:border-blue-500/90">Hire Full-Stack Developer
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 font-bold">

@@ -9,9 +9,110 @@ import { useEffect, useRef, useState } from 'react';
 import useInView from '@/components/useInView';
 import Image from 'next/image';
 
+import React, { Component } from "react";
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css'; 
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div className='absolute z-20 h-full top-0 p-3 end-0 flex justify-end items-center' style={{background: `linear-gradient(270deg,rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%)`}}>
+      <div
+        className={`bg-oveblue/70 w-11 h-11 rounded-full !flex !justify-center !items-center hover:bg-oveblue/90 !border border-blue-800 text-white cursor-pointer`}
+        onClick={onClick}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-6 text-white">
+          <path fillRule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clipRule="evenodd" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div className='absolute z-20 h-full top-0 p-3 start-0 flex justify-end items-center' style={{background: `linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%)`}}>
+      <div
+        className={`bg-oveblue/70 w-11 h-11 rounded-full opacity-90 !flex !justify-center !items-center hover:!bg-blue-600 !border !border-blue-800 text-white cursor-pointer`}
+        onClick={onClick}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-6">
+          <path fillRule="evenodd" d="M18 10a.75.75 0 0 1-.75.75H4.66l2.1 1.95a.75.75 0 1 1-1.02 1.1l-3.5-3.25a.75.75 0 0 1 0-1.1l3.5-3.25a.75.75 0 1 1 1.02 1.1l-2.1 1.95h12.59A.75.75 0 0 1 18 10Z" clipRule="evenodd" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
 export default function DevelopersSlider() {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  const settings = {
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      speed: 500,
+      slidesToShow: 4,  // Default value for larger screens
+      slidesToScroll: 1,
+      swipeToSlide: true,
+      initialSlide: 0,
+      gap: 20,
+      className: "center",
+      centerPadding: "60px",
+      centerMode: true,
+      pauseOnHover: true,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />,
+      responsive: [
+        {
+          breakpoint: 3840, // 4K screens
+          settings: {
+            slidesToShow: 7,  // 7 slides for 4K screens
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 2080, // 4K screens
+          settings: {
+            slidesToShow: 5,  // 7 slides for 4K screens
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 1268, // Large laptop and desktops
+          settings: {
+            slidesToShow: 4,  // 5 slides for this screen size
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 1120, // Medium-sized laptops
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 768,  // Tablet and smaller devices
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            arrows: false,
+            centerMode: false,
+          }
+        },
+        {
+          breakpoint: 480, // Mobile devices
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            centerMode: false,
+          }
+        }
+      ]
+    };
+
   // State to track if the section should be hidden or shown
   const [isSectionVisible, setIsSectionVisible] = useState(true);
 
@@ -37,107 +138,60 @@ export default function DevelopersSlider() {
 
   return (
     <section  ref={elementRef} className={`bg-white dark:bg-gray-700 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
-      <div className={`transform relative bg-gray-100 transition-all duration-300 opacity-100 py-10 dark:bg-gray-800 rounded-md xl:px-30 px-4 mx-auto`}>
-        <Image loading='lazy' width={100} height={100} className='absolute hidden object-cover bottom-0 w-full start-0 end-0' src={'/assets/cloudbg.webp'} alt="cloudbg"/>
-        <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-12">Meet Our Developers</h2>
-
-        <Swiper
-          modules={[Navigation,Autoplay]}
-          spaceBetween={30}
-          slidesPerView={5}
-          loop={true}
-          autoplay={{ delay: 3000, disableOnInteraction: true  }}
-          speed={1000}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
-          onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-            swiper.navigation.init();
-            swiper.navigation.update();
-            setIsSectionVisible(swiper.allowSlideNext);
-          }}
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-            1440: { slidesPerView: 4 },
-            1850: { slidesPerView: 5 },
-          }}
-        >
-          {developers.map((dev, index) => (
-            <SwiperSlide key={index}>
-              {/* style={{border:`3px solid ${dev.color}`}} */}
-              <div className={`bg-[#2562eb] flex flex-col justify-around mt-30 aspect-[1/1.3] text-white relative rounded-xl shadow-lg animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-2xl ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
-                <div className="relative w-2/3 aspect-[2/1] mx-auto mb-4">
-                  <div className='overflow-hidden absolute -top-25 border border-gray-800 z-20 rounded-full absolute aspect-[1/1] mt-4'>
-                    {/* Profile Image with Border and Hover Effect */}
-                    <img
-                      src={dev.image}
-                      alt={dev.name}
-                      className="w-full h-full mx-auto object-cover transform transition-all duration-300 hover:scale-105"
-                    />
-                  </div>
-                </div>
-                <div className='p-4 flex flex-col gap-3'>
-                  <div className='grid space-y-2 gap-4'>
-                    <div className='hidden text-center gap-2 md:gap-0 justify-center'>
-                      <div className='border border-white flex gap-2 items-center px-4 rounded-full py-1 bg-white text-black'>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
-                        </svg>
-                        <span className='text-sm font-semibold uppercase'>
-                          {dev.previous}
-                        </span>
+      <Image loading='lazy' width={100} height={100} className='absolute hidden object-cover bottom-0 w-full start-0 end-0' src={'/assets/cloudbg.webp'} alt="cloudbg"/>
+      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-12">Meet Our Developers</h2>
+      <div className={`transform relative bg-black/90 rounded overflow-hidden transition-all duration-300 opacity-100 dark:bg-gray-800 rounded-md mx-auto`}>
+        <div className='slider-container relative z-10 gap-4 space-x-4'>
+          <Slider {...settings}>
+              {developers.map((dev, index) => (
+                <div className='px-1 py-2'>
+                  <div className={`bg-oveblue flex flex-col justify-between mt-25 aspect-[1/1.3] text-white relative rounded-xl shadow-md animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-lg ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
+                    <div className="relative w-2/3 aspect-[2/1] mx-auto">
+                      <div className='overflow-hidden absolute -top-20 border border-gray-800 z-20 rounded-full absolute aspect-[1/1]'>
+                        {/* Profile Image with Border and Hover Effect */}
+                        <img
+                          src={dev.image}
+                          alt={dev.name}
+                          className="w-full h-full mx-auto object-cover transform transition-all duration-300 hover:scale-105"
+                        />
                       </div>
                     </div>
-                    <div className='flex flex-col text-center gap-0'>
-                      <h3 className="font-semibold text-xl text-ellipsis overflow-hidden text-clip">{dev.name}</h3>
-                      <p className="text-sm overflow-hidden text-ellipsis text-clip">{dev.profile}</p>
-                    </div>
-                    <div className='flex flex-col gap-2 text-center'>
-                      <p className="text-white mb-1">PREVIOUSLY</p>
-                      <div className='flex justify-center items-center aspect-[4/1] h-12'>
-                        <Image loading="eager" fetchPriority="high" decoding="async" width={300} height={300} className="object-container w-auto h-12 mb-2" src={dev.previous} alt={dev.previous.split('/').pop().replace('.webp', '')}/>
+                    <div className='p-4 flex flex-col gap-3'>
+                      <div className='grid space-y-1 gap-4'>
+                        <div className='hidden text-center gap-2 md:gap-0 justify-center'>
+                          <div className='border border-white flex gap-2 items-center px-4 rounded-full py-1 bg-white text-black'>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+                            </svg>
+                            <span className='text-sm font-semibold uppercase'>
+                              {dev.previous}
+                            </span>
+                          </div>
+                        </div>
+                        <div className='flex flex-col text-center gap-0'>
+                          <h3 className="font-semibold text-xl text-ellipsis overflow-hidden text-clip">{dev.name}</h3>
+                          <p className="text-sm overflow-hidden text-ellipsis text-clip text-white/80">{dev.profile}</p>
+                        </div>
+                        <div className='overflow-hidden'>
+                          <div className="flex flex-wrap gap-1 h-[55px] text-xs items-center justify-center">
+                            {dev.techstack.length > 0 && dev.techstack.map((items, index)=>(
+                              <span key={index} className='border border-gray-100 rounded-full px-2 py-1'>{items.split('/').pop().replace('.webp', '')}</span>
+                            ))}
+                          </div>
+                        </div>
+                        <div className='flex flex-col gap-2 text-center'>
+                          <p className="text-white/60 mb-1 font-bold">PREVIOUSLY</p>
+                          <div className='flex justify-center items-center aspect-[4/1] h-12'>
+                            <Image loading="eager" fetchPriority="high" decoding="async" width={300} height={300} className="object-container w-auto h-12 mb-2" src={dev.previous} alt={dev.previous.split('/').pop().replace('.webp', '')}/>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div className="flex flex-wrap gap-1 items-center justify-around">
-                      {dev.techstack.length > 0 && dev.techstack.map((items, index)=>(
-                        <span key={index} className='bg-white text-black border rounded-full px-4'>{items.split('/').pop().replace('.webp', '')}</span>
-                      ))}
-                    </div>
                   </div>
-                  <p className="text-xs text-justify overflow-hidden whitespace-normal text-ellipsis line-clamp-2" title={dev.describe}>
-                    {dev.describe}
-                  </p>
                 </div>
-              </div>
-
-            </SwiperSlide>
-          ))}
-          {/* Custom Navigation Arrows */}
-          {isSectionVisible && 
-            <div className="hidden md:flex justify-center items-center gap-6 mt-6 relative z-20">
-              <button ref={prevRef} aria-label='prevref'>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
-                </svg>
-              </button>
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m9 20.247 6-16.5" />
-                </svg>
-              </div>
-              <button ref={nextRef} aria-label='nextref'>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                </svg>
-              </button>
-            </div>
-          }
-        </Swiper>
+              ))}
+          </Slider>
+        </div>
       </div>
     </section>
   );

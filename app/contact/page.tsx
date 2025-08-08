@@ -130,6 +130,7 @@ export default function ContactPage() {
                     </div>
                     
                     <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className='text-center capitalize animate-jump-in animate-once animate-ease-linear text-green-500'>{resMessage}</div>
                         <div className="grid sm:grid-cols-2 gap-4">
                         <input type="text" name="name" placeholder="Full Name *" value={formData.name} onChange={handleChange} className="p-3 border rounded w-full" required />
                         <input type="email" name="email" placeholder="Email Address *" value={formData.email} onChange={handleChange} className="p-3 border rounded w-full" required />
@@ -140,8 +141,7 @@ export default function ContactPage() {
                         </div>
                         <textarea name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="Please share your requirements *" className="p-3 border rounded w-full" required />
                         <input type="file" className="w-full hidden border rounded p-2 text-sm" disabled={true} />
-                        <div className=''>{resMessage}</div>
-                        <button type="submit" className="bg-lime-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-lime-600 transition-all cursor-pointer" disabled={status}>
+                        <button type="submit" className="bg-oveblue text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-700 transition-all cursor-pointer" disabled={status}>
                             {status ? (
                                 <span className="flex items-center gap-2">
                                     <svg
