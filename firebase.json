@@ -2,19 +2,12 @@
   "hosting": {
     "public": "public",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "rewrites": [
-      {
-        "source": "/**",
-        "destination": "/index.html"
-      }
-    ],
     "redirects": [
-      {
-        "source": "http://optimalvirtualemployee.com/**",
-        "destination": "https://www.optimalvirtualemployee.com/:splat",
-        "type": 301
-      }
+      { "source": "/blog", "destination": "/", "type": 301 },
+      { "source": "/hire", "destination": "/", "type": 301 }
     ],
-    "errorPage": "/index.html"  // 404 error handling
+    "rewrites": [
+      { "source": "**", "destination": "/index.html" }
+    ]
   }
 }
