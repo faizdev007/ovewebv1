@@ -25,7 +25,7 @@ export default function Footerlinks()
     const importantlinks = [
         {name:'Privacy Policy',url:'/privacy_policy'},
         {name:'Sitemap',url:'#'},
-        {name:'Contact Us',url:'/contact'},
+        {name:'Contact Us',url:'/contact-us'},
         {name:'Terms of Use',url:'/use_terms'},
         {name:'Careers',url:'#'},
         {name:'Blog',url:'/blog'},

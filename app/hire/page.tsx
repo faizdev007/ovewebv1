@@ -132,7 +132,7 @@ export default function Hire()
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <a href="/contact" className="bg-oveblue p-2 rounded w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
+                    <a href="/contact-us" className="bg-oveblue p-2 rounded w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
                 </div>
             </section>
 
@@ -175,7 +175,7 @@ export default function Hire()
                 <h2 className="text-3xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
                 <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                 <div className="flex gap-3 items-center">
-                    <a href={'/contact'} aria-label="contact" className="rounded-full border px-4 py-2 hover:bg-blue-700">Contact Us</a>
+                    <a href={'/contact-us'} aria-label="contact" className="rounded-full border px-4 py-2 hover:bg-blue-700">Contact Us</a>
                     /
                     <a href="">Book A Call</a>
                 </div>

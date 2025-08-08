@@ -120,7 +120,7 @@ export default function HiringProcess()
             ))}
         </div>
         <div className='w-full flex justify-center mt-10'>  
-            <a href={'/contact'} className='md:w-1/3 w-1/2 cursor-pointer text-center hover:bg-blue-700 drop-shadow shadow hover:shadow-xl bg-oveblue text-white lg:p-3 p-2 xl:text-3xl text-nowarp font-bold rounded'>Hire a talent</a>
+            <a href={'/contact-us'} className='md:w-1/3 w-1/2 cursor-pointer text-center hover:bg-blue-700 drop-shadow shadow hover:shadow-xl bg-oveblue text-white lg:p-3 p-2 xl:text-3xl text-nowarp font-bold rounded'>Hire a talent</a>
         </div>
     </section>
     </>

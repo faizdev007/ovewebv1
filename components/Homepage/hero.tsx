@@ -22,11 +22,11 @@ export default function Herosection()
                     <div className='text-center max-w-auto'>
                         <div className="flex gap-2 md:flex-row flex-col-reverse items-start">
                             <div className="w-full">
-                                <a href="/contact" className='w-full flex text-center justify-center bg-oveblue hover:bg-blue-700 hover:inset-shadow-sm inset-shadow-oveblue/60 lg:p-3 p-2 2xl:text-xl text-sm font-bold rounded cursor-pointer' aria-label='Get Started'>🚀 Get Started </a>
+                                <a href="/contact-us" className='w-full flex text-center justify-center bg-oveblue hover:bg-blue-700 hover:inset-shadow-sm inset-shadow-oveblue/60 lg:p-3 p-2 2xl:text-xl text-sm font-bold rounded cursor-pointer' aria-label='Get Started'>🚀 Get Started </a>
                                 <div className='mt-2 text-sm'>👆🏼 $0 until you Hire</div>
                             </div>
                             <span className="font-bold md:text-2xl text-lg mt-[1.3%] w-full flex-1">OR</span>
-                            <a href="/contact" className='w-full bg-gray-600 hover:bg-gray-700 lg:p-3 p-2 2xl:text-xl text-sm font-bold rounded cursor-pointer' aria-label='Book a 15-min Call'>📅 Book a Call</a>
+                            <a href="/contact-us" className='w-full bg-gray-600 hover:bg-gray-700 lg:p-3 p-2 2xl:text-xl text-sm font-bold rounded cursor-pointer' aria-label='Book a 15-min Call'>📅 Book a Call</a>
                         </div>
                     </div>
                 </div>

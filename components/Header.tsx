@@ -49,7 +49,7 @@ export default function Header() {
       {name:'Staff Agumentation',url:'/staff_agumentation'},
       {name:'Project Teams',url:'/project_teams'},
       {name:'Dedicated Teams',url:'/dedicated_teams'},
-      {name:'Contact to Hire',url:'/contact'},
+      {name:'Contact to Hire',url:'/contact-us'},
     ]
   }
 ];
@@ -133,10 +133,10 @@ const companyM = [{
           </a>
         </nav>
         <div className='lg:flex gap-6 items-center hidden'>
-            <a href="/contact" className="border-2 border-oveblue hover:bg-blue-700 text-oveblue hover:text-white px-4 py-2 rounded-md transition">
+            <a href="/contact-us" className="border-2 border-oveblue hover:bg-blue-700 text-oveblue hover:text-white px-4 py-2 rounded-md transition">
                 Schedule A Call
             </a>
-            <a href="/contact" className="bg-oveblue hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
+            <a href="/contact-us" className="bg-oveblue hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
                 Start Hiring
             </a>
         </div>
@@ -236,10 +236,10 @@ const companyM = [{
           <a href="/contact-us" className="block hover:text-blue-600 dark:hover:text-blue-400">
             Contact Us
           </a>
-          <a href="/contact" className="block text-center border-2 border-oveblue hover:bg-blue-700 hover:dark:bg-gray-700 text-oveblue hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
+          <a href="/contact-us" className="block text-center border-2 border-oveblue hover:bg-blue-700 hover:dark:bg-gray-700 text-oveblue hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
               Get Started
           </a>
-          <a href="/contact" className="block text-center bg-oveblue hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
+          <a href="/contact-us" className="block text-center bg-oveblue hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
               Hire Developer
           </a>
         </div>
