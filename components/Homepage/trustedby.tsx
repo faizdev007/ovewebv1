@@ -34,7 +34,7 @@ const logos = [
 export default function TrustedBy() {
   const { elementRef, isVisible } = useInView();
   return (
-    <section ref={elementRef} className="py-10 text-center">
+    <section ref={elementRef} className="pb-10 pt-4 text-center">
       <div className={`mx-auto flex items-center overflow-hidden animate-fade animate-once animate-ease-linear`}>
         {/* Left Static Text */}
         <div className="min-w-[150px] text-white dark:border-black">

@@ -178,12 +178,12 @@ const companyM = [{
           menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-4 py-4 space-y-2 border-t bg-white dark:bg-gray-800">
+        <div className="px-4 py-4 flex flex-col gap-2 border-t bg-white dark:bg-gray-800">
           <a href="/" className="block hover:text-blue-600 dark:hover:text-blue-400">
             Home
           </a>
           {/* Services Dropdown - Mobile */}
-          <details className="group lg:hidden">
+          <details className="group hidden">
             <summary onClick={() => setServiceOpen(!serviceOpen)} className="cursor-pointer hidden hover:text-blue-600 dark:hover:text-blue-400">
               Services
             </summary>
@@ -206,14 +206,14 @@ const companyM = [{
               </div>
             </div>
           </details>
-
+          
           {/* company area */}
           <details className="group lg:hidden">
             <summary onClick={() => setCompanyOpen(!companyOpen)} className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">
               Company
             </summary>
             <div className='max-h-32 overflow-y-auto'>
-              <div className={`ml-4 mt-2 space-y-1 text-sm animate-flip-down animate-ease-in-out overflow-y-auto ${companyOpen ? 'block' : 'hidden'}`}>
+              <div className={`ml-4 mt-2 space-y-1 text-sm`}>
                 <a href="/about-us" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   About Us
                 </a>
@@ -234,8 +234,11 @@ const companyM = [{
           </details>
 
           <a href="/contact-us" className="block hover:text-blue-600 dark:hover:text-blue-400">
-            Contact Us
+            Contact
           </a>
+
+          <hr className='my-2 border-2 rounded border-gray-600'></hr>
+          
           <a href="/contact-us" className="block text-center border-2 border-oveblue hover:bg-blue-700 hover:dark:bg-gray-700 text-oveblue hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
               Get Started
           </a>

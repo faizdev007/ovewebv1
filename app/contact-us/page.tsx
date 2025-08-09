@@ -40,7 +40,6 @@ export default function ContactPage() {
         '/assets/companies/company2.webp',
         '/assets/companies/company3.webp',
         '/assets/companies/company5.webp',
-        '/assets/companies/company6.webp',
         '/assets/companies/company7.webp',
         '/assets/companies/company9.webp',
         '/assets/companies/company10.webp',
@@ -80,7 +79,7 @@ export default function ContactPage() {
         e.preventDefault();
         setStatus(true);
         try {
-        const res = await fetch('/api/hello', {
+        const res = await fetch('/api/ContactFormSend', {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {
@@ -183,13 +182,13 @@ export default function ContactPage() {
                     {/* Logo List */}
                     <div className="grid grid-cols-3 xl:grid-cols-4 gap-3 mt-8">
                         {logos.map((logo, i) => (
-                            <div key={i} className="lg:h-20 bg-white rounded-md p-6 shadow border border-gray-900 shadow-gray-800 flex items-center justify-center">
-                                <img
+                            <div key={i} className="lg:h-20 bg-white rounded-md p-2 shadow border border-gray-900 shadow-gray-800 flex items-center justify-center">
+                                <Image
                                     src={logo}
                                     alt="logo"
-                                    width={130}
-                                    height={130}
-                                    className="object-container px-2 opacity-80 hover:opacity-100 transition"
+                                    width={200}
+                                    height={200}
+                                    className="object-cover opacity-80 rounded-md overflow-hidden hover:opacity-100 transition"
                                 />
                                 <span className="text-xs hidden font-medium">{logo}</span>
                             </div>

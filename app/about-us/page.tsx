@@ -48,9 +48,9 @@ export default function AboutPage()
             </section>
             <div className="bg-black py-12">
                 <div className="container mx-auto">
-                    <section className="relative md:flex md:flex-rows flex-col-reverse dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
+                    <section className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto">
                         <div className="md:grid flex flex-col-reverse items-center md:grid-cols-2 gap-4 mb-4">
-                            <div className="flex flex-col gap-4 justify-center">
+                            <div className="flex flex-col justify-center">
                                 <div className="mb-10">
                                     <h2 className="xl:text-5xl lg:text-3xl md:text-2xl text-xl font-bold mb-4">Hiring Shouldn’t Slow You Down</h2>
                                     <p className="md:text-lg text-xs">We simplify the hiring process so you can focus on building. With our fast onboarding and deep vetting, we help you hire confident, capable developers—without the wait.</p>
@@ -65,16 +65,16 @@ export default function AboutPage()
                                 </div>
                             </div>
                             <div className="flex aspect-[2/1] w-full justify-end items-center">
-                                <Image src={'/assets/about/4.webp'} alt="slide" width={500} height={200} className="object-cover"/>
+                                <Image src={'/assets/about/4.webp'} alt="slide" width={500} height={200} className="object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
                             </div>
                         </div>
                     </section>
-                    <section className="relative md:flex md:flex-rows flex-col-reverse dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
+                    <section className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto">
                         <div className="md:grid flex flex-col items-center md:grid-cols-2 gap-4 mb-4">
                             <div className="flex justify-center aspect-[2/1] w-full justify-start items-center">
-                                <Image src={'/assets/about/2.webp'} alt="slide" width={500} height={200} className="object-cover"/>
+                                <Image src={'/assets/about/2.webp'} alt="slide" width={500} height={200} className="object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
                             </div>
-                            <div className="flex flex-col gap-4 justify-center">
+                            <div className="flex flex-col justify-center">
                                 <div className="mb-10">
                                     <h2 className="xl:text-5xl lg:text-3xl md:text-2xl text-xl font-bold mb-4">We Work Like an Extension of Your Team</h2>
                                     <p className="md:text-lg text-xs">We don’t just support your business—we become part of it. Our developers collaborate with your internal team, take ownership of delivery, and commit long-term.</p>
@@ -89,9 +89,9 @@ export default function AboutPage()
                             </div>
                         </div>
                     </section>
-                    <section className="relative md:flex md:flex-rows flex-col-reverse dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
+                    <section className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto">
                         <div className="md:grid flex flex-col-reverse items-center md:grid-cols-2 gap-4 mb-4">
-                            <div className="flex flex-col gap-4 justify-center">
+                            <div className="flex flex-col justify-center">
                                 <div className="mb-10">
                                     <h2 className="xl:text-5xl lg:text-3xl md:text-2xl text-xl font-bold mb-4">A Culture That Powers Results</h2>
                                     <p className="md:text-lg text-xs">Great developers thrive in great environments. That’s why we’ve built a workplace that values learning, stability, and long-term commitment.</p>
@@ -105,14 +105,14 @@ export default function AboutPage()
                                 </div>
                             </div>
                             <div className="flex aspect-[2/1] w-full justify-end items-center">
-                                <Image src={'/assets/about/3.webp'} alt="slide" width={500} height={333} className="object-cover"/>
+                                <Image src={'/assets/about/3.webp'} alt="slide" width={500} height={333} className="object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
                             </div>
                         </div>
                     </section>
                 </div>
             </div>
 
-            <section className="dark:bg-gray-800 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+            <section className="relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-8">Our Executive Team</h2>
                 <div className="container mx-auto grid items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     {team.map((member, index) => (
@@ -137,7 +137,7 @@ export default function AboutPage()
                 </div>
             </section>
             
-            <section className="p-12 hidden dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
+            <section className="p-12 hidden text-white px-4 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="text-oveblue mb-10 text-center font-bold text-4xl">
                     Here are a few words shared by our Employees
                 </h2>

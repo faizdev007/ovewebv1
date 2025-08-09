@@ -1,21 +1,18 @@
 'use client';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import { useEffect, useRef, useState } from 'react';
-import useInView from '@/components/useInView';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css'; 
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { onClick } = props;
   return (
     <div className='absolute z-20 h-full top-0 p-3 end-0 flex justify-end items-center' style={{background: `linear-gradient(270deg,rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%)`}}>
       <div
@@ -47,74 +44,8 @@ function SamplePrevArrow(props) {
 }
 
 export default function DevelopersSlider() {
-  const settings = {
-      infinite: true,
-      autoplay: true,
-      autoplaySpeed: 3000,
-      speed: 500,
-      slidesToShow: 4,  // Default value for larger screens
-      slidesToScroll: 1,
-      swipeToSlide: true,
-      initialSlide: 0,
-      gap: 20,
-      className: "center",
-      centerPadding: "60px",
-      centerMode: true,
-      pauseOnHover: true,
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />,
-      responsive: [
-        {
-          breakpoint: 3840, // 4K screens
-          settings: {
-            slidesToShow: 7,  // 7 slides for 4K screens
-            slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 2080, // 4K screens
-          settings: {
-            slidesToShow: 5,  // 7 slides for 4K screens
-            slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 1268, // Large laptop and desktops
-          settings: {
-            slidesToShow: 4,  // 5 slides for this screen size
-            slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 1120, // Medium-sized laptops
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 768,  // Tablet and smaller devices
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            arrows: false,
-            centerMode: false,
-          }
-        },
-        {
-          breakpoint: 480, // Mobile devices
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            centerMode: false,
-          }
-        }
-      ]
-    };
 
-  // State to track if the section should be hidden or shown
-  const [isSectionVisible, setIsSectionVisible] = useState(true);
+  const [settings, setSettings] = useState(null);
 
   const developers = [
     { name: 'Aisha', profile:'Full-Stack Developer', describe:'Expert in serverless full-stack application development, focusing on real-time interactive apps.', previous:'/assets/previous/idp.webp', image: '/assets/developer/Aisha.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/MongoDB.webp','/assets/hireby/skills/Express.webp','/assets/hireby/skills/React.webp'] },
@@ -129,35 +60,82 @@ export default function DevelopersSlider() {
     { name: 'Preeda', profile:'ML ENGINEER', describe:'Optimizes deep learning models for edge devices.', previous:'/assets/previous/bhp.webp', image: '/assets/developer/Preeda.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/Lightning.webp','/assets/hireby/skills/ONNX.webp'] },
   ];
 
-  // Monitor Swiper slide visibility and compare with card limit
+  const defaultSettings = {
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      speed: 500,
+      slidesToShow: 5,  // Default value for larger screens
+      slidesToScroll: 1,
+      swipeToSlide: true,
+      initialSlide: 0,
+      className: "center",
+      centerPadding: "60px",
+      centerMode: true,
+      pauseOnHover: true,
+      waitForAnimate: false,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />
+  }
+
   useEffect(() => {
-    
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 2080) {
+        setSettings({ ...defaultSettings, slidesToShow: 9, slidesToScroll: 1 });
+      } else if (width >= 1680) {
+        setSettings({ ...defaultSettings, slidesToShow: 7, slidesToScroll: 1 });
+      } else if (width >= 1590) {
+        setSettings({ ...defaultSettings, slidesToShow: 6, slidesToScroll: 1 });
+      } else if (width >= 1280) {
+        setSettings({ ...defaultSettings, slidesToShow: 5, slidesToScroll: 1 });
+      } else if (width >= 1080) {
+        setSettings({ ...defaultSettings, slidesToShow: 4, slidesToScroll: 1 });
+      } else if (width >= 769) {
+        setSettings({ ...defaultSettings, slidesToShow: 3, slidesToScroll: 1 });
+      } else if (width >= 426) {
+        setSettings({ ...defaultSettings, slidesToShow: 2, slidesToScroll: 1 });
+      } else if (width >= 350) {
+        setSettings({ ...defaultSettings, slidesToShow: 1, slidesToScroll: 1 });
+      } else {
+        setSettings({ ...defaultSettings, slidesToShow: 1, slidesToScroll: 1, centerMode: false});
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call it initially to set the correct state
+
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const { elementRef, isVisible } = useInView();
-
+  
   return (
-    <section  ref={elementRef} className={`bg-white dark:bg-gray-700 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
+    <section className={`bg-white dark:bg-gray-700 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
       <Image loading='lazy' width={100} height={100} className='absolute hidden object-cover bottom-0 w-full start-0 end-0' src={'/assets/cloudbg.webp'} alt="cloudbg"/>
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-12">Meet Our Developers</h2>
-      <div className={`transform relative bg-black/90 rounded overflow-hidden transition-all duration-300 opacity-100 dark:bg-gray-800 rounded-md mx-auto`}>
-        <div className='slider-container relative z-10 gap-4 space-x-4'>
+      <div className={`transform relative bg-black/90 rounded overflow-hidden dark:bg-gray-800 rounded-md mx-auto`}>
+        <div className='slider-container relative z-10'>
+          {settings ? 
           <Slider {...settings}>
               {developers.map((dev, index) => (
-                <div className='px-1 py-2'>
-                  <div className={`bg-oveblue flex flex-col justify-between mt-25 aspect-[1/1.3] text-white relative rounded-xl shadow-md animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-lg ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
-                    <div className="relative w-2/3 aspect-[2/1] mx-auto">
+                <div key={index} className='px-1 py-2'>
+                  <div className={`bg-oveblue gap-4 flex flex-col justify-between mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md animate-fade-up animate-once animate-ease-linear animate-delay-${index}00 hover:shadow-lg`} style={{border:`3px solid ${dev.color}`}}>
+                    <div className="relative w-2/3 flex items-center justify-center aspect-[3/1] mx-auto">
                       <div className='overflow-hidden absolute -top-20 border border-gray-800 z-20 rounded-full absolute aspect-[1/1]'>
                         {/* Profile Image with Border and Hover Effect */}
-                        <img
+                        <Image
+                          loading="eager"
                           src={dev.image}
                           alt={dev.name}
-                          className="w-full h-full mx-auto object-cover transform transition-all duration-300 hover:scale-105"
+                          width={300}
+                          height={300}
+                          decoding="async"
+                          className="w-38 h-38 mx-auto object-cover transform transition-all duration-300 hover:scale-105"
                         />
                       </div>
                     </div>
-                    <div className='p-4 flex flex-col gap-3'>
-                      <div className='grid space-y-1 gap-4'>
+                    <div className='p-2 flex flex-col gap-3'>
+                      <div className='space-y-2'>
                         <div className='hidden text-center gap-2 md:gap-0 justify-center'>
                           <div className='border border-white flex gap-2 items-center px-4 rounded-full py-1 bg-white text-black'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
@@ -173,13 +151,13 @@ export default function DevelopersSlider() {
                           <p className="text-sm overflow-hidden text-ellipsis text-clip text-white/80">{dev.profile}</p>
                         </div>
                         <div className='overflow-hidden'>
-                          <div className="flex flex-wrap gap-1 h-[55px] text-xs items-center justify-center">
+                          <div className="flex flex-wrap w-full gap-1 h-[60px] text-xs items-center justify-center">
                             {dev.techstack.length > 0 && dev.techstack.map((items, index)=>(
                               <span key={index} className='border border-gray-100 rounded-full px-2 py-1'>{items.split('/').pop().replace('.webp', '')}</span>
                             ))}
                           </div>
                         </div>
-                        <div className='flex flex-col gap-2 text-center'>
+                        <div className='flex flex-col text-center'>
                           <p className="text-white/60 mb-1 font-bold">PREVIOUSLY</p>
                           <div className='flex justify-center items-center aspect-[4/1] h-12'>
                             <Image loading="eager" fetchPriority="high" decoding="async" width={300} height={300} className="object-container w-auto h-12 mb-2" src={dev.previous} alt={dev.previous.split('/').pop().replace('.webp', '')}/>
@@ -190,7 +168,12 @@ export default function DevelopersSlider() {
                   </div>
                 </div>
               ))}
-          </Slider>
+          </Slider> 
+          : 
+          <div className="flex flex-col items-center justify-center p-4">
+            <div className="loading-text">Loading...</div>
+            <div className="loading-spinner"></div>
+          </div>}
         </div>
       </div>
     </section>

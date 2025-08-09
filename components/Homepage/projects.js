@@ -71,7 +71,7 @@ export default function OurProjectsSlider() {
             <SwiperSlide key={index}>
               <div className="lg:flex flex-col md:flex-row gap-6 items-stretch justify-center">
                 {/* Left Box */}
-                <div className="border border-gray-100 bg-white text-black rounded-md p-3 mb-2 lg:mb-0 w-full lg:w-1/3 aspect-[1/1] md:aspect-auto text-left">
+                <div className="border border-gray-100 bg-white text-black rounded-md p-3 mb-2 lg:mb-0 w-full lg:w-[45%] aspect-[1/1] md:aspect-auto text-left">
                   <div className="h-full overflow-auto">
                     <span className="text-sm font-semibold bg-blue-600 text-white px-3 py-1 rounded-full inline-block mb-6">
                       {project.tag}
@@ -97,8 +97,8 @@ export default function OurProjectsSlider() {
                 </div>
 
                 {/* Right Image */}
-                <div className="bg-white w-full lg:w-2/3 aspect-[2/1] flex items-center justify-center rounded-md border border-black text-2xl font-bold text-black">
-                  <Image src={project.image} width={1000} height={800} alt={project.tag} className="object-contain h-full w-full" />
+                <div className="bg-white border border-black flex font-bold items-center justify-center overflow-hidden rounded-md">
+                  <Image loading='lazy' src={project.image} width={1000} height={800} alt={project.tag} className="object-contain h-full w-full" />
                 </div>
               </div>
             </SwiperSlide>
