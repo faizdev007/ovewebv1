@@ -19,7 +19,7 @@ export default function Herosection()
                         <p className='text-sm lg:text-md xl:text-xl 2xl:text-2xl'>Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.</p>
                     </div>
                     <div className='text-center max-w-auto'>
-                        <div className="flex gap-3 md:flex-row flex-col-reverse items-start">
+                        <div className="flex gap-3 md:flex-row flex-col items-center items-start">
                             {/* Primary CTA */}
                             <div className="w-full">
                                 <a
@@ -36,7 +36,7 @@ export default function Herosection()
                             </div>
 
                             {/* OR Divider */}
-                            <span className="font-bold md:text-2xl text-lg mt-1 md:mt-[1.3%] text-center text-gray-500">
+                            <span className="font-bold w-full md:w-auto md:text-2xl text-lg mt-1 md:mt-[1.3%] text-center text-gray-500">
                                 OR
                             </span>
 
