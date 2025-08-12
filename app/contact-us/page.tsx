@@ -42,7 +42,7 @@ export default function ContactPage() {
         '/assets/companies/company5.webp',
         '/assets/companies/company7.webp',
         '/assets/companies/company9.webp',
-        '/assets/companies/company10.webp',
+        '/assets/companies/company25.webp',
         '/assets/companies/company12.webp',
         '/assets/companies/company14.webp',
     ];
@@ -182,13 +182,13 @@ export default function ContactPage() {
                     {/* Logo List */}
                     <div className="grid grid-cols-3 xl:grid-cols-4 gap-3 mt-8">
                         {logos.map((logo, i) => (
-                            <div key={i} className="lg:h-20 bg-white rounded-md p-2 shadow border border-gray-900 shadow-gray-800 flex items-center justify-center">
+                            <div key={i} className="lg:h-20 md:p-4 overflow-hidden bg-white rounded-md p-2 shadow border border-gray-900 shadow-gray-800 flex items-center justify-center">
                                 <Image
                                     src={logo}
                                     alt="logo"
                                     width={200}
                                     height={200}
-                                    className="object-cover opacity-80 rounded-md overflow-hidden hover:opacity-100 transition"
+                                    className="object-container w-auto h-auto opacity-80 rounded-md overflow-hidden hover:opacity-100 transition"
                                 />
                                 <span className="text-xs hidden font-medium">{logo}</span>
                             </div>

@@ -1,12 +1,45 @@
 'use client';
 
+import React, { useEffect } from "react";
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css'; 
+
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-// import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { useRef, useState } from 'react';
+
 import Image from 'next/image';
+
+function SampleNextArrow(props) {
+  const { onClick } = props;
+  return (
+    <div className='absolute z-20 h-full top-0 p-3 -end-5 flex justify-end items-center'>
+      <div
+        className={`bg-oveblue/80 w-12 h-12 rounded-full !flex !justify-center !items-center hover:bg-oveblue/90 border-3 border-white cursor-pointer font-bold`}
+        onClick={onClick}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 text-white drop-shadow-lg">
+          <path fillRule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clipRule="evenodd" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { onClick } = props;
+  return (
+    <div className='absolute z-20 h-full top-0 p-3 -start-5 flex justify-end items-center'>
+      <div
+        className={`bg-oveblue/80 w-12 h-12 rounded-full opacity-90 !flex !justify-center !items-center hover:!bg-blue-600 border-3 border-white cursor-pointer font-bold`}
+        onClick={onClick}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 text-white drop-shadow-lg">
+          <path fillRule="evenodd" d="M18 10a.75.75 0 0 1-.75.75H4.66l2.1 1.95a.75.75 0 1 1-1.02 1.1l-3.5-3.25a.75.75 0 0 1 0-1.1l3.5-3.25a.75.75 0 1 1 1.02 1.1l-2.1 1.95h12.59A.75.75 0 0 1 18 10Z" clipRule="evenodd" />
+        </svg>
+      </div>
+    </div>
+  );
+}
 
 const projects = [
   {
@@ -41,9 +74,40 @@ const projects = [
 ];
 
 export default function OurProjectsSlider() {
-  const prevProj = useRef(null);
-  const nextProj = useRef(null);
-  const [isSectionVisible, setIsSectionVisible] = useState(true);
+  const [settings, setSettings] = React.useState(null);
+
+  const defaultSettings = {
+      infinite: true,
+      // autoplay: true,
+      autoplaySpeed: 3000,
+      speed: 500,
+      slidesToShow: 1,  // Default value for every screen size
+      slidesToScroll: 1,
+      swipeToSlide: true,
+      initialSlide: 0,
+      className: "center",
+      centerPadding: "60px",
+      pauseOnHover: true,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />,
+  };
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 480) {
+        setSettings({ ...defaultSettings, slidesToShow: 1, slidesToScroll: 1 });
+      } else {
+        setSettings({ ...defaultSettings, slidesToShow: 1, slidesToScroll: 1, dots: true, arrows: false });
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call it initially to set the correct state
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <section className="relative blackgradiant px-4 py-12 sm:px-6 lg:px-8 mx-auto dark:bg-gray-800 text-center">
@@ -54,77 +118,51 @@ export default function OurProjectsSlider() {
       </p>
 
       <div className="relative container mx-auto">
-        <Swiper
-          modules={[Navigation,Autoplay]}
-          autoplay={{ delay: 4000 }}
-          navigation={{ prevEl: prevProj.current, nextEl: nextProj.current }}
-          onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevProj.current;
-            swiper.params.navigation.nextEl = nextProj.current;
-            swiper.navigation.init();
-            swiper.navigation.update();
-            setIsSectionVisible(swiper.allowSlideNext);
-          }}
-          loop={true}
-        >
-          {projects.map((project, index) => (
-            <SwiperSlide key={index}>
-              <div className="lg:flex flex-col md:flex-row gap-6 items-stretch justify-center">
-                {/* Left Box */}
-                <div className="border border-gray-100 bg-white text-black rounded-md p-3 mb-2 lg:mb-0 w-full lg:w-[45%] aspect-[1/1] md:aspect-auto text-left">
-                  <div className="h-full overflow-auto">
-                    <span className="text-sm font-semibold bg-blue-600 text-white px-3 py-1 rounded-full inline-block mb-6">
-                      {project.tag}
-                    </span>
-                    <div className=''>
-                      {project.features.map((feature, i) => (
-                        <div key={i} className="mb-4 flex flex-col gap-4">
-                          <h3 className="font-semibold text-md mb-1">
-                            {feature.icon} {feature.heading}
-                          </h3>
-                          <p className="text-sm text-gray-600 dark:text-black">{feature.text}</p>
-                          <div className=''>
-                            <ul className="list-disc ml-6 space-y-2">
-                              {project.lists.map((item, index) => (
-                                <li key={index}>{item}</li>
-                              ))}
-                            </ul>
-                          </div>
+        {settings ? 
+          <Slider {...settings}>
+            {projects.map((project, index) => (
+                <div key={index} className="relative md:px-4 px-1">
+                  <div className="lg:flex flex-col md:flex-row gap-6 items-stretch justify-center">
+                    {/* Left Box */}
+                    <div className="border border-gray-100 bg-white text-black rounded-md p-3 mb-2 lg:mb-0 w-full lg:w-[40%] aspect-[1/1] md:aspect-auto text-left">
+                      <div className="h-full overflow-auto">
+                        <span className="text-sm font-semibold bg-blue-600 text-white px-3 py-1 rounded-full inline-block mb-6">
+                          {project.tag}
+                        </span>
+                        <div className=''>
+                          {project.features.map((feature, i) => (
+                            <div key={i} className="mb-4 flex flex-col gap-4">
+                              <h3 className="font-semibold text-md mb-1">
+                                {feature.icon} {feature.heading}
+                              </h3>
+                              <p className="text-sm text-gray-600 dark:text-black">{feature.text}</p>
+                              <div className=''>
+                                <ul className="list-disc ml-6 space-y-2">
+                                  {project.lists.map((item, index) => (
+                                    <li key={index}>{item}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      </div>
+                    </div>
+
+                    {/* Right Image */}
+                    <div className="bg-white lg:w-[60%] border border-black flex font-bold items-center justify-center overflow-hidden rounded-md">
+                      <Image loading='lazy' src={project.image} width={1000} height={800} alt={project.tag} className="object-contain h-full w-full" />
                     </div>
                   </div>
                 </div>
-
-                {/* Right Image */}
-                <div className="bg-white border border-black flex font-bold items-center justify-center overflow-hidden rounded-md">
-                  <Image loading='lazy' src={project.image} width={1000} height={800} alt={project.tag} className="object-contain h-full w-full" />
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-          {/* Arrows */}
-          {isSectionVisible && 
-          <div className="hidden md:flex relative justify-center z-20 items-center text-white gap-6 mt-6">
-            <button ref={prevProj} aria-label='prevproj'>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
-              </svg>
-            </button>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10">
-              <path strokeLinecap="round" strokeLinejoin="round" d="m9 20.247 6-16.5" />
-              </svg>
-            </div>
-            <button ref={nextProj} aria-label='nextproj'>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-              </svg>
-            </button>
+            ))}
+          </Slider> 
+        : 
+          <div className="flex flex-col items-center justify-center p-4">
+            <div className="loading-text">Loading...</div>
+            <div className="loading-spinner"></div>
           </div>
-          }
-        </Swiper>
-
+        }
       </div>
     </section>
   );

@@ -59,7 +59,7 @@ export default function FaqSection() {
   };
 
   return (
-    <div className='py-10 dark:bg-gray-700 py-12'>
+    <div className='py-10 bg-gray-100 dark:bg-gray-700 py-12'>
         <h2 className="xl:text-5xl md:text-3xl text-2xl font-bold mb-6 text-center">
           Frequently Asked Questions
         </h2>
@@ -81,15 +81,15 @@ export default function FaqSection() {
             {faqs.map((item, index) => (
                 <div
                 key={index}
-                className={`border-1 border-gray-800 px-4 rounded-2xl py-4 shadow-sm transition-all duration-20 cursor-pointer ${
-                    activeIndex === index ? 'border-b-4' : ''
+                className={`border-2 bg-white border-oveblue hover:border-oveblue/50 px-4 rounded-2xl py-4 shadow-sm transition-all duration-20 cursor-pointer ${
+                    activeIndex === index ? 'border-b-5' : ''
                 }`}
                 onClick={() => toggle(index)}
                 >
                 <div className="flex justify-between items-center gap-2">
                     <p className="font-bold md:text-xl">{item.question}</p>
                     <div className=''>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-6 transition-transform duration-300 ${
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-7 text-oveblue font-bold transition-transform duration-300 ${
                           activeIndex === index ? 'rotate-135' : ''
                       }`}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />

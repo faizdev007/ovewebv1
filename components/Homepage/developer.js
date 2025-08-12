@@ -1,8 +1,5 @@
 'use client';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
@@ -16,10 +13,10 @@ function SampleNextArrow(props) {
   return (
     <div className='absolute z-20 h-full top-0 p-3 end-0 flex justify-end items-center' style={{background: `linear-gradient(270deg,rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%)`}}>
       <div
-        className={`bg-oveblue/70 w-11 h-11 rounded-full !flex !justify-center !items-center hover:bg-oveblue/90 !border border-blue-800 text-white cursor-pointer`}
+        className={`bg-oveblue/40 w-12 h-12 rounded-full !flex !justify-center !items-center hover:bg-oveblue/90 border-3 border-white cursor-pointer font-bold`}
         onClick={onClick}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-6 text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 text-white drop-shadow-lg">
           <path fillRule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clipRule="evenodd" />
         </svg>
       </div>
@@ -32,10 +29,10 @@ function SamplePrevArrow(props) {
   return (
     <div className='absolute z-20 h-full top-0 p-3 start-0 flex justify-end items-center' style={{background: `linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%)`}}>
       <div
-        className={`bg-oveblue/70 w-11 h-11 rounded-full opacity-90 !flex !justify-center !items-center hover:!bg-blue-600 !border !border-blue-800 text-white cursor-pointer`}
+        className={`bg-oveblue/40 w-12 h-12 rounded-full opacity-90 !flex !justify-center !items-center hover:!bg-blue-600 border-3 border-white cursor-pointer font-bold`}
         onClick={onClick}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-6">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 text-white drop-shadow-lg">
           <path fillRule="evenodd" d="M18 10a.75.75 0 0 1-.75.75H4.66l2.1 1.95a.75.75 0 1 1-1.02 1.1l-3.5-3.25a.75.75 0 0 1 0-1.1l3.5-3.25a.75.75 0 1 1 1.02 1.1l-2.1 1.95h12.59A.75.75 0 0 1 18 10Z" clipRule="evenodd" />
         </svg>
       </div>
@@ -110,9 +107,9 @@ export default function DevelopersSlider() {
 
   
   return (
-    <section className={`bg-white dark:bg-gray-700 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
+    <section className={`bg-black dark:bg-gray-700 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
       <Image loading='lazy' width={100} height={100} className='absolute hidden object-cover bottom-0 w-full start-0 end-0' src={'/assets/cloudbg.webp'} alt="cloudbg"/>
-      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-12">Meet Our Developers</h2>
+      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center text-white mb-12">Meet Our Developers</h2>
       <div className={`transform relative bg-black/90 rounded overflow-hidden dark:bg-gray-800 rounded-md mx-auto`}>
         <div className='slider-container relative z-10'>
           {settings ? 
@@ -158,7 +155,7 @@ export default function DevelopersSlider() {
                           </div>
                         </div>
                         <div className='flex flex-col text-center'>
-                          <p className="text-white/60 mb-1 font-bold">PREVIOUSLY</p>
+                          <p className="text-white/60 mb-1 font-bold font-sm">PREVIOUSLY AT</p>
                           <div className='flex justify-center items-center aspect-[4/1] h-12'>
                             <Image loading="eager" fetchPriority="high" decoding="async" width={300} height={300} className="object-container w-auto h-12 mb-2" src={dev.previous} alt={dev.previous.split('/').pop().replace('.webp', '')}/>
                           </div>

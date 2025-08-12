@@ -3,8 +3,6 @@
 import FaqSection from "@/components/Homepage/faq";
 import Image from "next/image";
 import { useState } from 'react';
-import { Autoplay, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function Hire()
 {
@@ -13,7 +11,7 @@ export default function Hire()
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     
     const toggle = (index: number) => {
-    setActiveIndex(index === activeIndex ? null : index);
+        setActiveIndex(index === activeIndex ? null : index);
     };
 
     const toggleSection = (section:any) => {
@@ -21,31 +19,31 @@ export default function Hire()
     }
 
     const listinfos = [
-            {
-            "title": "Data Science",
-            "description": "Data science with Python includes data analysis, data processing, machine learning, and more."
-            },
-            {
-            "title": "Custom Python Web Application Development",
-            "description": "Building scalable and high-performance web apps using Python web frameworks such as Django or Flask."
-            },
-            {
-            "title": "Enterprise Python Applications",
-            "description": "Development of enterprise-level applications for business processes and workflow automation."
-            },
-            {
-            "title": "Python Support and Maintenance",
-            "description": "Ongoing support, optimization, and maintenance for existing Python applications."
-            },
-            {
-            "title": "Machine Learning with Python",
-            "description": "Building machine learning models and deploying them in production using Python."
-            },
-            {
-            "title": "Python Migration & Integration",
-            "description": "Migrating applications to Python and integrating with other systems and platforms."
-            }
-        ];
+        {
+        "title": "Data Science",
+        "description": "Data science with Python includes data analysis, data processing, machine learning, and more."
+        },
+        {
+        "title": "Custom Python Web Application Development",
+        "description": "Building scalable and high-performance web apps using Python web frameworks such as Django or Flask."
+        },
+        {
+        "title": "Enterprise Python Applications",
+        "description": "Development of enterprise-level applications for business processes and workflow automation."
+        },
+        {
+        "title": "Python Support and Maintenance",
+        "description": "Ongoing support, optimization, and maintenance for existing Python applications."
+        },
+        {
+        "title": "Machine Learning with Python",
+        "description": "Building machine learning models and deploying them in production using Python."
+        },
+        {
+        "title": "Python Migration & Integration",
+        "description": "Migrating applications to Python and integrating with other systems and platforms."
+        }
+    ];
     
     const data = {
         headers: ['Factors', 'Optimal Virtual Employee', 'Arc.dev', 'Uplers', 'Toptal'],
@@ -64,7 +62,7 @@ export default function Hire()
     return(
         <>
             <div className="relative -top-15 2xl:top-0">
-                <section className="blackgradiant min-h-screen 2xl:h-max 2xl:h-[600] pt-16 lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
+                <section className="blackgradiant min-h-screen xl:h-max pt-16 lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
                     <div className="flex w-full flex-col h-full justify-between gap-8 items-center md:items-start py-6">
                         <h1 className="text-oveblue md:text-6xl text-3xl font-bold">Hire Full-Stack Developer</h1>
                         <p className="md:text-xl text-sm">Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
@@ -88,8 +86,8 @@ export default function Hire()
                             </div>
                         </div>
                     </div>
-                    <div className="w-full lg:flex hidden relative justify-center">
-                        <div className="aspect-[1/1] md:absolute z-30">
+                    <div className="w-full lg:flex hidden relative mb-5 justify-center">
+                        <div className="aspect-[1/1] xl:h-[100%] md:absolute z-30">
                             <div className="absolute z-20 bottom-0">
                                 <Image src={'/assets/hire/devbg.webp'} alt="PBG" width={1000} height={1000} className="rounded-xl"/>
                             </div>
@@ -101,13 +99,13 @@ export default function Hire()
                         </div>
                     </div>
                 </section>
-                <section className="py-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="text-oveblue mb-18 capitalize text-center font-bold text-4xl">How to Hire Python developer through OVE</h2>
+                <section className="py-12 footerbg text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                    <h2 className="mb-18 capitalize text-center font-bold text-4xl">How to Hire Python developer through OVE</h2>
                     <div className="grid 2xl:grid-cols-4 md:grid-cols-2 gap-6 mb-6">
                         <div className="flex relative flex-col items-center gap-3">
                             <div className="relative z-10 w-max px-18 flex flex-col justify-center items-center">
                                 <span className="text-[170px] z-20 text-gray-300/70 absolute start-0 w-full h-full flex items-center ">1</span>
-                                <Image alt="imge" src={'/assets/hire/step1.webp'} width={400} height={400} className="w-auto h-auto"/>
+                                <Image alt="imge" src={'/assets/hire/step1.webp'} width={400} height={400} className="w-auto h-auto rounded-md"/>
                             </div>
                             <h3 className="md:text-2xl text-center text-xl font-bold">Place a free Request</h3>
                             <p>Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.</p>
@@ -115,7 +113,7 @@ export default function Hire()
                         <div className="flex flex-col relative items-center gap-3">
                             <div className="relative w-max z-10 px-18 flex flex-col justify-center items-center">
                                 <span className="text-[170px] z-20 text-gray-300/90 absolute start-0 w-full h-full flex items-center ">2</span>
-                                <Image alt="imge" src={'/assets/hire/step2.webp'} width={400} height={400} className="w-auto h-auto"/>
+                                <Image alt="imge" src={'/assets/hire/step2.webp'} width={400} height={400} className="w-auto h-auto rounded-md"/>
                             </div>
                             <h3 className="md:text-2xl text-center text-xl font-bold">Tell us about your needs</h3>
                             <p>Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.</p>
@@ -123,7 +121,7 @@ export default function Hire()
                         <div className="flex flex-col relative items-center gap-3">
                             <div className="relative w-max z-10 px-18 flex flex-col justify-center items-center">
                                 <span className="text-[170px] z-20 text-gray-300/90 absolute start-0 w-full h-full flex items-center ">3</span>
-                                <Image alt="imge" src={'/assets/hire/step3.webp'} width={400} height={400} className="w-auto h-auto"/>
+                                <Image alt="imge" src={'/assets/hire/step3.webp'} width={400} height={400} className="w-auto h-auto rounded-md"/>
                             </div>
                             <h3 className="md:text-2xl text-center text-xl font-bold">Interview the best</h3>
                             <p>Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.</p>
@@ -131,18 +129,18 @@ export default function Hire()
                         <div className="flex flex-col relative items-center gap-3">
                             <div className="relative w-max z-10 px-18 flex flex-col justify-center items-center">
                                 <span className="text-[170px] z-20 text-gray-300/90 absolute start-0 w-full h-full flex items-center ">4</span>
-                                <Image alt="imge" src={'/assets/hire/step4.webp'} width={400} height={400} className="w-auto h-auto"/>
+                                <Image alt="imge" src={'/assets/hire/step4.webp'} width={400} height={400} className="w-auto h-auto rounded-md"/>
                             </div>
                             <h3 className="md:text-2xl text-center text-xl font-bold">Onboard the choosen one</h3>
                             <p>Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.</p>
                         </div>
                     </div>
                     <div className="flex justify-center">
-                        <a href="/contact-us" className="bg-oveblue p-2 rounded w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
+                        <a href="/contact-us" className="border hover:bg-black hover:drop-shadow-lg p-2 rounded-full w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
                     </div>
                 </section>
 
-                <section className="py-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                <section className="py-12 bg-gradient flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                     {/* Main Header */}
                     <div className="lg:flex gap-2 justify-between">
                         <div className="lg:w-1/2">
@@ -197,7 +195,7 @@ export default function Hire()
                     <div className="flex gap-3 items-center">
                         <a href={'/contact-us'} aria-label="contact" className="rounded-full border px-4 py-2 hover:bg-blue-700">Contact Us</a>
                         /
-                        <a href="">Book A Call</a>
+                        <a href={'/contact-us'} className="hover:underline">Book A Call</a>
                     </div>
                 </section>
 
