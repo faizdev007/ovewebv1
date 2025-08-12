@@ -78,7 +78,7 @@ export default function OurProjectsSlider() {
 
   const defaultSettings = {
       infinite: true,
-      // autoplay: true,
+      autoplay: true,
       autoplaySpeed: 3000,
       speed: 500,
       slidesToShow: 1,  // Default value for every screen size
