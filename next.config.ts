@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Ignore ESLint during build
   },
+  experimental: {
+    globalNotFound: true,
+  },
   async redirects() {
     return [
       {
@@ -19,15 +22,15 @@ const nextConfig: NextConfig = {
       }
     ];
   },
-  async rewrites() {
-    return [
-      // Catch-all rewrite to index for SPA-style routing
-      {
-        source: "/:path*",
-        destination: "/", // Or /404 if you want a not-found page
-      },
-    ];
-  },
+  // async rewrites() {
+  //   return [
+  //     // Catch-all rewrite to index for SPA-style routing
+  //     {
+  //       source: "/:path*",
+  //       destination: "/", // Or /404 if you want a not-found page
+  //     },
+  //   ];
+  // },
 };
 
 export default nextConfig;
