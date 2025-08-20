@@ -56,14 +56,14 @@ export default function GlobalNotFound() {
                 <a href="/contact-us" className="inline-flex items-center justify-center rounded-xl bg-oveblue px-4 py-3 text-sm font-medium text-white shadow-sm hover:bg-blue-700 active:scale-[0.99]">
                   Talk to Sales
                 </a>
-                <a href="/hire-developers" className="hidden items-center justify-center rounded-xl border border-neutral-300 px-4 py-3 text-sm font-medium text-neutral-700 hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900">
-                  Hire Developers
+                <a href="/about-us" className="inline-flex items-center justify-center rounded-xl border-3 border-oveblue px-4 py-3 text-sm font-medium text-oveblue hover:bg-blue-700 hover:text-white">
+                  About Us
                 </a>
               </div>
 
               <ul className="mt-6 grid gap-2 text-sm text-neutral-600 dark:text-neutral-400 sm:grid-cols-2">
-                <li><a href="/case-studies" className="underline hover:no-underline">Customer success &amp; case studies</a></li>
-                <li><a href="/about" className="underline hover:no-underline">About our team</a></li>
+                <li><a href="/about-us" className="underline hidden hover:no-underline">About our team</a></li>
+                <li><a href="/case-studies" className="underline hidden hover:no-underline">Customer success &amp; case studies</a></li>
                 <li><a href="/pricing" className="underline hidden hover:no-underline">Pricing &amp; engagement models</a></li>
                 <li><a href="mailto:sales@yourdomain.com" className="underline hidden hover:no-underline">Report a broken link</a></li>
               </ul>
