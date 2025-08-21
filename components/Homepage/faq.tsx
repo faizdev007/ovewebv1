@@ -59,7 +59,7 @@ export default function FaqSection() {
   };
 
   return (
-    <div className='py-10 bg-gray-100 dark:bg-gray-700 py-12'>
+    <div className='pb-12 relative bg-gray-100 dark:bg-gray-700'>
         <h2 className="xl:text-5xl md:text-3xl text-2xl font-bold mb-6 text-center">
           Frequently Asked Questions
         </h2>

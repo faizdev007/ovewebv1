@@ -55,7 +55,7 @@ export default function HireBy() {
             {/* Logos */}
             <div className="gap-4 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 md:text-sm space-2 text-xs">
                 {roles.map((role, i) => (
-                    <div key={i} className="bg-[#1b1b1b] hover:bg-oveblue rounded shadow-md">
+                    <div key={i} className="bg-boxFill hover:bg-oveblue rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                             <div className='aspect-[1/1] flex items-center justify-center'>
                                 <Image src={role.logo} alt={role.name} width={60} height={60} className="grayscale object-container h-12 w-auto" />
@@ -64,7 +64,7 @@ export default function HireBy() {
                         </div>
                     </div>
                 ))}
-                <div key='action1' className="bg-[#1b1b1b] rounded shadow-md">
+                <div key='action1' className="bg-boxFill rounded shadow-md">
                     <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                         <h4 className='font-bold uppercase'>Looking for Other role?</h4>
                         <a href='/contact-us' className='border-2 border-oveblue text-oveblue hover:bg-oveblue hover:text-white font-bold md:text-lg text-sm rounded px-2 py-1 cursor-pointer'>Place Request</a>
@@ -81,7 +81,7 @@ export default function HireBy() {
             {/* Logos */}
             <div className="gap-4 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 md:text-sm space-2 text-xs">
                 {hirebyskill.map((skill, i) => (
-                    <div key={i} className="bg-[#1b1b1b] hover:bg-oveblue rounded shadow-md">
+                    <div key={i} className="bg-boxFill hover:bg-oveblue rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                             <div className='aspect-[1/1] flex items-center justify-center hover:grayscale'>
                                 <Image src={skill.logo} alt={skill.name} width={60} height={60} className="object-container h-12 w-auto" />
@@ -90,7 +90,7 @@ export default function HireBy() {
                         </div>
                     </div>
                 ))}
-                <div key='action2' className="bg-[#1b1b1b] rounded shadow-md">
+                <div key='action2' className="bg-boxFill rounded shadow-md">
                     <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                         <h4 className='font-bold uppercase'>Looking for Other Skill?</h4>
                         <a href='/contact-us' className='border-2 border-oveblue text-oveblue hover:bg-oveblue hover:text-white font-bold md:text-lg text-sm rounded px-2 py-1 cursor-pointer'>Place Request</a>

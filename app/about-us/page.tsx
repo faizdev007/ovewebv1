@@ -111,32 +111,35 @@ export default function AboutPage()
                     </section>
                 </div>
             </div>
-
-            <section className="relative bg-[#1b1b1b] px-4 py-12 sm:px-6 lg:px-8 mx-auto">
-                <h2 className="xl:text-6xl md:text-4xl text-3xl text-white font-bold text-center mb-8">Our Executive Team</h2>
-                <div className="container mx-auto grid items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                    {team.map((member, index) => (
-                        <div key={index} className="flex flex-col text-white w-full p-6 bg-stone-800 rounded-lg">
-                            <div className="mb-4 flex gap-2">
-                                <div className="relative">
-                                    <div className="aspect-[1/1] flex w-20 h-20 rounded-full overflow-hidden ">
-                                        <Image src={member.image} alt={member.name} width={300} height={300} className="w-auto h-auto object-container"/>
-                                    </div>
-                                    <a href={member.linkedin} aria-label="LinkedIn" className="absolute -bottom-3 -left-3 p-1 overflow-hidden rounded-full">
-                                        <Image src={'/assets/sociallinks/linkedin2.png'} width={30} height={30} className="object-cover" alt="LinkedIn"/>
-                                    </a>
-                                </div>
-                                <div className="text-start flex flex-col">
-                                    <h3 className="xl:text-lg text-md font-bold">{member.name}</h3>
-                                    <p className="text-sm text-gray-300">{member.role}</p>
-                                </div>
-                            </div>
-                            <p></p>
-                        </div>
-                    ))}
+            <div className="relative">
+                <div className='bg-black'>
+                    <Image src={'/assets/darkbrown.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
-            </section>
-            
+                <section className="relative bg-[#1b1b1b] px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+                    <h2 className="xl:text-6xl md:text-4xl text-3xl text-white font-bold text-center mb-8">Our Executive Team</h2>
+                    <div className="container mx-auto grid items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        {team.map((member, index) => (
+                            <div key={index} className="flex flex-col text-white w-full p-6 bg-stone-800 rounded-lg">
+                                <div className="mb-4 flex gap-2">
+                                    <div className="relative">
+                                        <div className="aspect-[1/1] flex w-20 h-20 rounded-full overflow-hidden ">
+                                            <Image src={member.image} alt={member.name} width={300} height={300} className="w-auto h-auto object-container"/>
+                                        </div>
+                                        <a href={member.linkedin} aria-label="LinkedIn" className="absolute -bottom-3 -left-3 p-1 overflow-hidden rounded-full">
+                                            <Image src={'/assets/sociallinks/linkedin2.png'} width={30} height={30} className="object-cover" alt="LinkedIn"/>
+                                        </a>
+                                    </div>
+                                    <div className="text-start flex flex-col">
+                                        <h3 className="xl:text-lg text-md font-bold">{member.name}</h3>
+                                        <p className="text-sm text-gray-300">{member.role}</p>
+                                    </div>
+                                </div>
+                                <p></p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </div>
             <section className="p-12 hidden text-white px-4 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="text-oveblue mb-10 text-center font-bold text-4xl">
                     Here are a few words shared by our Employees
@@ -181,7 +184,12 @@ export default function AboutPage()
                     </Swiper>
                 </div>
             </section>
-            <FaqSection/>
+            <div className="relative">
+                <div className='bg-[#1b1b1b]'>
+                    <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
+                </div>
+                <FaqSection/>
+            </div>
         </>
     );
 }

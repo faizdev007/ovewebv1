@@ -46,7 +46,7 @@ export default function PrivacyPolicy()
 
     ];
     return(
-        <div className="relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+        <div className="relative bg-gray-100 px-4 py-12 sm:px-6 lg:px-8 mx-auto">
             {pplist.map((single,key)=>(
                 <div key={key} className="mb-6 text-base/6 text-justify">
                     {single.title ? <div className="bg-gray-200 p-3 dark:text-black border-s-3 mb-4 font-bold border-blue-700">{single.title && single.title}</div> : ''}

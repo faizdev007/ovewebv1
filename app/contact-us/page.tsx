@@ -196,72 +196,77 @@ export default function ContactPage() {
                     </div>
                 </div>
             </main>
-            <section className='py-12'>
-                <div className='text-center'>
-                    <h2 className='text-3xl lg:text-5xl font-bold mb-4'>Serving Clients in 38+ Countries</h2>
-                    <p className='text-gray-600 mb-8'>We are making an impact worldwide with our global presence and exceptional software solutions.</p>
+            <div className="relative">
+                <div className="bg-black/90">
+                    <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
-                <div className='md:flex gap-6 justify-center items-center p-2'>
-                    <div className='border lg:w-auto w-full border-gray-300 p-3 rounded-xl mb-2'>
-                        <table className="">
-                            <tbody>
-                                {contactinfo.map((country, index) => (
-                                <tr key={index} className={`${contactinfo.length > index+1 ? 'border-b' : ''} border-gray-300`}>
-                                    <td className="border-e border-gray-300">
-                                        <div className='lg:flex gap-3 p-2 items-center'>
-                                            <Image
-                                                src={country.flag}
-                                                alt={country.name}
-                                                width={150}
-                                                height={150}
-                                                className="rounded-full w-8 h-8 object-cover"
-                                            />
-                                            <span className="font-bold">{country.name}</span>
-                                        </div>
-                                    </td>
-                                    <td className="">
-                                        <div className='flex flex-col gap-2 p-4'>
-                                            {country.numbers.map((item, i) => (
-                                                <a
-                                                key={i}
-                                                href={`tel:${item.number.replace(/\s+/g, '')}`}
-                                                className="text-blue-900 font-semibold dark:text-white hover:underline"
-                                                aria-label={item.number}
-                                                >
-                                                {item.number}{' '}
-                                                <span className="text-gray-500 font-normal">
-                                                    ({item.label})
-                                                </span>
-                                                </a>
-                                            ))}
-                                        </div>
-                                    </td>
-                                </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                <section className='pb-12 bg-gray-100'>
+                    <div className='text-center'>
+                        <h2 className='text-3xl lg:text-5xl font-bold mb-4'>Serving Clients in 38+ Countries</h2>
+                        <p className='text-gray-600 mb-8'>We are making an impact worldwide with our global presence and exceptional software solutions.</p>
                     </div>
-                    <div className='border lg:w-auto w-full border-gray-300 p-3 rounded-xl'>
-                        <table className="">
-                            <tbody>
-                                {officelocation.map((location, index) => (
-                                <tr key={index} className={`${officelocation.length > index+1 ? 'border-b' : ''} border-gray-300`}>
-                                    <td className="">
-                                        <div className='md:flex gap-2 p-2 items-center'>
-                                            <Image src={location.image} width={100} height={100} className='object-container w-16 h-10 rounded' alt={location.name}/>
-                                            <div className=''>
-                                                <h3>{location.name} :</h3>
-                                                <p>{location.address}</p>
+                    <div className='md:flex gap-6 justify-center items-center p-2'>
+                        <div className='border bg-white lg:w-auto w-full border-gray-300 p-3 rounded-xl mb-2'>
+                            <table className="">
+                                <tbody>
+                                    {contactinfo.map((country, index) => (
+                                    <tr key={index} className={`${contactinfo.length > index+1 ? 'border-b' : ''} border-gray-300`}>
+                                        <td className="border-e border-gray-300">
+                                            <div className='lg:flex gap-3 p-2 items-center'>
+                                                <Image
+                                                    src={country.flag}
+                                                    alt={country.name}
+                                                    width={150}
+                                                    height={150}
+                                                    className="rounded-full w-8 h-8 object-cover"
+                                                />
+                                                <span className="font-bold">{country.name}</span>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                        </td>
+                                        <td className="">
+                                            <div className='flex flex-col gap-2 p-4'>
+                                                {country.numbers.map((item, i) => (
+                                                    <a
+                                                    key={i}
+                                                    href={`tel:${item.number.replace(/\s+/g, '')}`}
+                                                    className="text-blue-900 font-semibold dark:text-white hover:underline"
+                                                    aria-label={item.number}
+                                                    >
+                                                    {item.number}{' '}
+                                                    <span className="text-gray-500 font-normal">
+                                                        ({item.label})
+                                                    </span>
+                                                    </a>
+                                                ))}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className='border bg-white lg:w-auto w-full border-gray-300 p-3 rounded-xl'>
+                            <table className="">
+                                <tbody>
+                                    {officelocation.map((location, index) => (
+                                    <tr key={index} className={`${officelocation.length > index+1 ? 'border-b' : ''} border-gray-300`}>
+                                        <td className="">
+                                            <div className='md:flex gap-2 p-2 items-center'>
+                                                <Image src={location.image} width={100} height={100} className='object-container w-16 h-10 rounded' alt={location.name}/>
+                                                <div className=''>
+                                                    <h3>{location.name} :</h3>
+                                                    <p>{location.address}</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </>
     );
 }

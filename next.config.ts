@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
         source: "/hire",
         destination: "/", // Or /404 if you want a not-found page
         permanent: true,
+      },
+      {
+        source: "/hire/:path*",
+        destination: "/", // Or /404 if you want a not-found page
+        permanent: true,
       }
     ];
   },

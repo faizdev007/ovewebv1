@@ -10,6 +10,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --oveblue: #2562eb;
+  --lightblack : #404040;
+  --boxFill: #1b1b1b;
   --Pgradient: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
@@ -20,6 +22,8 @@
   --font-mono: var(--font-geist-mono);
   --color-oveblue: var(--oveblue);
   --background-gradient: var(--Pgradient);
+  --color-boxFill: var(--boxFill);
+  --color-lightblack: var(--lightblack);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,17 +31,18 @@
     --background: #0a0a0a;
     --foreground: #ededed;
     --oveblue: #2562eb;
+    --lightblack : #404040;
   }
 }
 
 .footerbg{
   background: #020024;
-  background: linear-gradient(155deg, rgba(2, 0, 36, 1) 20%, rgba(21, 93, 252, 1) 100%);  
+  background: linear-gradient(180deg, rgba(2, 0, 36, 1) 20%, rgba(21, 93, 252, 1) 100%);  
 }
 
 .blackgradiant{
   background: #000000;
-  background: linear-gradient(155deg, rgba(0, 0, 0, 1) 20%, rgba(64, 64, 64, 1) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 20%, rgb(64, 64, 64) 100%);
 }
 
 body {
