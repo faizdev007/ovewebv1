@@ -86,6 +86,21 @@ const companyM = [{
           <a href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
             Home
           </a>
+
+          <a href="/about-us" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+            About Us
+          </a>
+
+          <a href="/contact-us" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+            Contact Us
+          </a>
+
+          <a href="/privacy-policy" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+            Privacy Policy
+          </a>
+          
+          {/* this section menu is hidden */}
+
           <div className={'p-3 hidden'} onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }}>
             <button className="hover:text-blue-600 dark:hover:text-blue-400 transition flex gap-2">
               <span>Services</span> 
@@ -98,7 +113,7 @@ const companyM = [{
           </div>
 
           <div
-            className="relative p-3 group"
+            className="relative p-3 hidden group"
             onMouseEnter={() => setShowDropdown(false)}
           >
             <button className="hover:text-blue-600 dark:hover:text-blue-400 transition flex gap-2">
@@ -127,10 +142,7 @@ const companyM = [{
               </a>
             </div>
           </div>
-
-          <a href="/contact-us" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Contact Us
-          </a>
+          {/* hidden section ends here */}
         </nav>
         <div className='lg:flex gap-6 items-center hidden'>
             <a href="/contact-us" className="border-2 border-oveblue hover:bg-blue-700 text-oveblue hover:text-white px-4 py-2 rounded-md transition">
@@ -173,42 +185,11 @@ const companyM = [{
         )}
 
       {/* Mobile Menu with Dropdown */}
-      <div
-        className={`transition-all duration-500 lg:hidden overflow-hidden absolute top-full start-0 end-0 ${
-          menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="px-4 py-4 flex flex-col gap-2 border-t bg-white dark:bg-gray-800">
-          <a href="/" className="block hover:text-blue-600 dark:hover:text-blue-400">
-            Home
-          </a>
-          {/* Services Dropdown - Mobile */}
-          <details className="group hidden">
-            <summary onClick={() => setServiceOpen(!serviceOpen)} className="cursor-pointer hidden hover:text-blue-600 dark:hover:text-blue-400">
-              Services
-            </summary>
-            <div className='max-h-32 overflow-y-auto'>
-              <div className={`ml-4 mt-2 space-y-1 text-sm animate-flip-down animate-ease-in-out overflow-y-auto ${serviceOpen ? 'block' : 'hidden'}`}>
-                {hiremenu.map((single, key) => (
-                  <div className='relative py-2 sm:px-6 lg:px-8 mx-auto' key={key}>
-                    <h2 className='border-b-2 font-bold md:text-2xl text-sm flex gap-2'>
-                      <span>{single.icon && single.icon}</span>{single.menuTitle}
-                    </h2>
-                    <div className='grid gap-2'>
-                      {single.urls.map((url, key2) => (
-                        <a href={url.name} key={key2} className="block hover:text-blue-600 dark:hover:text-blue-300">
-                          <span className='text-black/60'>{single.menuCategory}</span> {url.name}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </details>
-          
-          {/* company area */}
-          <details className="group lg:hidden">
+
+
+      {/* hidden section for mobile */}
+        {/* company area */}
+          <details className="group lg:hidden hidden">
             <summary onClick={() => setCompanyOpen(!companyOpen)} className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">
               Company
             </summary>
@@ -233,8 +214,51 @@ const companyM = [{
             </div>
           </details>
 
+          {/* Services Dropdown - Mobile */}
+          <details className="group hidden">
+            <summary onClick={() => setServiceOpen(!serviceOpen)} className="cursor-pointer hidden hover:text-blue-600 dark:hover:text-blue-400">
+              Services
+            </summary>
+            <div className='max-h-32 overflow-y-auto'>
+              <div className={`ml-4 mt-2 space-y-1 text-sm animate-flip-down animate-ease-in-out overflow-y-auto ${serviceOpen ? 'block' : 'hidden'}`}>
+                {hiremenu.map((single, key) => (
+                  <div className='relative py-2 sm:px-6 lg:px-8 mx-auto' key={key}>
+                    <h2 className='border-b-2 font-bold md:text-2xl text-sm flex gap-2'>
+                      <span>{single.icon && single.icon}</span>{single.menuTitle}
+                    </h2>
+                    <div className='grid gap-2'>
+                      {single.urls.map((url, key2) => (
+                        <a href={url.name} key={key2} className="block hover:text-blue-600 dark:hover:text-blue-300">
+                          <span className='text-black/60'>{single.menuCategory}</span> {url.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </details>
+      {/* mobile hidden section end here */}
+      <div
+        className={`transition-all duration-500 lg:hidden overflow-hidden absolute top-full start-0 end-0 ${
+          menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="px-4 py-4 flex flex-col gap-2 border-t bg-white dark:bg-gray-800">
+          <a href="/" className="block hover:text-blue-600 dark:hover:text-blue-400">
+            Home
+          </a>
+
+          <a href="/about-us" className="block hover:text-blue-600 dark:hover:text-blue-400">
+            About Us
+          </a>
+
           <a href="/contact-us" className="block hover:text-blue-600 dark:hover:text-blue-400">
-            Contact
+            Contact Us
+          </a>
+
+          <a href="/privacy-policy" className="block hover:text-blue-600 dark:hover:text-blue-400">
+            Privacy Policy
           </a>
 
           <hr className='my-2 border-2 rounded border-gray-600'></hr>

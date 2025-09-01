@@ -13,8 +13,7 @@ import CTA from "@/components/Hire/CTA";
 import WSF from "@/components/Hire/WhySearchFor";
 import CTable from "@/components/Hire/CompairTable";
 import Client from "@/components/Hire/Client";
-
-const WP = 'https://staging.optimalvirtualemployee.com.au';
+import { fetchGraphQL } from "@/lib/graphqlClient";
 
 type HireItem = {
   id: number;
@@ -22,18 +21,12 @@ type HireItem = {
   title: { rendered: string };
   thumbnail: any;
   content?: { rendered: string };
-  _embedded?: any;
+  expertise?: any;
 };
 
-async function getHirepageBySlug(slug: string, signal?: AbortSignal): Promise<HireItem | null> {
-  const url = `${WP}/wp-json/wp/v2/hire?slug=${encodeURIComponent(slug)}&_embed`;
-  const res = await fetch(url, { cache: "no-store", signal });
-  if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
-  const arr: HireItem[] = await res.json();
-  return arr[0] ?? null; // empty array = not found
-}
 
 export default function Hire() {
+
     const params = useParams();
     const slug = params?.slug as string;
 
@@ -43,28 +36,46 @@ export default function Hire() {
 
     
     useEffect(() => {
-        if (!slug) return;
-        const ac = new AbortController();
 
+        // Fetch GraphQL on the client
         (async () => {
-        try {
-            setLoading(true);
-            setError(null);
-            const data = await getHirepageBySlug(slug, ac.signal);
-            if (!data) {
-                // Mark as not found so UI can render 404
-                throw new Error("NOT_FOUND");
+
+          const QUERY = `
+          {
+            service(idType:SLUG,id:"${slug}"){
+              title
+              slug
+              content
+              featuredImage{
+                node{
+                  uri
+                  sourceUrl
+                  title
+                }
+              }
+              expertise{
+                title
+                shortInformation
+                qna{
+                  question
+                  answer
+                }
+              } 
             }
-            setHire(data);
-        } catch (e: any) {
-            if (e?.name !== "AbortError") setError(e?.message || "Failed to load Hire");
-        } finally {
-            setLoading(false);
+          }
+        `;
+
+        try {
+          const data = await fetchGraphQL(QUERY);
+          setHire(data.service);
+        } catch (e) {
+          console.error('GraphQL fetch failed', e);
         }
         })();
-
-        return () => ac.abort();
     }, [slug]);
+
+
+    // return;
 
   // --- 404 FIRST: render not-found view when error indicates missing Hire
   if (error === "NOT_FOUND") {
@@ -131,13 +142,13 @@ export default function Hire() {
     <>
         <div className="relative 2xl:top-0">
             <HeroSection hire={Hire}/>
-            <DevelopersSlider/>
+            <DevelopersSlider hire={Hire}/>
             <HireThroughOVE hire={Hire}/>
             <div className="relative">
                 <div className="bg-lightblack">
                     <Image src="/assets/white.png" alt="bg" width={1000} height={1000} className="w-full" />
                 </div>
-                <Expertise hire={Hire}/>
+                <Expertise hire={Hire?.expertise}/>
             </div>
             <div className="relative h-full bg-oveblue w-full">
                 <div className="bg-white">

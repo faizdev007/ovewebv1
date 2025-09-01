@@ -32,7 +32,7 @@ export default function GlobalNotFound() {
                 We can’t find that page.
               </h1>
               <p className="mt-4 max-w-prose text-neutral-600 dark:text-neutral-300">
-                The link may be outdated or the page was moved. Try searching, or jump to one of our most requested pages below.
+                The link may be outdated or the page was moved. Try searching, or jump to one of our most requested B2B pages below.
               </p>
 
               <form action="/search" method="GET" role="search" aria-label="Site search"
@@ -54,7 +54,7 @@ export default function GlobalNotFound() {
                   Back to Home
                 </a>
                 <a href="/contact-us" className="inline-flex items-center justify-center rounded-xl bg-oveblue px-4 py-3 text-sm font-medium text-white shadow-sm hover:bg-blue-700 active:scale-[0.99]">
-                  Let’s Talk
+                  Talk to Sales
                 </a>
                 <a href="/about-us" className="inline-flex items-center justify-center rounded-xl border-3 border-oveblue px-4 py-3 text-sm font-medium text-oveblue hover:bg-blue-700 hover:text-white">
                   About Us
