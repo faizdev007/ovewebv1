@@ -40,7 +40,7 @@ export default function HiringProcess()
     ];
     return(
     <>
-        <section className="bg-gray-100 relative dark:bg-gray-900 pb-12 px-4 sm:px-6 lg:px-8">
+        <section className="bg-gray-100 relative dark:bg-gray-900 pb-12 dark:py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto text-center">
                 <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Our Comprehensive Hiring Process

@@ -3,7 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/footer";
-
+import CookieBanner from "@/components/CookieConsentBanner";
+import Analytics from "@/components/CookieConcentcheck";
+import { generateMetadataFromSeo } from "./utils/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,17 +17,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+// Default SEO data (fallback if a page doesn’t override)
+const defaultSeo = {
   title: "Find and Hire Developers for Startups — Optimal Virtual Employee — Top 3% Remote Talent",
-  description: "Find and hire pre-vetted remote developers from the top 3% global talent pool. Optimal Virtual Employee helps startups build reliable tech teams fast — affordable, flexible & scalable.",
-  robots: {
-    index: false,
-    follow: false,
+  metaDesc:
+    "Find and hire pre-vetted remote developers from the top 3% global talent pool. Optimal Virtual Employee helps startups build reliable tech teams fast — affordable, flexible & scalable.",
+  metaKeywords: "remote developers, hire developers, optimal virtual employee",
+  opengraphUrl: "https://optimalvirtualemployee.com/",
+  opengraphImage: {
+    sourceUrl: "https://optimalvirtualemployee.com/og-image.jpg",
   },
-  other: {
-    "google-site-verification" : "xqpfQdsNQE8sN0vLhE3D-UOWjlDCbyl36rzarrerKZ",
-  },
+  indexable: true,
 };
+
+export const metadata: Metadata = generateMetadataFromSeo(defaultSeo);
 
 export default function RootLayout({
   children,
@@ -36,22 +41,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Google Tag Manager Script for the head */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){
-                w[l]=w[l]||[];
-                w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});
-                var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-                j.async=true;
-                j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-5K42N2M2');
-            `,
-          }}
-        />
+        <>
+          <Analytics />
+        </>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} opensans antialiased`}
@@ -66,9 +58,13 @@ export default function RootLayout({
           ></iframe>
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+
+        {/* page layout data */}
         <Header/>
         {children}
+        <CookieBanner/>
         <Footer/>
+        {/* End page layout data */}
       </body>
     </html>
   );

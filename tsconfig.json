@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Homepage/Projects/index.js", "components/Homepage/Developers/index.js", "components/Homepage/developer.ts", "app/[slug]/page.js", "components/Rating.js", "components/TestimonialDev.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Homepage/Projects/index.js", "components/Homepage/Developers/index.js", "components/Homepage/developer.ts", "app/[slug]/page.js", "components/Rating.js", "components/TestimonialDev.tsx"],
   "exclude": ["node_modules"]
 }

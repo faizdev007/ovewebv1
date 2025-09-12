@@ -1,0 +1,103 @@
+/* span a{
+    color:#2562eb;
+    font-weight: 600;
+} */
+
+ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  list-style: none; /* remove default bullets */
+}
+
+ul li {
+  position: relative;
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #2563eb; /* Tailwind blue-600 */
+}
+
+ol {
+  counter-reset: list-counter; /* reset counter */
+  margin: 1rem 0;
+  padding-left: 0; /* remove default padding */
+  list-style: none;
+}
+
+ol li {
+  counter-increment: list-counter;
+  margin-bottom: 0.75rem;
+  padding-left: 2rem;
+  position: relative;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+ol li::before {
+  content: counter(list-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 600;
+  color: #2563eb; /* Tailwind blue-600 */
+}
+
+.ppstyle p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+/* WP alignment classes */
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.alignleft {
+  float: left;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.alignright {
+  float: right;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Images (size classes don’t affect much in modern WP) */
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem; /* optional, rounded corners */
+}
+
+/* Reset floats on small screens */
+@media (max-width: 768px) {
+  .alignleft,
+  .alignright {
+    float: none;
+    margin: 0 auto 1rem auto;
+    display: block;
+  }
+}

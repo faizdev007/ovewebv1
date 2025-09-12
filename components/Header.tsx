@@ -1,7 +1,8 @@
 'use client';
 
+import { RoleBaseSlug } from '@/app/utils/CategorySlug';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,6 +12,21 @@ export default function Header() {
   const [activeIndex, setActiveIndex] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
+  const [roleSlugs, setRoleSlugs] = useState<string[]>([]);
+
+  useEffect(() => { 
+    // Fetch role-based slugs on component mount
+    (async () => {
+      try {
+        const data = await RoleBaseSlug();
+        const slugs = data?.category?.services?.nodes.map(node => node.slug) || [];
+        setRoleSlugs(slugs);
+      }
+      catch (e) {
+        console.error('Failed to fetch role-based slugs', e);
+      }
+    })();
+  }, []);
 
   const hiremenu = [{
     menuTitle:'Role Base Hiring',
@@ -18,8 +34,11 @@ export default function Header() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
           </svg>),
     menuCategory:'Hire',
-    urls:[
-      {name:'Full-stack Developer',url:'/hire'},
+    urls:roleSlugs.length > 0 ? roleSlugs.map(slug => {
+      const name = slug.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+      return { name, url: `/hire/${slug}` };
+    }) : [
+      {name:'Full-stack Developer',url:'/full_stack_developer'},
       {name:'Front-End Developer',url:'/front_end_developer'},
       {name:'Back-End Developer',url:'/back_end_developer'},
       {name:'Database Engineer',url:'/database_engineer'},
@@ -75,9 +94,9 @@ const companyM = [{
         {/* Logo */}
         <a href={'/'} className="flex items-center">
           { darkmod ? (
-            <Image src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
+            <Image loading='eager' priority src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
           ) : (
-            <Image src={"/assets/logo.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
+            <Image loading='eager' priority src={"/assets/logo.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
           ) }
         </a>
 
@@ -164,13 +183,13 @@ const companyM = [{
       </div>
       {/* Full-width dropdown */}
         {showDropdown && (
-          <div className='max-w-5xl grid mx-auto block relative -top-3'>
+          <div className='max-w-5xl hidden grid mx-auto relative -top-3'>
             <div onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }} className="absolute rounded-md w-full drop-shadow z-50 left-0 top-full bg-white dark:bg-gray-700 shadow-lg z-40 py-4">
               <div className='relative px-4 py-2 grid md:grid-cols-3 gap-4 sm:px-6 lg:px-8 mx-auto' >
                 {hiremenu.map((single,key)=>(
                   <div key={key}>
                     <h2 className='border-b-2 font-bold flex gap-2'><span>{single.icon && single.icon}</span>{single.menuTitle}</h2>
-                    <div className='grid gap-2 h-[200] overflow-y-hidden py-2'>
+                    <div className='grid gap-2 h-[400] overflow-y-hidden py-2'>
                         {single.urls.map((url,key2)=>(
                           <a href={url.url} key={key2} className="hover:text-blue-600 dark:hover:text-blue-300 text-sm block py-2 hover:underline">
                             {url.name}

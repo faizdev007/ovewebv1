@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { onlyNumber } from '@/app/globals'; // adjust path if needed
 
 export default function ContactPage() {
@@ -15,6 +15,9 @@ export default function ContactPage() {
 
     const [resMessage, setresMessage] = useState('');
     const [status, setStatus] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [MessageBlock, setMessageBlock] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     const trustedbages = [
         {name:'Award', image:'/assets/trustedbages/award.webp'},
@@ -71,6 +74,7 @@ export default function ContactPage() {
     ];
 
 
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -90,24 +94,165 @@ export default function ContactPage() {
         const result = await res.json();
             if (res.ok) {
                 setresMessage('Message Send Successfully!');
+                setMessageBlock(true);
                 setStatus(false);
                 setFormData({ name: '', email: '', country: '', phone: '', message: '' });
             } else {
+                setError('Failed to send message. Please try again later.');
+                setMessageBlock(true);
                 setStatus(false);
             }
-        } catch (err) {
+        } catch ({err}:any) {
+            setError(err.response?.data?.message || 'Failed to send message. Please try again later.');
+            setMessageBlock(true);
             setStatus(false);
         }
+
         setTimeout(()=>{
             setresMessage('');
+            setMessageBlock(false);
         },2000)
         console.log('Form Submitted:', formData);
     };
 
+    useEffect(() => {
+        if(logos.length > 0 && contactinfo.length > 0 && officelocation.length > 0) {
+            setLoading(false);
+            return;
+        }
+    },[]);
+
+    if(loading) return (
+        <>
+            <main className="bg-black/90 h-full dark:bg-gray-800 text-white grid lg:grid-cols-2 gap-8 lg:px-4 px-2 py-12 animate-pulse">
+                {/* Left Panel */}
+                <div className="bg-white text-black w-full max-w-6xl lg:p-8 p-3 rounded-xl shadow-md space-y-6">
+                    {/* Header */}
+                    <div>
+                    <div className="h-8 bg-gray-300 rounded w-1/3 mb-3"></div>
+                    <div className="h-4 bg-gray-300 rounded w-2/3"></div>
+                    </div>
+
+                    {/* Trusted Badges (hidden on small screens) */}
+                    <div className="hidden md:flex flex-wrap gap-2">
+                    {Array.from({ length: 4 }).map((_, i) => (
+                        <div key={i} className="h-20 w-20 bg-gray-300 rounded-md"></div>
+                    ))}
+                    </div>
+
+                    {/* Contact links */}
+                    <div className="flex gap-4">
+                    <div className="h-4 bg-gray-300 rounded w-24"></div>
+                    <div className="h-4 bg-gray-300 rounded w-32"></div>
+                    </div>
+
+                    {/* Form */}
+                    <div className="space-y-4">
+                    {/* 2 inputs */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="h-10 bg-gray-300 rounded"></div>
+                        <div className="h-10 bg-gray-300 rounded"></div>
+                    </div>
+                    {/* 2 inputs */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="h-10 bg-gray-300 rounded"></div>
+                        <div className="h-10 bg-gray-300 rounded"></div>
+                    </div>
+                    {/* textarea */}
+                    <div className="h-24 bg-gray-300 rounded"></div>
+                    {/* button */}
+                    <div className="h-10 bg-gray-400 rounded-full w-40"></div>
+                    </div>
+                </div>
+
+                {/* Right Panel */}
+                <div className="flex flex-col space-y-6">
+                    {/* Title */}
+                    <div className="h-6 bg-gray-500 rounded w-2/3"></div>
+
+                    {/* List */}
+                    <ul className="space-y-4">
+                    {Array.from({ length: 3 }).map((_, i) => (
+                        <li key={i}>
+                        <div className="h-4 bg-gray-500 rounded w-1/2 mb-2"></div>
+                        <div className="h-3 bg-gray-700 rounded w-2/3"></div>
+                        </li>
+                    ))}
+                    </ul>
+
+                    {/* Logos grid */}
+                    <div className="grid grid-cols-3 xl:grid-cols-4 gap-3 mt-8">
+                    {Array.from({ length: 8 }).map((_, i) => (
+                        <div
+                        key={i}
+                        className="lg:h-20 h-16 bg-gray-600 rounded-md shadow-inner"
+                        ></div>
+                    ))}
+                    </div>
+                </div>
+            </main>
+            <div className="relative animate-pulse">
+                <section className="py-12 dark:py-12 bg-gray-100 dark:bg-black/90">
+                    <div className="text-center">
+                    <div className="h-8 w-2/3 mx-auto bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
+                    <div className="h-4 w-1/2 mx-auto bg-gray-200 dark:bg-gray-600 rounded mb-8"></div>
+                    </div>
+
+                    <div className="md:flex gap-6 justify-center items-center p-2">
+                    {/* Countries Table Placeholder */}
+                    <div className="border bg-white dark:bg-gray-800 lg:w-auto w-full border-gray-300 p-3 rounded-xl mb-2">
+                        <table className="w-full">
+                        <tbody>
+                            {[...Array(4)].map((_, i) => (
+                            <tr key={i} className={`${i < 3 ? 'border-b' : ''} border-gray-300`}>
+                                <td className="border-e border-gray-300">
+                                <div className="lg:flex gap-3 p-2 items-center">
+                                    <div className="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                                    <div className="h-4 w-24 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                </div>
+                                </td>
+                                <td>
+                                <div className="flex flex-col gap-2 p-4">
+                                    <div className="h-4 w-32 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                    <div className="h-4 w-28 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                </div>
+                                </td>
+                            </tr>
+                            ))}
+                        </tbody>
+                        </table>
+                    </div>
+
+                    {/* Office Locations Table Placeholder */}
+                    <div className="border bg-white dark:bg-gray-800 lg:w-auto w-full border-gray-300 p-3 rounded-xl">
+                        <table className="w-full">
+                        <tbody>
+                            {[...Array(3)].map((_, i) => (
+                            <tr key={i} className={`${i < 2 ? 'border-b' : ''} border-gray-300`}>
+                                <td>
+                                <div className="md:flex gap-2 p-2 items-center">
+                                    <div className="w-16 h-10 bg-gray-300 dark:bg-gray-700 rounded"></div>
+                                    <div className="flex flex-col gap-2">
+                                    <div className="h-4 w-32 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                    <div className="h-3 w-48 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                    </div>
+                                </div>
+                                </td>
+                            </tr>
+                            ))}
+                        </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </section>
+                </div>
+        </>
+    );
+
     return (
         <>
             <main className="bg-black/90 dark:bg-gray-800 text-white grid lg:grid-cols-2 gap-8 lg:px-4 px-2 py-12">
-                <div className="bg-white text-black w-full max-w-6xl lg:p-8 p-3 rounded-xl shadow-md">
+                <div className="bg-white text-black w-full max-w-6xl lg:p-8 p-3 rounded-xl shadow-md relative">
                     {/* Left Panel */}
                     <div>
                     <div className='md:flex justify-between'>
@@ -129,7 +274,31 @@ export default function ContactPage() {
                     </div>
                     
                     <form onSubmit={handleSubmit} className="space-y-4">
-                        <div className='text-center capitalize animate-jump-in animate-once animate-ease-linear text-green-500'>{resMessage}</div>
+                        {MessageBlock &&
+                            <div className='absolute top-0 bottom-0 start-0 end-0 bg-white rounded-xl text-center'>
+                                <div className='text-center capitalize animate-jump-in animate-once h-full flex flex-col gap-4 items-center justify-center animate-ease-linear'>
+                                    {error ?
+                                        <>
+                                            <span className='border rounded-full p-1 ms-2 bg-red-100 text-red-500 h-14 w-14 flex items-center justify-center'>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-7 font-bold">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span className='text-red-500'>{error}</span>
+                                        </>
+                                    : 
+                                        <>
+                                            <span className='border rounded-full p-1 ms-2 bg-green-100 text-green-500 h-14 w-14 flex items-center justify-center'>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-7 font-bold">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                                </svg>
+                                            </span>
+                                            <span className='text-green-500'>{resMessage}</span>
+                                        </>
+                                    }
+                                </div>
+                            </div>
+                        }
                         <div className="grid sm:grid-cols-2 gap-4">
                         <input type="text" name="name" placeholder="Full Name *" value={formData.name} onChange={handleChange} className="p-3 border rounded w-full" required />
                         <input type="email" name="email" placeholder="Email Address *" value={formData.email} onChange={handleChange} className="p-3 border rounded w-full" required />
@@ -188,7 +357,7 @@ export default function ContactPage() {
                                     alt="logo"
                                     width={200}
                                     height={200}
-                                    className="object-container w-auto h-auto opacity-80 rounded-md overflow-hidden hover:opacity-100 transition"
+                                    className="object-container grayscale w-auto h-auto opacity-80 rounded-md overflow-hidden hover:opacity-100 transition"
                                 />
                                 <span className="text-xs hidden font-medium">{logo}</span>
                             </div>
@@ -197,16 +366,25 @@ export default function ContactPage() {
                 </div>
             </main>
             <div className="relative">
-                <div className="bg-black/90">
-                    <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
+                <div className="bg-black/90 dark:hidden">
+                    <Image
+                        src="/assets/gray.webp"
+                        alt="compare"
+                        width={1000}
+                        height={1000}
+                        priority                // 👈 disables lazy loading, preloads in <head>
+                        fetchPriority="high"    // 👈 tells browser to fetch immediately
+                        decoding="async"
+                        className="w-full"
+                    />
                 </div>
-                <section className='pb-12 bg-gray-100'>
+                <section className='pb-12 dark:py-12 bg-gray-100 dark:bg-black/90'>
                     <div className='text-center'>
                         <h2 className='text-3xl lg:text-5xl font-bold mb-4'>Serving Clients in 38+ Countries</h2>
                         <p className='text-gray-600 mb-8'>We are making an impact worldwide with our global presence and exceptional software solutions.</p>
                     </div>
                     <div className='md:flex gap-6 justify-center items-center p-2'>
-                        <div className='border bg-white lg:w-auto w-full border-gray-300 p-3 rounded-xl mb-2'>
+                        <div className='border bg-white dark:text-black lg:w-auto w-full border-gray-300 p-3 rounded-xl mb-2'>
                             <table className="">
                                 <tbody>
                                     {contactinfo.map((country, index) => (
@@ -229,11 +407,11 @@ export default function ContactPage() {
                                                     <a
                                                     key={i}
                                                     href={`tel:${item.number.replace(/\s+/g, '')}`}
-                                                    className="text-blue-900 font-semibold dark:text-white hover:underline"
+                                                    className="text-blue-900 font-semibold dark:text-black hover:underline"
                                                     aria-label={item.number}
                                                     >
                                                     {item.number}{' '}
-                                                    <span className="text-gray-500 font-normal">
+                                                    <span className="text-gray-500 dark:text-black font-normal">
                                                         ({item.label})
                                                     </span>
                                                     </a>
@@ -245,7 +423,7 @@ export default function ContactPage() {
                                 </tbody>
                             </table>
                         </div>
-                        <div className='border bg-white lg:w-auto w-full border-gray-300 p-3 rounded-xl'>
+                        <div className='border bg-white lg:w-auto w-full dark:text-black border-gray-300 p-3 rounded-xl'>
                             <table className="">
                                 <tbody>
                                     {officelocation.map((location, index) => (

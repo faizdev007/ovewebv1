@@ -1,66 +1,110 @@
 'use client';
 
+import { fetchGraphQL } from "@/lib/graphqlClient";
+import { useEffect, useState } from "react";
+import './style.css';
+
+type PolicyBlock = {
+  policyTitle?: string | null;
+  policyContent?: string | null; // HTML string, not HTMLAreaElement
+};
+
+type PrivacyPolicyType = {
+  pageTitle?: string;
+  policyPage?: {
+    policyBlock?: PolicyBlock[];
+  };
+};
+
 export default function PrivacyPolicy()
 {
-    const pplist =[
-        {title:'',contect:['This policy explains how Optimal Virtual Employee handles personal information and complies with the requirements of the Australian Privacy Act 1988 (Cth) (“Privacy Act”) and the rules made thereunder and for purposes as may be required under the laws.',
-            'By accessing Optimal Virtual Employee website at optimalvirtualemployee.com, including all related pages (“Site”), you are accepting the practices outlined in this Policy.']},
-        {title:'INFORMATION TO BE COLLECTED',contect:['Optimal Virtual Employee gathers personal data about current and prospective customers, and to a degree, anonymous visitors to our Site. Our essential objective in gathering data is to give you a an effective experience. The primary types of personal data we gather identify with the contact details and business roles of our customers and different business contacts. Normally, this data includes names, company names, addresses, phone numbers, email addresses and job titles.',
-            'When you at first express interest acquiring extra information about us, we may likewise request personal information, for example, name, phone number, email, or extra organization data.']},
-        {title:'COOKIES AND OTHER DATA',
-            contect:[
-            'Optimal Virtual Employee stores certain kinds of data at whatever point you connect with us via our website using cookies. We record certain "traffic information" on our server logs including your IP address, marketing automation cookies data, the page you requested, and your correspondences and connections with other site registrants. We utilize this traffic information to assist diagnose issues to have the server and analyse trends.',
-            'We track numbers and frequency of guests to our Site. We use the data for research and benchmarking purposes.'
-        ]},
-        {title:'DATA USED BY THIRD PARTIES',
-            contect:[
-            'Optimal Virtual Employee does not send visitor data to any third party. However, our visitor data is accessed by third party online tools like Google Analytics and Google Webmasters. We may also reveal data to a government agency or regulatory body if the revelation is required by law.',
-        ]},
-        {title:'USE OF INFORMATION',
-            contect:[],
-            lists:[
-                'To provide our services',
-                'To maintain contact with clients and prospect clients',
-                'To Send Information about and related to our services',
-                'For general management purposes like invoicing',
-                'Other business related purposes',
-            ],
-            note:'Optimal Virtual Employee will not disclose personal information to other organisations unless it is required by the law'
-        },
-        {title:'SECURITY OF DATA',
-            contect:[
-            'We take every single sensible step to guarantee all information held by us is protected and secure. Such security measures incorporate physical assurance and electronic encryption to keep any unauthorized access.',
-        ]},
-        {title:'RETENTION AND DESTRUCTION OF DATA',
-            contect:[
-            'We keep data for a long time. If you wish, on your request, we can will permanently destroy or de-identify your information.',
-        ]},
-        {title:'CHANGE IN PRIVACY POLICY',
-            contect:[
-            'We may now and again amend this Privacy Policy. You are advised to check our site frequently for an up-to-date version of our Privacy Policy.',
-        ]},
-        {title:'FURTHER INFORMATION',
-            contect:[
-            'Any enquiries in connection with this Privacy Policy ought to be coordinated to enquiry@optimalvirtualemployee.com',
-        ]},
+    const [policyContent, setPolicyContent] = useState<PrivacyPolicyType>();
+    
+    useEffect(() => {
+        (async () => {
+        const QUERY = `
+        {
+            privacyPolicy {
+            pageTitle
+            policyPage {
+                policyBlock {
+                    policyTitle
+                    policyContent
+                }
+            }
+            }
+        }
+        `;
 
-    ];
-    return(
-        <div className="relative bg-gray-100 px-4 py-12 sm:px-6 lg:px-8 mx-auto">
-            {pplist.map((single,key)=>(
-                <div key={key} className="mb-6 text-base/6 text-justify">
-                    {single.title ? <div className="bg-gray-200 p-3 dark:text-black border-s-3 mb-4 font-bold border-blue-700">{single.title && single.title}</div> : ''}
-                    {single.contect.length > 0 && single.contect.map((para,key2)=>(
-                        <p className="mb-2" key={key2}>{para}</p>
+        try {
+            const data = await fetchGraphQL(QUERY);
+            setPolicyContent(data.privacyPolicy);
+        } catch (e) {
+            console.error("GraphQL fetch failed", e);
+        }
+        })();
+    }, []);
+
+    const pplist = {
+        0:{policyTitle: null, policyContent: '<p>This policy explains how Optimal Virtual Employ…pting the practices outlined in this Policy.</p>\n'},
+        1:{policyTitle: 'INFORMATION TO BE COLLECTED', policyContent: '<p>Optimal Virtual Employee gathers personal data …e number, email, or extra organization data.</p>\n'},
+        2:{policyTitle: 'COOKIES AND OTHER DATA', policyContent: '<p>Optimal Virtual Employee stores certain kinds o…data for research and benchmarking purposes.</p>\n'},
+        3:{policyTitle: 'DATA USED BY THIRD PARTIES', policyContent: '<ul>\n<li>To provide our service</li>\n<li>To mainta…ganisations unless it is required by the law</p>\n'},
+        4:{policyTitle: 'SECURITY OF DATA', policyContent: '<p>We take every single sensible step to guarantee… encryption to keep any unauthorized access.</p>\n'},
+        5:{policyTitle: 'RETENTION AND DESTRUCTION OF DATA', policyContent: '<p>We keep data for a long time. If you wish, on y…tly destroy or de-identify your information.</p>\n'},
+        6:{policyTitle: 'CHANGE IN PRIVACY POLICY', policyContent: '<p>We may now and again amend this Privacy Policy.…an up-to-date version of our Privacy Policy.</p>\n'},
+        7:{policyTitle: 'FURTHER INFORMATION', policyContent: '<p>Any enquiries in connection with this Privacy P…inated to enquiry@optimalvirtualemployee.com</p>\n'},
+    };
+
+    const PPContent = policyContent?.policyPage?.policyBlock;
+    
+    if(!PPContent || !PPContent.length){
+        return (
+            <section className="bg-gray-100 xl:h-max flex flex-col gap-6 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto py-8">
+                {/* Heading */}
+                <div className="h-8 w-3/4 bg-gray-700 rounded animate-pulse" />
+
+                {/* Section Blocks */}
+                {Array.from({ length: 4 }).map((_, i) => (
+                    <div
+                    key={i}
+                    className="bg-gray-700 rounded-lg p-6 border border-gray-600 drop-shadow-sm animate-pulse space-y-4">
+                    {/* Section Title */}
+                    <div className="h-6 w-40 bg-gray-600 rounded" />
+                        {/* Section Content */}
+                        <div className="space-y-2">
+                            <div className="h-4 bg-gray-600 rounded w-full" />
+                            <div className="h-4 bg-gray-600 rounded w-5/6" />
+                            <div className="h-4 bg-gray-600 rounded w-2/3" />
+                        </div>
+                    </div>
+                ))}
+            </section>
+        );
+    }else{
+        return(
+            <>
+                <div className="relative ppstyle bg-gray-100 dark:bg-black/90 px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+                    <h1 className="text-3xl text-center font-bold mb-2">
+                        Privacy Policy
+                    </h1>
+                    <p className="text-sm text-gray-500 mb-8">
+                        Last updated: September 8, 2025
+                    </p>
+                    {Object.values(PPContent).map((single,key)=>(
+                        <div key={key} className="mb-6 text-base/6">
+                            {single?.policyTitle && 
+                                <div className="bg-gray-200 p-3 dark:text-black border-s-3 mb-4 font-bold border-blue-700">
+                                    <span dangerouslySetInnerHTML={{__html: single?.policyTitle}}/>
+                                </div>
+                            }
+                            <div>
+                                <span dangerouslySetInnerHTML={{ __html: single.policyContent ?? "" }} />
+                            </div>
+                        </div>
                     ))}
-                    <ul className="list-disc list-inside text-base/7 mb-4">
-                        {single.lists?.length && single.lists?.length > 0 && single.lists?.map((litem,key3)=>(
-                            <li key={key3}>{litem}</li>
-                        ))}
-                    </ul>
-                    {single.note ? <p>{single.note && single.note}</p> : ''}
                 </div>
-            ))}
-        </div>
-    );
+            </>
+        );
+    }
 }

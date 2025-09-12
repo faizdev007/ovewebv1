@@ -1,11 +1,17 @@
 'use client';
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Footerlinks from "./Homepage/footerlinks";
-import { lazy } from "react";
 
-export default function Footer()
-{
+export default function Footer() {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setLoading(false), 2000);
+        return () => clearTimeout(timer);
+    }, []);
+
     const officelocation = [
         {
             name:'Australia',
@@ -18,7 +24,6 @@ export default function Footer()
             image:'/assets/offices/USA.webp',
             address: '109 Mojonera Court, Los Gatos, CA, USA 95032',
             tel:'+1 2028499199'
-            
         },
         {
             name:'UK',
@@ -33,17 +38,17 @@ export default function Footer()
             tel:'+91 9999979934'
         }
     ];
-    return(
-        <div className="relative">
-            <div className="bg-gray-100">
+
+    return (
+        <div className={`relative${loading ? ' hidden' : ''}`}>
+            <div className="bg-gray-100 dark:hidden">
                 <Image src={'/assets/bgblack.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
             </div>
             <div className="gird divide-y-2 footerbg divide-gray-300 relative">
                 <section className="dark:bg-gray-800 text-white relative px-4 md:py-10 py-2 sm:px-6 lg:px-8 mx-auto pt-10">
-                    <div className="">
+                    <div>
                         <h3 className="text-center hidden text-2xl md:text-3xl lg:text-4xl xl-text-5xl 2xl:text-6xl font-bold mb-8">OUR OFFICE LOCATIONS</h3>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 divide-gray-600 md:divide-y-0 px-4">
-                            {/* lg:divide-x-2 divide-y-2 */}
                             {officelocation.map((location,key)=>(
                                 <div key={key} className="flex flex-col justify-between px-4 py-6 gap-2" aria-labelledby={location.name}>
                                     <div className="flex gap-2 mb-4 items-center">
@@ -68,7 +73,7 @@ export default function Footer()
                     <div className="text-xs">
                         @ Copywrite {new Date().getUTCFullYear()} Optimal Virtual Employee. All Rights Reserved.
                     </div>
-                    <div className="">
+                    <div>
                         <nav className="flex gap-3">
                             <a href="https://www.facebook.com/Optimal-virtual-Employee-2093585584194627/" aria-label="facebook"><Image src={'/assets/sociallinks/facebook_white.webp'} width={100} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" height={100} alt="facebook"/></a>
                             <a href="https://www.linkedin.com/company/optimal-virtual-employee-ove/" aria-label="linkedin"><Image src={'/assets/sociallinks/linkedin_white.webp'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="linkedin"/></a>

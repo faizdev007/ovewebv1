@@ -19,7 +19,7 @@ export default function Herosection()
                         <p className='text-sm lg:text-md xl:text-xl 2xl:text-2xl'>Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.</p>
                     </div>
                     <div className='text-center max-w-auto'>
-                        <div className="flex gap-3 md:flex-row flex-col items-center items-start">
+                        <div className="flex gap-3 md:flex-row flex-col items-start">
                             {/* Primary CTA */}
                             <div className="w-full">
                                 <a
@@ -54,18 +54,10 @@ export default function Herosection()
                     </div>
                 </div>
                 <div className='p-4 flex items-start h-full'>
-                    {/* <div style={{ position: 'relative', width:'100%', aspectRatio: '16 / 9' }}>
-                        <iframe 
-                            loading="lazy" title="Gumlet video player"
-                            src="https://play.gumlet.io/embed/682435ae1eaff0ba85e6bd2c?background=false&autoplay=true&loop=true&disableControls=false"
-                            style={{border:'3px solid #c8c8c8', borderRadius:'4px', position: 'absolute', top: '0', left: '0', height: '100%', width: '100%'}}
-                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
-                        </iframe>
-                    </div> */}
                     <div style={{ position: 'relative', width:'100%', aspectRatio: '16 / 9' }}>
                         <iframe 
                             loading="lazy" title="Gumlet video player"
-                            src="https://play.gumlet.io/embed/68b53910eada66c6efa33f66?background=false&autoplay=true&loop=true&disableControls=false"
+                            src="https://play.gumlet.io/embed/68b98b969bce03c1972d9e42?background=false&autoplay=true&loop=true&disableControls=false"
                             style={{border:'3px solid #c8c8c8', borderRadius:'4px', position: 'absolute', top: '0', left: '0', height: '100%', width: '100%'}}
                             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
                         </iframe>

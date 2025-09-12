@@ -7,6 +7,7 @@ import FaqSection from "@/components/Homepage/faq";
 import Herosection from "@/components/Homepage/hero";
 import HireBy from "@/components/Homepage/hireby";
 import HiringProcess from "@/components/Homepage/hiringprocess";
+import Loader from '@/components/Homepage/loader';
 import OurProjectsSlider from "@/components/Homepage/projects";
 import TrustedBySection from "@/components/Homepage/trustedby2";
 import WhyChooseUs from "@/components/Homepage/whyus";
@@ -28,8 +29,10 @@ type DeveloperItem = {
 export default function Home() {
   const [developers, setDevelopers] = useState<DeveloperItem[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setTimeout(() => setLoading(false), 1000);
     const ac = new AbortController();
 
     (async () => {
@@ -49,6 +52,15 @@ export default function Home() {
     return () => ac.abort();
   }, []);
 
+  if (loading){ 
+    return (
+    <>
+      <Loader />
+      <DevelopersSlider/>
+    </>
+    )
+  };
+  
   return (
     <>
       <Herosection/>
@@ -59,31 +71,31 @@ export default function Home() {
       <HireBy/>
       <div className="relative">
         <div className="bg-black">
-          <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
+          <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <HiringProcess/>
       </div>
       <div className="relative">
         <div className='bg-gray-100'>
-          <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full"/>
+          <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <TrustedBySection/>
       </div>
       <div className="relative">
         <div className='bg-black'>
-          <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
+          <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <WhyChooseUs/>
       </div>
       <div className="relative">
         <div className="bg-gray-100">
-          <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full"/>
+          <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <OurProjectsSlider/>
       </div>
       <div className="relative">
         <div className='bg-lightblack'>
-          <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
+          <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <FaqSection/>
       </div>

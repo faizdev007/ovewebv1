@@ -138,11 +138,11 @@ export default function Role()
                     </div>
                 </section>
                 <DevelopersSlider/>
-                <section className="py-20 blackgradiant text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                <section className="py-20 blackgradiant text-white flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
                     <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl">How to Hire Python developer through OVE</h2>
                     <div className="md:grid space-y-4 md:grid-cols-2 2xl:grid-cols-4 gap-6 2xl:gap-4 mb-6">
                         {steps.map((step, index) => (
-                            <div key={index} className="flex aspect-[1/1] md:max-h-[300] w-full flex-col justify-center items-center relative items-center gap-3 bg-boxFill p-6 rounded-lg border border-oveblue hover:border-oveblue/50 transition-all duration-300">
+                            <div key={index} className="flex aspect-[1/1] md:max-h-[300] w-full flex-col justify-center relative items-center gap-3 bg-boxFill p-6 rounded-lg border border-oveblue hover:border-oveblue/50 transition-all duration-300">
                                 <div className="relative w-max z-10 px-18 flex flex-col justify-center items-center">
                                     <span className="text-[150px] z-20 text-oveblue/50 absolute start-0 w-full h-full hover:scale-125 transition-all flex items-center">{step.step}</span>
                                     <Image alt="imge" src={step.imgSrc} width={400} height={400} className="w-32 h-auto rounded-md"/>
@@ -223,7 +223,7 @@ export default function Role()
                 </div>
                 <div className="relative">
                     <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
-                    <section className="py-12 z-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                    <section className="py-12 z-20 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
                         <div className="lg:flex gap-4 items-center">
                             <div className="flex flex-col gap-6">
                                 <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for Python programmers for hir through Optimal Virtual Employee ?</h4>
@@ -331,7 +331,7 @@ export default function Role()
                 </div>
                 <div className="relative">
                     <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
-                    <section className="py-12 bg-black flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                    <section className="py-12 bg-black flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
                         <h2 className="text-3xl xl:text-5xl mb-4 font-bold text-center text-white">Here are a few words shared by our Clients</h2>
                         <div className="h-20 aspect-[3/1] overflow-hidden">
                             <Image src={'/assets/google.webp'} alt="employee" width={500} height={500} className="mx-auto object-cover flex justify-center items-center w-32 aspect-[3/1] rounded-lg shadow-lg"/>
@@ -347,7 +347,7 @@ export default function Role()
                 </div>
                 <div className="relative h-full bg-oveblue w-full">
                     <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
-                    <section className="text-white py-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                    <section className="text-white py-20 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
                         <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
                         <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                         <div className="flex gap-3 items-center">

@@ -26,7 +26,7 @@ const items = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative px-4 pb-12 sm:px-6 lg:px-8 mx-auto text-center bg-gray-100 dark:bg-gray-700 dark:text-white">
+    <section className="relative px-4 pb-12 dark:py-12 sm:px-6 lg:px-8 mx-auto text-center bg-gray-100 dark:bg-gray-700 dark:text-white">
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-5">Why choose us</h2>
       <p className="text-gray-600 dark:text-white max-w-3xl mx-auto mb-12">
         We don’t just connect you with developers — we deliver a seamless hiring experience backed by transparency, reliability, and support. Here’s why businesses love working with us:

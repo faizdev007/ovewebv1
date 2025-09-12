@@ -38,7 +38,7 @@ export default function TrustedBy() {
       <div className={`mx-auto flex items-center overflow-hidden animate-fade animate-once animate-ease-linear`}>
         {/* Left Static Text */}
         <div className="min-w-[150px] text-white dark:border-black">
-          <h3 className='text-lg md:text-2xl font-bold'>Trusted by</h3>
+          <h2 className='text-lg md:text-2xl font-bold'>Trusted by</h2>
           <p className="md:text-sm text-sm text-gray-400">Top companies</p>
         </div>
 
@@ -47,10 +47,10 @@ export default function TrustedBy() {
           <div className="relative flex-1 gap-4 overflow-hidden px-4 sm:px-6 lg:px-8 mx-auto ">
               <div className="logo-slider flex w-max md:space-x-8 space-x-4">
                   {logos.map((logo, index) => (
-                      <img key={index} src={logo} className="h-16 p-2 border border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
+                      <img key={index} src={logo} className="h-16 p-2 border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
                   ))}
                   {logos.map((logo, index) => (
-                      <img key={index} src={logo} className="h-16 p-2 border border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
+                      <img key={index} src={logo} className="h-16 p-2 border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
                   ))}
               </div>
           </div>
