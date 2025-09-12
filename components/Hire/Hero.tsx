@@ -34,7 +34,7 @@ const HeroSection = ({hire}:HeroSectionProps) => (
             </div>
             <div className="lg:w-[40%] lg:flex hidden relative mb-5 justify-center">
                 <div className="z-30 flex flex-col justify-end">
-                    <div className="absolute z-20 bottom-0">
+                    <div className="z-20 bottom-0">
                         <Image src={'/assets/hire/hireherobg.webp'} alt="PBG" width={1000} height={1000} priority className="w-auto h-auto rounded-r-xl"/>
                     </div>
                     {/* <img src={hire?.featuredImage?.node?.sourceUrl ?? '/assets/hire/anjali.png'} alt={hire?.featuredImage?.node.title} width={500} height={500} className="relative z-40" loading="eager" fetchPriority="high"/> */}
