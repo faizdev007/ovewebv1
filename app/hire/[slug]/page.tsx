@@ -6,7 +6,7 @@ import Hire from "@/components/Pages/ServicePage";
 import PageData from "@/app/utils/GraphQl/PageData";
 
 // ✅ Await params first
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const { slug } = await params; // <-- ✅ await before using
   const data = await ServicePageData({ slug });
   const seo = data?.service?.seo;
@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return generateMetadataFromSeo(seo || {});
 }
 
-export default async function HirePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function HirePage({ params }: { params: { slug: string } }) {
   const { slug } = await params; // ✅ same fix here
   return <Hire slug={slug} />;
 }
