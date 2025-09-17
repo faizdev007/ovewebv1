@@ -7,19 +7,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css'; 
 import Rating from "./Rating";
 
-type CTestimonial = {
-  cTestimonial?:{
-    title?:string;
-    slug?:string;
-    content?:string;
-    rating?:any;
-    featuredImage?: {
-      sourceUrl?:string;
-      title?:string;
-      node?:{sourceUrl?:string;title?:string;}
-    };
-  }
-}
+
 
 function SampleNextArrow(props:any) {
   const { onClick } = props;
@@ -53,17 +41,18 @@ function SamplePrevArrow(props:any) {
   );
 }
 
-const demodata = {
-  0:{title: 'Emily Johnson', slug: 'emily-johnson', content: '<p>Working with OVE allowed us to accelerate our p…s blended seamlessly with our in-house team.</p>\n', clientRating: {rating: 5}},
-  1:{title: 'Arjun Mehta', slug: 'arjun-mehta', content: '<p>Hiring through OVE was a game-changer. The cost…as the developers’ expertise and commitment.</p>\n', clientRating: {rating: 5}},
-  2:{title: 'Sophia Martinez', slug: 'sophia-martinez', content: '<p>The OVE team quickly understood our requirement…d our engineering team in weeks, not months.</p>\n', clientRating: {rating: 5}},
-  3:{title: 'James Carter', slug: 'james-carter', content: '<p><span data-teams="true"><i>Hiring remote talent…ms, without the hiring headaches.</i></span></p>\n', clientRating: {rating: 5}},
-  4:{title: 'Michael Roberts', slug: 'michael-roberts', content: '<p><span data-teams="true"><i>The developers feel …llent project delivery timelines.</i></span></p>\n', clientRating: {rating: 5}},
-  5:{title: 'David Lee', slug: 'david-lee', content: '<p><span data-teams="true"><i>We scaled our engine…municative, and extremely skilled</i></span></p>\n', clientRating: {rating: 5}},
-};
+const demodata = [
+  {title: 'Emily Johnson', slug: 'emily-johnson', content: '<p>Working with OVE allowed us to accelerate our p…s blended seamlessly with our in-house team.</p>\n', clientRating: {rating: 5}},
+  {title: 'Arjun Mehta', slug: 'arjun-mehta', content: '<p>Hiring through OVE was a game-changer. The cost…as the developers’ expertise and commitment.</p>\n', clientRating: {rating: 5}},
+  {title: 'Sophia Martinez', slug: 'sophia-martinez', content: '<p>The OVE team quickly understood our requirement…d our engineering team in weeks, not months.</p>\n', clientRating: {rating: 5}},
+  {title: 'James Carter', slug: 'james-carter', content: '<p><span data-teams="true"><i>Hiring remote talent…ms, without the hiring headaches.</i></span></p>\n', clientRating: {rating: 5}},
+  {title: 'Michael Roberts', slug: 'michael-roberts', content: '<p><span data-teams="true"><i>The developers feel …llent project delivery timelines.</i></span></p>\n', clientRating: {rating: 5}},
+  {title: 'David Lee', slug: 'david-lee', content: '<p><span data-teams="true"><i>We scaled our engine…municative, and extremely skilled</i></span></p>\n', clientRating: {rating: 5}},
+];
 
-export default function TestimonialDev({cTestimonial}:CTestimonial) {
-    const testimonials = cTestimonial ?? demodata;
+export default function TestimonialDev(ClientTestimonials:any) {
+    const testimonials = ClientTestimonials?.ClientTestimonials ?? demodata;
+    
     const [expended, setExpanded] = useState<number | null>(null);
 
     const toggle = (index: number | null = null) => {
@@ -110,9 +99,9 @@ export default function TestimonialDev({cTestimonial}:CTestimonial) {
         <div className="relative">
             {settings ? 
             <Slider {...settings}>
-            {Object.values(testimonials).map((item, index) => ( 
+            {testimonials.map((item:any, index:number) => ( 
                 <div key={index} className="p-2">
-                    <div className={`bg-white text-black w-full min-h-[240] p-4 rounded-2xl border-2 border-oveblue drop-shadow-sm shadow-white`}>
+                    <div className="bg-white text-black w-full min-h-[240] p-4 rounded-2xl border-2 border-oveblue drop-shadow-sm shadow-white">
                         <div className="flex items-center justify-between gap-4">
                           <div className="flex items-center gap-4">
                               <div className="relative aspect-[1/1] w-14 h-14 overflow-hidden">
@@ -134,16 +123,17 @@ export default function TestimonialDev({cTestimonial}:CTestimonial) {
                           </div>
                         </div>
                         <div className="mb-4 mt-2">
-                          <Rating sizeN={4} rating={item?.clientRating?.rating}/>
+                          <Rating sizeN={4} rating={item?.rating}/>
                         </div>
                         <span className={`text-sm ${expended  !== index ? 'line-clamp-4 transition-all' : 'scale-100'}`} dangerouslySetInnerHTML={{ __html: item?.content }}/>
-                        { item?.content?.length > 300 ?
-                          <span onClick={()=>toggle(index)} className="text-xs text-gray-500 block mt-2 cursor-pointer">
+                        {item?.content && item.content.length > 200 ? (
+                          <span
+                            onClick={() => toggle(index)}
+                            className="text-xs text-gray-500 block mt-2 cursor-pointer"
+                          >
                             {expended !== index ? 'Read More.' : 'Show Less.'}
                           </span>
-                          :
-                          <></>
-                        }
+                        ) : null}
                     </div>
                 </div>
             ))}

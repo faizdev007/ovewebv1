@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/footer";
 import CookieBanner from "@/components/CookieConsentBanner";
 import Analytics from "@/components/CookieConcentcheck";
-import { generateMetadataFromSeo } from "./utils/seo";
+import { generateMetadataFromSeo } from "./(main)/utils/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,12 +59,8 @@ export default function RootLayout({
         </noscript>
         {/* End Google Tag Manager (noscript) */}
 
-        {/* page layout data */}
-        <Header/>
         {children}
         <CookieBanner/>
-        <Footer/>
-        {/* End page layout data */}
       </body>
     </html>
   );

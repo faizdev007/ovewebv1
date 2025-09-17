@@ -12,6 +12,7 @@
   --lightblack : #404040;
   --boxFill: #1b1b1b;
   --Pgradient: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  --oveVA: linear-gradient(90deg,rgba(37, 98, 235, 1) 0%, rgba(11, 35, 92, 1) 60%);
 }
 
 @theme inline {
@@ -42,6 +43,10 @@
 .blackgradiant{
   background: #000000;
   background: linear-gradient(180deg, rgba(0, 0, 0, 1) 20%, rgb(64, 64, 64) 100%);
+}
+
+.oveVA{
+  background: linear-gradient(153deg,rgba(235, 235, 235, 0.68) 0%, rgba(37, 98, 235, 0.54) 60%);
 }
 
 body {

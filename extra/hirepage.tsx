@@ -1,12 +1,12 @@
 'use client';
 
-import FaqSection from "@/components/Homepage/faq";
+import FaqSection from "@/components/main/Homepage/faq";
 import TestimonialDev from "@/components/TestimonialDev";
 import Image from "next/image";
 import { useEffect, useState } from 'react';
 import Rating from "@/components/Rating";
-import HireBy from "@/components/Homepage/hireby";
-import DevelopersSlider from "@/components/Homepage/developer";
+import HireBy from "@/components/main/Homepage/hireby";
+import DevelopersSlider from "@/components/main/Homepage/developer";
 import { useParams } from 'next/navigation';
 
 const WP = 'https://staging.optimalvirtualemployee.com.au';

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Footerlinks from "./Homepage/footerlinks";
+import Footerlinks from "./main/Homepage/footerlinks";
 
 export default function Footer() {
     const [loading, setLoading] = useState(true);

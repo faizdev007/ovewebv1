@@ -3,8 +3,9 @@
 import { RoleBaseSlug } from '@/app/(main)/utils/CategorySlug';
 import Image from 'next/image';
 import { use, useEffect, useState } from 'react';
+import Modal from './modal';
 
-export default function Header() {
+export default function ServiceHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropmenuOpen, setdropmenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -103,73 +104,30 @@ const companyM = [{
         {/* Desktop Menu */}
         <nav className="lg:flex gap-6 items-center hidden">
           <a href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Home
+            Who we serve
           </a>
 
           <a href="/about-us" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            About Us
+            Pricing
           </a>
 
           <a href="/contact-us" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Contact Us
+            Our Story
           </a>
 
           <a href="/privacy-policy" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Privacy Policy
+            Careers
           </a>
           
-          {/* this section menu is hidden */}
-
-          <div className={'p-3 hidden'} onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }}>
-            <button className="hover:text-blue-600 dark:hover:text-blue-400 transition flex gap-2">
-              <span>Services</span> 
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className={`size-6 transition-transform duration-300 ${
-                    activeIndex ? 'rotate-180' : ''
-                }`}>
-                <path fillRule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
-              </svg>
-            </button>
-          </div>
-
-          <div
-            className="relative p-3 hidden group"
-            onMouseEnter={() => setShowDropdown(false)}
-          >
-            <button className="hover:text-blue-600 dark:hover:text-blue-400 transition flex gap-2">
-              <span>Company</span>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-6 transition-transform duration-300 group-hover:rotate-180">
-                <path fillRule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
-              </svg>
-            </button>
-
-            {/* Simple dropdown */}
-            <div className="absolute left-0 top-full -top-3 w-48 bg-white dark:bg-gray-800 shadow-md rounded-md hidden overflow-hidden group-hover:block z-40">
-              <a href="/about-us" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                About Us
-              </a>
-              <a href="/privacy-policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                Privacy Policy
-              </a>
-              <a href="/guides" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                Success Stories
-              </a>
-              <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                FAQs for Companies
-              </a>
-              <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                How We Vet Developers
-              </a>
-            </div>
-          </div>
-          {/* hidden section ends here */}
+          <a href="/privacy-policy" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+            FAQ
+          </a>
+          
         </nav>
         <div className='lg:flex gap-6 items-center hidden'>
-            <a href="/contact-us" className="border-2 border-oveblue hover:bg-blue-700 text-oveblue hover:text-white px-4 py-2 rounded-md transition">
-                Schedule A Call
-            </a>
-            <a href="/contact-us" className="bg-oveblue hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
-                Start Hiring
-            </a>
+            <button className="border-2 border-oveblue hover:bg-blue-700 text-oveblue hover:text-white px-4 py-2 rounded-md transition">
+              Get Started
+            </button>
         </div>
 
         {/* Mobile Hamburger */}
@@ -183,7 +141,7 @@ const companyM = [{
       </div>
       {/* Full-width dropdown */}
         {showDropdown && (
-          <div className='max-w-5xl hidden grid mx-auto relative -top-3'>
+          <div className='max-w-5xl hidden mx-auto relative -top-3'>
             <div onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }} className="absolute rounded-md w-full drop-shadow z-50 left-0 top-full bg-white dark:bg-gray-700 shadow-lg z-40 py-4">
               <div className='relative px-4 py-2 grid md:grid-cols-3 gap-4 sm:px-6 lg:px-8 mx-auto' >
                 {hiremenu.map((single,key)=>(
@@ -215,19 +173,19 @@ const companyM = [{
             <div className='max-h-32 overflow-y-auto'>
               <div className={`ml-4 mt-2 space-y-1 text-sm`}>
                 <a href="/about-us" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                  About Us
+                  Who we serve
                 </a>
                 <a href="/privacy-policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                  Privacy Policy
+                  Pricing
                 </a>
                 <a href="/guides" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                  Success Stories
+                  Our Story
                 </a>
                 <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                  FAQs for Companies
+                  Careers
                 </a>
                 <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                  How We Vet Developers
+                  FAQ
                 </a>
               </div>
             </div>
@@ -264,30 +222,27 @@ const companyM = [{
         }`}
       >
         <div className="px-4 py-4 flex flex-col gap-2 border-t bg-white dark:bg-gray-800">
-          <a href="/" className="block hover:text-blue-600 dark:hover:text-blue-400">
-            Home
-          </a>
+            <a href="/about-us" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                Who we serve
+            </a>
+            <a href="/privacy-policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                Pricing
+            </a>
+            <a href="/guides" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                Our Story
+            </a>
+            <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                Careers
+            </a>
+            <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                FAQ
+            </a>
 
-          <a href="/about-us" className="block hover:text-blue-600 dark:hover:text-blue-400">
-            About Us
-          </a>
-
-          <a href="/contact-us" className="block hover:text-blue-600 dark:hover:text-blue-400">
-            Contact Us
-          </a>
-
-          <a href="/privacy-policy" className="block hover:text-blue-600 dark:hover:text-blue-400">
-            Privacy Policy
-          </a>
-
-          <hr className='my-2 border-2 rounded border-gray-600'></hr>
-          
-          <a href="/contact-us" className="block text-center border-2 border-oveblue hover:bg-blue-700 hover:dark:bg-gray-700 text-oveblue hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
-              Get Started
-          </a>
-          <a href="/contact-us" className="block text-center bg-oveblue hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
-              Hire Developer
-          </a>
+            <hr className='my-2 border-2 rounded border-gray-600'></hr>
+            
+            <a href="/contact-us" className="block text-center border-2 border-oveblue hover:bg-blue-700 hover:dark:bg-gray-700 text-oveblue hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
+                Get Started
+            </a>
         </div>
       </div>
     </header>
