@@ -2,7 +2,7 @@ import { fetchGraphQL } from "@/lib/graphqlClient";
 
 type CategorySlug = {
   category: {
-    services: { nodes: { title: string; slug: string ; cardicon:{ icon: { node:{ sourceUrl:string; } } }}[] };
+    hires: { nodes: { title: string; slug: string ; cardicon:{ icon: { node:{ sourceUrl:string; } } }}[] };
   } | null;
 } | null;
 
@@ -11,7 +11,7 @@ export async function RoleBaseSlug(number=7): Promise<CategorySlug> {
     const ROLE_BASE_SLUG_QUERY = `
         query RoleBaseSlug {
             category(id: "role", idType: SLUG) {
-                services(first:${number}) {
+                hires(first:${number}) {
                     nodes {
                         title
                         slug
@@ -37,7 +37,7 @@ export async function SkillBaseSlug(number=7): Promise<CategorySlug> {
     const SKILL_BASE_SLUG_QUERY = `
         query SkillBaseSlug {
             category(id: "skill", idType: SLUG) {
-                services(first:${number}) {
+                hires(first:${number}) {
                     nodes {
                         title
                         slug

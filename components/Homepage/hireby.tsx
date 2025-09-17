@@ -54,7 +54,7 @@ export default function HireBy() {
         (async () => {
             // Fetch data or perform any side effects here if needed
             const rolelist = await RoleBaseSlug(14); // Fetch 14 roles
-            setRoleCards(rolelist?.category?.services?.nodes.map((role) => ({
+            setRoleCards(rolelist?.category?.hires?.nodes.map((role) => ({
                 name: role.title,
                 slug: `/hire/${role.slug}`,
                 logo: role.cardicon?.icon?.node?.sourceUrl || '/assets/hireby/roles/computer.webp',
