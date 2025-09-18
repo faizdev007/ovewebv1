@@ -260,7 +260,7 @@ const HirePageData = async ({ slug }: { slug: string }) => {
       qna: hire?.whyHireFormOve?.whyHireQna || [],
     },
 
-    faq: hire?.hireFaq?.faqList?.map((f: any) => ({
+    faq: hire?.serviceFaq?.faqList?.map((f: any) => ({
       question: f.faqQuestion,
       answer: f.faqAnswer,
     })),
