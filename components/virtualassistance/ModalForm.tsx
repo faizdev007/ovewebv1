@@ -76,7 +76,7 @@ const ModalForm = () => {
         <section className="flex flex-col lg:flex-row justify-between">
             {/* Text Content */}
             <div className="lg:w-1/2 w-full mb-8 lg:mb-0 md:block hidden">
-                <a href={'/'} className="flex items-center">
+                <a href={'#'} className="flex items-center">
                     { darkmod ? (
                         <Image loading='eager' priority src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
                     ) : (
