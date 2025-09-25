@@ -21,7 +21,7 @@ export async function POST(request) {
         await transporter.sendMail({
         from: `"${data.name}" <${data.email}>`,
         to: ['faizdev007@gmail.com','Nakul@optimalvirtualemployee.com'], // Your receiving email address,'Nakul@optimalvirtualemployee.com'
-        subject: 'New Contact Form Submission',
+        subject: 'New Form Submission',
         html: `<!DOCTYPE html>
                 <html>
                 <head>
@@ -82,7 +82,7 @@ export async function POST(request) {
                 <body>
                     <div class="email-container">
                     <div class="email-header">
-                        <h1>Contact Form Query</h1>
+                        <h1>Vertual Assistant Query</h1>
                     </div>
                     <div class="email-body">
                         <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
@@ -96,16 +96,8 @@ export async function POST(request) {
                                     <td style="padding: 8px; border: 1px solid #ccc;">${data.email}</td> 
                                 </tr> 
                                 <tr> 
-                                    <td style="padding: 8px; border: 1px solid #ccc;">Country</td> 
-                                    <td style="padding: 8px; border: 1px solid #ccc;">${data.country}</td> 
-                                </tr> 
-                                <tr> 
                                     <td style="padding: 8px; border: 1px solid #ccc;">Phone</td> 
                                     <td style="padding: 8px; border: 1px solid #ccc;">${data.phone}</td> 
-                                </tr> 
-                                <tr> 
-                                    <td style="padding: 8px; border: 1px solid #ccc;">Service</td> 
-                                    <td style="padding: 8px; border: 1px solid #ccc;">${data.service}</td> 
                                 </tr> 
                                 <tr> 
                                     <td style="padding: 8px; border: 1px solid #ccc;">Message</td> 
@@ -122,7 +114,7 @@ export async function POST(request) {
             </html>
         `,
         });
-
+        
         return NextResponse.json({ success: true });
     } catch (error) {
         console.error('Email sending error:', error);

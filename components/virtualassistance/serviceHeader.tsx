@@ -3,9 +3,11 @@
 import { RoleBaseSlug } from '@/app/(main)/utils/CategorySlug';
 import Image from 'next/image';
 import { use, useEffect, useState } from 'react';
-import Modal from './modal';
+import Modal from './VAModal';
+import ModalForm from './ModalForm';
 
 export default function ServiceHeader() {
+  const [isOpen, setIsOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropmenuOpen, setdropmenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -90,161 +92,182 @@ const companyM = [{
   }, []);
 
   return (
-    <header className="bg-white font-bold dark:bg-gray-700 text-black dark:text-white shadow-md sticky top-0 z-50">
-      <div className="mx-auto flex items-center justify-between px-4 py-2 relative">
-        {/* Logo */}
-        <a href={'/'} className="flex items-center">
-          { darkmod ? (
-            <Image loading='eager' priority src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
-          ) : (
-            <Image loading='eager' priority src={"/assets/logo.webp"} width={500} height={450} className='h-12 w-auto' alt="OVE" />
-          ) }
-        </a>
-
-        {/* Desktop Menu */}
-        <nav className="lg:flex gap-6 items-center hidden">
-          <a href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Who we serve
+    <>
+      <header className="bg-white text-sm dark:bg-gray-700 text-black dark:text-white shadow-md sticky top-0 z-50">
+        <div className="mx-auto flex items-center justify-between px-4 py-2 relative">
+          {/* Logo */}
+          <a href={'/'} className="flex items-center">
+            { darkmod ? (
+              <Image loading='eager' priority src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
+            ) : (
+              <Image loading='eager' priority src={"/assets/logo.webp"} width={500} height={450} className='h-12 w-auto' alt="OVE" />
+            ) }
           </a>
 
-          <a href="/about-us" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Pricing
-          </a>
+          {/* Desktop Menu */}
+          <nav className="lg:flex gap-6 items-center hidden">
+            <a href="#WWS" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+              Who we serve
+            </a>
 
-          <a href="/contact-us" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Our Story
-          </a>
+            <a href="/privacy-policy" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
+              Privacy Policy
+            </a>
 
-          <a href="/privacy-policy" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Careers
-          </a>
-          
-          <a href="/privacy-policy" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            FAQ
-          </a>
-          
-        </nav>
-        <div className='lg:flex gap-6 items-center hidden'>
-            <button className="border-2 border-oveblue hover:bg-blue-700 text-oveblue hover:text-white px-4 py-2 rounded-md transition">
-              Get Started
+            <a href="#SS" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+              Success stories
+            </a>
+
+            <a href="#IWS" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+              Industries we serve
+            </a>
+            
+            <a href="#FAQ" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+              FAQ
+            </a>
+            
+          </nav>
+          <div className='lg:flex gap-6 items-center hidden'>
+              <a href='tel:+44 7411118134' className='flex gap-2 items-center'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-4">
+                  <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clipRule="evenodd" />
+                </svg>
+                <span className=''>+44 7411118134</span>
+              </a>
+              <button onClick={() => setIsOpen(true)} className="border-2 border-oveblue hover:bg-blue-700 text-oveblue hover:text-white  cursor-pointer px-4 py-2 rounded-md transition">
+                Hire My First VA!
+              </button>
+          </div>
+
+          {/* Mobile Hamburger */}
+          <div className='lg:hidden text-2xl focus:outline-none flex gap-4'>
+            <a href='tel:+44 7411118134' className='flex gap-2 items-center lg:hidden text-2xl focus:outline-none'>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-oveblue border border-oveblue rounded-full h-8 w-8 p-1">
+                <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clipRule="evenodd" />
+              </svg>
+            </a>
+            <button
+              className="lg:hidden text-2xl focus:outline-none"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle Menu"
+            >
+              ☰
             </button>
+          </div>
         </div>
+        {/* Full-width dropdown */}
+          {showDropdown && (
+            <div className='max-w-5xl hidden mx-auto relative -top-3'>
+              <div onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }} className="absolute rounded-md w-full drop-shadow z-50 left-0 top-full bg-white dark:bg-gray-700 shadow-lg z-40 py-4">
+                <div className='relative px-4 py-2 grid md:grid-cols-3 gap-4 sm:px-6 lg:px-8 mx-auto' >
+                  {hiremenu.map((single,key)=>(
+                    <div key={key}>
+                      <h2 className='border-b-2 font-bold flex gap-2'><span>{single.icon && single.icon}</span>{single.menuTitle}</h2>
+                      <div className='grid gap-2 h-[400] overflow-y-hidden py-2'>
+                          {single.urls.map((url,key2)=>(
+                            <a href={url.url} key={key2} className="hover:text-blue-600 dark:hover:text-blue-300 text-sm block py-2 hover:underline">
+                              {url.name}
+                            </a>
+                          ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
 
-        {/* Mobile Hamburger */}
-        <button
-          className="lg:hidden text-2xl focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle Menu"
-        >
-          ☰
-        </button>
-      </div>
-      {/* Full-width dropdown */}
-        {showDropdown && (
-          <div className='max-w-5xl hidden mx-auto relative -top-3'>
-            <div onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }} className="absolute rounded-md w-full drop-shadow z-50 left-0 top-full bg-white dark:bg-gray-700 shadow-lg z-40 py-4">
-              <div className='relative px-4 py-2 grid md:grid-cols-3 gap-4 sm:px-6 lg:px-8 mx-auto' >
-                {hiremenu.map((single,key)=>(
-                  <div key={key}>
-                    <h2 className='border-b-2 font-bold flex gap-2'><span>{single.icon && single.icon}</span>{single.menuTitle}</h2>
-                    <div className='grid gap-2 h-[400] overflow-y-hidden py-2'>
-                        {single.urls.map((url,key2)=>(
-                          <a href={url.url} key={key2} className="hover:text-blue-600 dark:hover:text-blue-300 text-sm block py-2 hover:underline">
-                            {url.name}
+        {/* Mobile Menu with Dropdown */}
+
+
+        {/* hidden section for mobile */}
+          {/* company area */}
+            <details className="group lg:hidden hidden">
+              <summary onClick={() => setCompanyOpen(!companyOpen)} className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">
+                Company
+              </summary>
+              <div className='max-h-32 overflow-y-auto'>
+                <div className={`ml-4 mt-2 space-y-1 text-sm`}>
+                  <a href="#WWS" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                    Who we serve
+                  </a>
+                  <a href="/privacy-policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                    Privacy Policy
+                  </a>
+                  <a href="/guides" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                    Our Story
+                  </a>
+                  <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                    Careers
+                  </a>
+                  <a href="#FAQ" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                    FAQ
+                  </a>
+                </div>
+              </div>
+            </details>
+
+            {/* Services Dropdown - Mobile */}
+            <details className="group hidden">
+              <summary onClick={() => setServiceOpen(!serviceOpen)} className="cursor-pointer hidden hover:text-blue-600 dark:hover:text-blue-400">
+                Services
+              </summary>
+              <div className='max-h-32 overflow-y-auto'>
+                <div className={`ml-4 mt-2 space-y-1 text-sm animate-flip-down animate-ease-in-out overflow-y-auto ${serviceOpen ? 'block' : 'hidden'}`}>
+                  {hiremenu.map((single, key) => (
+                    <div className='relative py-2 sm:px-6 lg:px-8 mx-auto' key={key}>
+                      <h2 className='border-b-2 font-bold md:text-2xl text-sm flex gap-2'>
+                        <span>{single.icon && single.icon}</span>{single.menuTitle}
+                      </h2>
+                      <div className='grid gap-2'>
+                        {single.urls.map((url, key2) => (
+                          <a href={url.name} key={key2} className="block hover:text-blue-600 dark:hover:text-blue-300">
+                            <span className='text-black/60'>{single.menuCategory}</span> {url.name}
                           </a>
                         ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
-        )}
-
-      {/* Mobile Menu with Dropdown */}
-
-
-      {/* hidden section for mobile */}
-        {/* company area */}
-          <details className="group lg:hidden hidden">
-            <summary onClick={() => setCompanyOpen(!companyOpen)} className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">
-              Company
-            </summary>
-            <div className='max-h-32 overflow-y-auto'>
-              <div className={`ml-4 mt-2 space-y-1 text-sm`}>
-                <a href="/about-us" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+            </details>
+        {/* mobile hidden section end here */}
+        <div
+          className={`transition-all duration-500 lg:hidden overflow-hidden absolute top-full start-0 end-0 ${
+            menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="px-4 py-4 flex flex-col gap-2 border-t bg-white dark:bg-gray-800">
+              <a href="#WWS" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   Who we serve
-                </a>
-                <a href="/privacy-policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                  Pricing
-                </a>
-                <a href="/guides" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                  Our Story
-                </a>
-                <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+              </a>
+              <a href="/privacy-policy" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                  Privacy Policy
+              </a>
+              <a href="#SS" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                  Success Story
+              </a>
+              <a href="#IWS" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                  Industries we serve
+              </a>
+              <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   Careers
-                </a>
-                <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+              </a>
+              <a href="#FAQ" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   FAQ
-                </a>
-              </div>
-            </div>
-          </details>
+              </a>
 
-          {/* Services Dropdown - Mobile */}
-          <details className="group hidden">
-            <summary onClick={() => setServiceOpen(!serviceOpen)} className="cursor-pointer hidden hover:text-blue-600 dark:hover:text-blue-400">
-              Services
-            </summary>
-            <div className='max-h-32 overflow-y-auto'>
-              <div className={`ml-4 mt-2 space-y-1 text-sm animate-flip-down animate-ease-in-out overflow-y-auto ${serviceOpen ? 'block' : 'hidden'}`}>
-                {hiremenu.map((single, key) => (
-                  <div className='relative py-2 sm:px-6 lg:px-8 mx-auto' key={key}>
-                    <h2 className='border-b-2 font-bold md:text-2xl text-sm flex gap-2'>
-                      <span>{single.icon && single.icon}</span>{single.menuTitle}
-                    </h2>
-                    <div className='grid gap-2'>
-                      {single.urls.map((url, key2) => (
-                        <a href={url.name} key={key2} className="block hover:text-blue-600 dark:hover:text-blue-300">
-                          <span className='text-black/60'>{single.menuCategory}</span> {url.name}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </details>
-      {/* mobile hidden section end here */}
-      <div
-        className={`transition-all duration-500 lg:hidden overflow-hidden absolute top-full start-0 end-0 ${
-          menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="px-4 py-4 flex flex-col gap-2 border-t bg-white dark:bg-gray-800">
-            <a href="/about-us" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                Who we serve
-            </a>
-            <a href="/privacy-policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                Pricing
-            </a>
-            <a href="/guides" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                Our Story
-            </a>
-            <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                Careers
-            </a>
-            <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                FAQ
-            </a>
-
-            <hr className='my-2 border-2 rounded border-gray-600'></hr>
-            
-            <a href="/contact-us" className="block text-center border-2 border-oveblue hover:bg-blue-700 hover:dark:bg-gray-700 text-oveblue hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
-                Get Started
-            </a>
+              <hr className='my-2 border-2 rounded border-gray-600'></hr>
+              
+              <button type='button' onClick={() => setIsOpen(true)} className="block text-center  cursor-pointer border-2 border-oveblue hover:bg-blue-700 hover:dark:bg-gray-700 text-oveblue hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
+                  Hire My First VA!
+              </button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <ModalForm/>
+      </Modal>
+    </>
   );
 }

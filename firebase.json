@@ -4,7 +4,8 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "redirects": [
       { "source": "/blog", "destination": "/", "type": 301 },
-      { "source": "/hire", "destination": "/", "type": 301 }
+      { "source": "/hire", "destination": "/", "type": 301 },
+      { "source": "/services", "destination": "/", "type": 301 }
     ],
     "rewrites": [
       { "source": "**", "destination": "/index.html" }

@@ -3,8 +3,10 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { onlyNumber } from '@/app/globals'; // adjust path if needed
+import { useRouter } from 'next/navigation';
 
 export default function ContactPage() {
+    const router = useRouter();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -93,6 +95,8 @@ export default function ContactPage() {
 
         const result = await res.json();
             if (res.ok) {
+                sessionStorage.setItem("thankyoucall", "true");
+                router.push('/thank-you');
                 setresMessage('Message Send Successfully!');
                 setMessageBlock(true);
                 setStatus(false);

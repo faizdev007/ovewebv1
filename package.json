@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
+    "framer-motion": "^12.23.15",
     "next": "^15.5.2",
     "nodemailer": "^7.0.5",
     "react": "19.1.0",

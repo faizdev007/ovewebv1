@@ -46,7 +46,7 @@ export default function RootLayout({
         </>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} opensans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} opensans antialiased scroll-smooth`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>

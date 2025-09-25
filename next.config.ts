@@ -34,9 +34,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Ignore ESLint during build
   },
-  experimental: {
-    globalNotFound: true,
-  },
+  // experimental: {
+  //   globalNotFound: true,
+  // },
   async headers() {
     return [
       {
@@ -63,6 +63,11 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/hire",
+        destination: "/", // Or /404 if you want a not-found page
+        permanent: true,
+      },
+      {
+        source: "/services",
         destination: "/", // Or /404 if you want a not-found page
         permanent: true,
       },

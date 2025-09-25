@@ -1,4 +1,5 @@
 import { fetchGraphQL } from "@/lib/graphqlClient";
+import { notFound } from "next/navigation";
 
 export type HirePageDataType = {
   seo?: {
@@ -76,12 +77,13 @@ export type HirePageDataType = {
     rows: string[][];
   };
 
+  // Testimonials from clients
   testimonial?: {
     title?: string;
     clients?: {
       title?: string;
-      slug?: string;
       content?: string;
+      designation?:string;
       rating?: number | string | null;
       featuredImage?: {
         sourceUrl?: string;
@@ -99,6 +101,25 @@ const HirePageData = async ({ slug }: { slug: string }) => {
         categories {
           nodes {
             name
+            slug
+            clients {
+              nodes {
+                title
+                content
+                clientDesignation {
+                  designation
+                }
+                clientRating {
+                  rating
+                }
+                featuredImage {
+                  node {
+                    sourceUrl
+                    title
+                  }
+                }
+              }
+            }
           }
         }
         seo {
@@ -192,28 +213,16 @@ const HirePageData = async ({ slug }: { slug: string }) => {
           testimonialTitle
         }
       }
-      clients {
-        nodes {
-          title
-          slug
-          content
-          clientRating {
-            rating
-          }
-          featuredImage {
-            node {
-              sourceUrl
-              title
-            }
-          }
-        }
-      }
     }
   `;
 
   const raw = await fetchGraphQL(QUERY, { slug });
+
+  if (!raw?.hire) return notFound();
+
   const hire = raw?.hire;
-  const clients = raw?.clients?.nodes || [];
+  
+  const firstCategory = hire?.categories?.nodes?.[0];
 
   const structured:HirePageDataType = {
     seo: hire?.seo,
@@ -277,13 +286,14 @@ const HirePageData = async ({ slug }: { slug: string }) => {
 
     testimonial: {
       title: hire?.testimonial?.testimonialTitle,
-      clients: clients.map((c: any) => ({
-        title: c.title,
-        slug: c.slug,
-        content: c.content,
-        rating: c.clientRating?.rating,
-        featuredImage: c.featuredImage?.node,
-      })),
+      clients:
+        firstCategory?.clients?.nodes?.map((c: any) => ({
+          title: c.title,
+          content: c.content,
+          designation: c.clientDesignation?.designation,
+          rating: c.clientRating?.rating,
+          featuredImage: c.featuredImage?.node,
+        })) || [],
     },
   };
   return structured;

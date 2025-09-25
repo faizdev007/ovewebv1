@@ -3,43 +3,97 @@ import React from "react";
 
 const cards = [
     {
-        icon: '',
-        title: "Innovate",
-        description: "Bring your ideas to life with creative solutions.",
+        "title": "Email Management",
+        "description": "<ul>\n<li data-start=\"646\" data-end=\"774\">\n<p data-start=\"648\" data-end=\"774\"><strong data-start=\"648\" data-end=\"657\">Task:</strong> Your VA will sort, respond, and prioritize your emails based on urgency, flagging only what requires your attention.</p>\n</li>\n<li data-start=\"778\" data-end=\"924\">\n<p data-start=\"780\" data-end=\"924\"><strong data-start=\"780\" data-end=\"792\">Outcome:</strong> You’ll wake up to an inbox that’s organized, with only the most important messages ready for your reply—saving you hours each week.</p>\n</li>\n</ul>\n",
+        "svgicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\r\n  <path fill-rule=\"evenodd\" d=\"M6.912 3a3 3 0 0 0-2.868 2.118l-2.411 7.838a3 3 0 0 0-.133.882V18a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-4.162c0-.299-.045-.596-.133-.882l-2.412-7.838A3 3 0 0 0 17.088 3H6.912Zm13.823 9.75-2.213-7.191A1.5 1.5 0 0 0 17.088 4.5H6.912a1.5 1.5 0 0 0-1.434 1.059L3.265 12.75H6.11a3 3 0 0 1 2.684 1.658l.256.513a1.5 1.5 0 0 0 1.342.829h3.218a1.5 1.5 0 0 0 1.342-.83l.256-.512a3 3 0 0 1 2.684-1.658h2.844Z\" clip-rule=\"evenodd\" />\r\n</svg>\r\n"
     },
     {
-        icon: '',
-        title: "Support",
-        description: "Get friendly assistance whenever you need it.",
+        "title": "Calendar Management",
+        "description": "<ul>\n<li data-start=\"971\" data-end=\"1134\">\n<p data-start=\"973\" data-end=\"1134\"><strong data-start=\"973\" data-end=\"982\">Task:</strong> Reschedules meetings, sends reminders, and makes sure follow-ups are handled on time. They even handle conflicting schedules and time zone differences.</p>\n</li>\n<li data-start=\"1138\" data-end=\"1272\">\n<p data-start=\"1140\" data-end=\"1272\"><strong data-start=\"1140\" data-end=\"1152\">Outcome:</strong> Your calendar stays organized, leaving you with more time to focus on decision-making rather than administrative tasks.</p>\n</li>\n</ul>\n",
+        "svgicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\r\n  <path fill-rule=\"evenodd\" d=\"M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z\" clip-rule=\"evenodd\" />\r\n</svg>\r\n"
     },
     {
-        icon: '',
-        title: "Communicate",
-        description: "Connect and collaborate seamlessly.",
+        "title": "Travel Planning",
+        "description": "<ul>\n<li data-start=\"1302\" data-end=\"1423\">\n<p data-start=\"1304\" data-end=\"1423\"><strong data-start=\"1304\" data-end=\"1313\">Task:</strong> Your VA will handle all travel arrangements—flights, accommodations, visas, itineraries—so you don’t have to.</p>\n</li>\n<li data-start=\"1427\" data-end=\"1570\">\n<p data-start=\"1429\" data-end=\"1570\"><strong data-start=\"1429\" data-end=\"1441\">Outcome:</strong> Travel logistics are taken care of, and you can focus on your meetings and business while the VA ensures everything is seamless.</p>\n</li>\n</ul>\n",
+        "svgicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\r\n  <path d=\"M15.75 8.25a.75.75 0 0 1 .75.75c0 1.12-.492 2.126-1.27 2.812a.75.75 0 1 1-.992-1.124A2.243 2.243 0 0 0 15 9a.75.75 0 0 1 .75-.75Z\" />\r\n  <path fill-rule=\"evenodd\" d=\"M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM4.575 15.6a8.25 8.25 0 0 0 9.348 4.425 1.966 1.966 0 0 0-1.84-1.275.983.983 0 0 1-.97-.822l-.073-.437c-.094-.565.25-1.11.8-1.267l.99-.282c.427-.123.783-.418.982-.816l.036-.073a1.453 1.453 0 0 1 2.328-.377L16.5 15h.628a2.25 2.25 0 0 1 1.983 1.186 8.25 8.25 0 0 0-6.345-12.4c.044.262.18.503.389.676l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.575 15.6Z\" clip-rule=\"evenodd\" />\r\n</svg>\r\n"
     },
+    {
+        "title": "Market Research & Competitor Analysis",
+        "description": "<ul>\n<li data-start=\"1622\" data-end=\"1778\">\n<p data-start=\"1624\" data-end=\"1778\"><strong data-start=\"1624\" data-end=\"1633\">Task:</strong> Your VA performs thorough market scans, competitor research, and trend analysis to provide actionable insights without diving into endless data.</p>\n</li>\n<li data-start=\"1782\" data-end=\"1914\">\n<p data-start=\"1784\" data-end=\"1914\"><strong data-start=\"1784\" data-end=\"1796\">Outcome:</strong> You’ll receive clear, concise reports that help you stay ahead of the competition and make informed decisions faster.</p>\n</li>\n</ul>\n",
+        "svgicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\r\n  <path d=\"M11.625 16.5a1.875 1.875 0 1 0 0-3.75 1.875 1.875 0 0 0 0 3.75Z\" />\r\n  <path fill-rule=\"evenodd\" d=\"M5.625 1.5H9a3.75 3.75 0 0 1 3.75 3.75v1.875c0 1.036.84 1.875 1.875 1.875H16.5a3.75 3.75 0 0 1 3.75 3.75v7.875c0 1.035-.84 1.875-1.875 1.875H5.625a1.875 1.875 0 0 1-1.875-1.875V3.375c0-1.036.84-1.875 1.875-1.875Zm6 16.5c.66 0 1.277-.19 1.797-.518l1.048 1.048a.75.75 0 0 0 1.06-1.06l-1.047-1.048A3.375 3.375 0 1 0 11.625 18Z\" clip-rule=\"evenodd\" />\r\n  <path d=\"M14.25 5.25a5.23 5.23 0 0 0-1.279-3.434 9.768 9.768 0 0 1 6.963 6.963A5.23 5.23 0 0 0 16.5 7.5h-1.875a.375.375 0 0 1-.375-.375V5.25Z\" />\r\n</svg>\r\n"
+    },
+    {
+        "title": "Document & Presentation Creation",
+        "description": "<ul>\n<li data-start=\"1963\" data-end=\"2105\"><strong data-start=\"1963\" data-end=\"1972\">Task:</strong> Your VA will help create, edit, and proofread key business documents—be it sales decks, investor updates, or internal presentations.</li>\n<li data-start=\"2109\" data-end=\"2248\">\n<p data-start=\"2111\" data-end=\"2248\"><strong data-start=\"2111\" data-end=\"2123\">Outcome:</strong> Your documents will always be polished and professional, ready for board meetings, investor calls, and client presentations.</p>\n</li>\n</ul>\n",
+        "svgicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\r\n  <path fill-rule=\"evenodd\" d=\"M7.502 6h7.128A3.375 3.375 0 0 1 18 9.375v9.375a3 3 0 0 0 3-3V6.108c0-1.505-1.125-2.811-2.664-2.94a48.972 48.972 0 0 0-.673-.05A3 3 0 0 0 15 1.5h-1.5a3 3 0 0 0-2.663 1.618c-.225.015-.45.032-.673.05C8.662 3.295 7.554 4.542 7.502 6ZM13.5 3A1.5 1.5 0 0 0 12 4.5h4.5A1.5 1.5 0 0 0 15 3h-1.5Z\" clip-rule=\"evenodd\" />\r\n  <path fill-rule=\"evenodd\" d=\"M3 9.375C3 8.339 3.84 7.5 4.875 7.5h9.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 0 1 3 20.625V9.375Zm9.586 4.594a.75.75 0 0 0-1.172-.938l-2.476 3.096-.908-.907a.75.75 0 0 0-1.06 1.06l1.5 1.5a.75.75 0 0 0 1.116-.062l3-3.75Z\" clip-rule=\"evenodd\" />\r\n</svg>\r\n"
+    },
+    {
+        "title": "Data Organization & Reporting",
+        "description": "<ul>\n<li data-start=\"2292\" data-end=\"2428\">\n<p data-start=\"2294\" data-end=\"2428\"><strong data-start=\"2294\" data-end=\"2303\">Task:</strong> Instead of you spending hours on spreadsheets, your VA organizes data and presents it in easy-to-understand visual reports.</p>\n</li>\n<li data-start=\"2432\" data-end=\"2549\">\n<p data-start=\"2434\" data-end=\"2549\"><strong data-start=\"2434\" data-end=\"2446\">Outcome:</strong> Save time, get a clearer view of your numbers, and make faster decisions with data at your fingertips.</p>\n</li>\n</ul>\n",
+        "svgicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\r\n  <path d=\"M21 6.375c0 2.692-4.03 4.875-9 4.875S3 9.067 3 6.375 7.03 1.5 12 1.5s9 2.183 9 4.875Z\" />\r\n  <path d=\"M12 12.75c2.685 0 5.19-.586 7.078-1.609a8.283 8.283 0 0 0 1.897-1.384c.016.121.025.244.025.368C21 12.817 16.97 15 12 15s-9-2.183-9-4.875c0-.124.009-.247.025-.368a8.285 8.285 0 0 0 1.897 1.384C6.809 12.164 9.315 12.75 12 12.75Z\" />\r\n  <path d=\"M12 16.5c2.685 0 5.19-.586 7.078-1.609a8.282 8.282 0 0 0 1.897-1.384c.016.121.025.244.025.368 0 2.692-4.03 4.875-9 4.875s-9-2.183-9-4.875c0-.124.009-.247.025-.368a8.284 8.284 0 0 0 1.897 1.384C6.809 15.914 9.315 16.5 12 16.5Z\" />\r\n  <path d=\"M12 20.25c2.685 0 5.19-.586 7.078-1.609a8.282 8.282 0 0 0 1.897-1.384c.016.121.025.244.025.368 0 2.692-4.03 4.875-9 4.875s-9-2.183-9-4.875c0-.124.009-.247.025-.368a8.284 8.284 0 0 0 1.897 1.384C6.809 19.664 9.315 20.25 12 20.25Z\" />\r\n</svg>\r\n"
+    },
+    {
+        "title": "Deadlines Management",
+        "description": "<ul>\n<li data-start=\"2603\" data-end=\"2738\">\n<p data-start=\"2605\" data-end=\"2738\"><strong data-start=\"2605\" data-end=\"2614\">Task:</strong> Your VA will track deadlines, set reminders, and keep projects moving forward—ensuring tasks don’t slip through the cracks.</p>\n</li>\n<li data-start=\"2742\" data-end=\"2868\">\n<p data-start=\"2744\" data-end=\"2868\"><strong data-start=\"2744\" data-end=\"2756\">Outcome:</strong> Projects stay on track, and you don’t have to worry about missing deadlines or juggling multiple tasks at once.</p>\n</li>\n</ul>\n",
+        "svgicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\r\n  <path fill-rule=\"evenodd\" d=\"M2.25 2.25a.75.75 0 0 0 0 1.5H3v10.5a3 3 0 0 0 3 3h1.21l-1.172 3.513a.75.75 0 0 0 1.424.474l.329-.987h8.418l.33.987a.75.75 0 0 0 1.422-.474l-1.17-3.513H18a3 3 0 0 0 3-3V3.75h.75a.75.75 0 0 0 0-1.5H2.25Zm6.54 15h6.42l.5 1.5H8.29l.5-1.5Zm8.085-8.995a.75.75 0 1 0-.75-1.299 12.81 12.81 0 0 0-3.558 3.05L11.03 8.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l2.47-2.47 1.617 1.618a.75.75 0 0 0 1.146-.102 11.312 11.312 0 0 1 3.612-3.321Z\" clip-rule=\"evenodd\" />\r\n</svg>\r\n"
+    },
+    {
+        "title": "HR & Recruitment Support",
+        "description": "<ul>\n<li data-start=\"2907\" data-end=\"3040\">\n<p data-start=\"2909\" data-end=\"3040\"><strong data-start=\"2909\" data-end=\"2918\">Task:</strong> From drafting job descriptions to scheduling interviews and managing employee data, your VA handles all HR-related tasks.</p>\n</li>\n<li data-start=\"3044\" data-end=\"3148\">\n<p data-start=\"3046\" data-end=\"3148\"><strong data-start=\"3046\" data-end=\"3058\">Outcome:</strong> You can scale your team smoothly without getting bogged down in recruitment and HR admin.</p>\n</li>\n</ul>\n",
+        "svgicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\r\n  <path fill-rule=\"evenodd\" d=\"M2.25 13.5a8.25 8.25 0 0 1 8.25-8.25.75.75 0 0 1 .75.75v6.75H18a.75.75 0 0 1 .75.75 8.25 8.25 0 0 1-16.5 0Z\" clip-rule=\"evenodd\" />\r\n  <path fill-rule=\"evenodd\" d=\"M12.75 3a.75.75 0 0 1 .75-.75 8.25 8.25 0 0 1 8.25 8.25.75.75 0 0 1-.75.75h-7.5a.75.75 0 0 1-.75-.75V3Z\" clip-rule=\"evenodd\" />\r\n</svg>\r\n"
+    },
+    {
+        "title": "SOP Creation & Process Documentation",
+        "description": "<ul>\n<li data-start=\"3199\" data-end=\"3346\">\n<p data-start=\"3201\" data-end=\"3346\"><strong data-start=\"3201\" data-end=\"3210\">Task:</strong> Your VA helps you create and document Standard Operating Procedures (SOPs), ensuring your team follows efficient, repeatable processes.</p>\n</li>\n<li data-start=\"3350\" data-end=\"3460\">\n<p data-start=\"3352\" data-end=\"3460\"><strong data-start=\"3352\" data-end=\"3364\">Outcome:</strong> Your business runs more efficiently, and new team members onboard faster with clear guidelines.</p>\n</li>\n</ul>\n",
+        "svgicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\r\n  <path fill-rule=\"evenodd\" d=\"M6.32 1.827a49.255 49.255 0 0 1 11.36 0c1.497.174 2.57 1.46 2.57 2.93V19.5a3 3 0 0 1-3 3H6.75a3 3 0 0 1-3-3V4.757c0-1.47 1.073-2.756 2.57-2.93ZM7.5 11.25a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H8.25a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H8.25Zm-.75 3a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H8.25a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V18a.75.75 0 0 0-.75-.75H8.25Zm1.748-6a.75.75 0 0 1 .75-.75h.007a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.007a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.335.75.75.75h.007a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75h-.007Zm-.75 3a.75.75 0 0 1 .75-.75h.007a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.007a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.335.75.75.75h.007a.75.75 0 0 0 .75-.75V18a.75.75 0 0 0-.75-.75h-.007Zm1.754-6a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75h-.008Zm-.75 3a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V18a.75.75 0 0 0-.75-.75h-.008Zm1.748-6a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75h-.008Zm-8.25-6A.75.75 0 0 1 8.25 6h7.5a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-7.5a.75.75 0 0 1-.75-.75v-.75Zm9 9a.75.75 0 0 0-1.5 0V18a.75.75 0 0 0 1.5 0v-2.25Z\" clip-rule=\"evenodd\" />\r\n</svg>\r\n"
+    },
+    {
+        "title": "Investor Relations Management",
+        "description": "<ul>\n<li data-start=\"3506\" data-end=\"3647\">\n<p data-start=\"3508\" data-end=\"3647\"><strong data-start=\"3508\" data-end=\"3517\">Task:</strong> Your VA will manage investor communications, keeping them updated with progress reports, follow-ups, and necessary documentation.</p>\n</li>\n<li data-start=\"3652\" data-end=\"3768\">\n<p data-start=\"3654\" data-end=\"3768\"><strong data-start=\"3654\" data-end=\"3666\">Outcome:</strong> Your investors stay informed and happy, without you needing to handle every single update personally.</p>\n</li>\n</ul>\n",
+        "svgicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\r\n  <path d=\"M11.25 5.337c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.036 1.007-1.875 2.25-1.875S15 2.34 15 3.375c0 .369-.128.713-.349 1.003-.215.283-.401.604-.401.959 0 .332.278.598.61.578 1.91-.114 3.79-.342 5.632-.676a.75.75 0 0 1 .878.645 49.17 49.17 0 0 1 .376 5.452.657.657 0 0 1-.66.664c-.354 0-.675-.186-.958-.401a1.647 1.647 0 0 0-1.003-.349c-1.035 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401.31 0 .557.262.534.571a48.774 48.774 0 0 1-.595 4.845.75.75 0 0 1-.61.61c-1.82.317-3.673.533-5.555.642a.58.58 0 0 1-.611-.581c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.035-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959a.641.641 0 0 1-.658.643 49.118 49.118 0 0 1-4.708-.36.75.75 0 0 1-.645-.878c.293-1.614.504-3.257.629-4.924A.53.53 0 0 0 5.337 15c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.036 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.369 0 .713.128 1.003.349.283.215.604.401.959.401a.656.656 0 0 0 .659-.663 47.703 47.703 0 0 0-.31-4.82.75.75 0 0 1 .83-.832c1.343.155 2.703.254 4.077.294a.64.64 0 0 0 .657-.642Z\" />\r\n</svg>\r\n"
+    },
+    {
+        "title": "Customer Support Management",
+        "description": "<ul>\n<li data-start=\"117\" data-end=\"258\">\n<p data-start=\"119\" data-end=\"258\"><strong data-start=\"119\" data-end=\"128\">Task:</strong> Your VA will manage customer inquiries, respond to support tickets, and provide timely solutions, ensuring customer satisfaction.</p>\n</li>\n<li data-start=\"262\" data-end=\"378\">\n<p data-start=\"264\" data-end=\"378\"><strong data-start=\"264\" data-end=\"276\">Outcome:</strong> Your customers will get quick responses, and you won’t be tied down with day-to-day support requests.</p>\n</li>\n</ul>\n",
+        "svgicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\r\n  <path fill-rule=\"evenodd\" d=\"M12 2.25a.75.75 0 0 1 .75.75v.756a49.106 49.106 0 0 1 9.152 1 .75.75 0 0 1-.152 1.485h-1.918l2.474 10.124a.75.75 0 0 1-.375.84A6.723 6.723 0 0 1 18.75 18a6.723 6.723 0 0 1-3.181-.795.75.75 0 0 1-.375-.84l2.474-10.124H12.75v13.28c1.293.076 2.534.343 3.697.776a.75.75 0 0 1-.262 1.453h-8.37a.75.75 0 0 1-.262-1.453c1.162-.433 2.404-.7 3.697-.775V6.24H6.332l2.474 10.124a.75.75 0 0 1-.375.84A6.723 6.723 0 0 1 5.25 18a6.723 6.723 0 0 1-3.181-.795.75.75 0 0 1-.375-.84L4.168 6.241H2.25a.75.75 0 0 1-.152-1.485 49.105 49.105 0 0 1 9.152-1V3a.75.75 0 0 1 .75-.75Zm4.878 13.543 1.872-7.662 1.872 7.662h-3.744Zm-9.756 0L5.25 8.131l-1.872 7.662h3.744Z\" clip-rule=\"evenodd\" />\r\n</svg>\r\n"
+    },
+    {
+        "title": "Content Creation & Copywriting",
+        "description": "<ul>\n<li data-start=\"729\" data-end=\"855\">\n<p data-start=\"731\" data-end=\"855\"><strong data-start=\"731\" data-end=\"740\">Task:</strong> Your VA can write blog posts, newsletters, and other marketing content, as well as proofread and edit your drafts.</p>\n</li>\n<li data-start=\"859\" data-end=\"990\">\n<p data-start=\"861\" data-end=\"990\"><strong data-start=\"861\" data-end=\"873\">Outcome:</strong> Consistent, high-quality content will be produced, enhancing your brand’s visibility and saving you time on writing.</p>\n</li>\n</ul>\n",
+        "svgicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\r\n  <path d=\"M5.25 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM2.25 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM18.75 7.5a.75.75 0 0 0-1.5 0v2.25H15a.75.75 0 0 0 0 1.5h2.25v2.25a.75.75 0 0 0 1.5 0v-2.25H21a.75.75 0 0 0 0-1.5h-2.25V7.5Z\" />\r\n</svg>\r\n"
+    }
 ];
 
-const ImagineTask: React.FC = () => (
-    <section className="text-white bg-oveblue/80 py-12 dark:py-12 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
-        <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-2">
-                Imagine Your Remote Assistant Doing All These Tasks for You...
-            </h2>
-            <p>In today's fast-paced business environment, efficiency and cost-effectiveness are paramount. Many businesses, from startups to established enterprises, are turning to virtual assistants (VAs) to streamline operations, reduce overhead, and free up valuable time for core business activities. However, the quality and reliability of VA services can vary significantly.</p>
-        </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {cards.map((card, idx) => (
-                <div
-                    key={idx}
-                    className="bg-white rounded-xl shadow-md p-6 border border-black flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer"
-                >
-                    <div className="mb-4">{card.icon}</div>
-                    <h3 className="text-lg font-semibold mb-2 text-black">{card.title}</h3>
-                    <p className="text-gray-600">{card.description}</p>
+const ImagineTask = (Information:any) => {
+    let caricon = Information?.Information?.cards ?? cards;
+    return(
+        <section className="text-white bg-oveblue/10 py-12 dark:py-12 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+            <div className="mx-auto p-2 py-3 text-black text-center w-full">
+                <h2 className="text-3xl font-bold mb-2">
+                    {Information?.Information?.title ?? 'Imagine Your Remote Assistant Doing All These Tasks for You...'}
+                </h2>
+                <div className="">
+                    <span dangerouslySetInnerHTML={{__html:Information?.Information?.description ?? "In today's fast-paced business environment, efficiency and cost-effectiveness are paramount. Many businesses, from startups to established enterprises, are turning to virtual assistants (VAs) to streamline operations, reduce overhead, and free up valuable time for core business activities. However, the quality and reliability of VA services can vary significantly."}}/>
                 </div>
-            ))}
-        </div>
-    </section>
-);
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+                {caricon.map((card:any, idx:number) => (
+                    <div
+                        key={idx}
+                        className="bg-white rounded-xl shadow-md p-6 border border-black flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer"
+                    >
+                        <div className="mb-4 text-oveblue w-10">
+                            <span dangerouslySetInnerHTML={{__html:card.svgicon}}/>
+                        </div>
+                        <h3 className="text-lg font-semibold mb-2 text-black">{card.title}</h3>
+                        <div className="text-gray-600">
+                            <span dangerouslySetInnerHTML={{__html:card.description}}/>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+}
 
 export default ImagineTask;

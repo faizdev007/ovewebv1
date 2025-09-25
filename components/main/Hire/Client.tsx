@@ -4,10 +4,10 @@ import Image from "next/image";
 import Rating from "../../Rating";
 import TestimonialDev from "../../TestimonialDev";
 
-const Client = (Testimonials:any) => {
+const Client = (Testimonials:any,bgColor=null) => {
     return(
         <>  
-            <section className="pb-12 dark:py-12 bg-black flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+            <section className={`pb-12 dark:py-12 flex flex-col gap-6 relative px-4 py-8 sm:px-6 lg:px-8 mx-auto ${bgColor ?? 'bg-black'}`}>
                 <h2 className="text-3xl xl:text-5xl mb-4 font-bold text-center text-white">{Testimonials?.Testimonials?.title ?? 'Here are a few words shared by our Clients'}</h2>
                 <div className="h-20 aspect-[3/1] overflow-hidden">
                     <Image src={'/assets/google.webp'} alt="employee" width={500} height={500} className="mx-auto object-cover flex justify-center items-center w-32 aspect-[3/1] rounded-lg shadow-lg"/>

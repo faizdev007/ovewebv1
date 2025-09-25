@@ -1,11 +1,10 @@
-'use client';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Rating from "../Rating";
 import { onlyNumber } from '@/app/globals'; // adjust path if needed
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const HeroSection = (HeroData:any) => {
-    // console.log(HeroData);
+const ModalForm = () => {
     const router = useRouter();
     const [formData, setFormData] = useState({
         name: '',
@@ -14,8 +13,16 @@ const HeroSection = (HeroData:any) => {
         message: '',
     });
 
+    const pointdata = [
+        '60% saving on labour cost',
+        'No recruitment cost',
+        'No upfront Capital cost. We provide the infrastructure.',
+        'One invoice. No hidden costs.',
+    ]
+
     const [resMessage, setresMessage] = useState('');
     const [status, setStatus] = useState(false);
+    const [darkmod, setdarkmod] = useState(false);
     const [loading, setLoading] = useState(true);
     const [MessageBlock, setMessageBlock] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -40,10 +47,10 @@ const HeroSection = (HeroData:any) => {
             if (res.ok) {
                 sessionStorage.setItem("thankyoucall", "true");
                 router.push('/thank-you');
-                setFormData({ name: '', email: '', phone: '', message: '' });
                 setresMessage('Message Send Successfully!');
                 setMessageBlock(true);
                 setStatus(false);
+                setFormData({ name: '', email: '', phone: '', message: '' });
             } else {
                 setError('Failed to send message. Please try again later.');
                 setMessageBlock(true);
@@ -61,19 +68,36 @@ const HeroSection = (HeroData:any) => {
         },2000)
     };
 
+     useEffect(() => {
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setdarkmod(isDarkMode);
+    }, []);
     return (
-        <section className="flex flex-col lg:flex-row justify-between md:px-6 px-2 py-12 oveVA">
+        <section className="flex flex-col lg:flex-row justify-between">
             {/* Text Content */}
-            <div className="lg:w-1/2 w-full mb-8 lg:mb-0">
+            <div className="lg:w-1/2 w-full mb-8 lg:mb-0 md:block hidden">
+                <a href={'/'} className="flex items-center">
+                    { darkmod ? (
+                        <Image loading='eager' priority src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
+                    ) : (
+                        <Image loading='eager' priority src={"/assets/logo.webp"} width={500} height={450} className='h-12 w-auto' alt="OVE" />
+                    ) }
+                </a>
+                <div className="mb-10">
+                    <ul className="mt-5 space-y-3">
+                        {pointdata.map((item,number)=>(
+                            <li key={number} className="flex items-start gap-3">
+                                <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full ring-1 bg-green-500 ring-green-400/50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.5 12.75l6 6 9-13.5"/>
+                                    </svg>
+                                </span>
+                                <span className="text-gray-800">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
                 <div className="mx-auto max-w-3xl">
-                    <div className="mb-5 font-bold hidden">FULLY MANAGED</div>
-                    <div className="text-4xl mb-4">
-                        <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.herotitle ?? 'OVE Virtual Assistance to Help You Get Things Done'}}/>
-                    </div>
-                    <div className="text-lg mb-6 vahero">
-                        <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.herodescription ?? 'Get expert help for your business needs. Fill out the form to get started with our virtual assistance services.'}}/>
-                    </div>
-                    
                     <div className="">
                         <h2 className="flex gap-1 items-center md:justify-start justify-center font-bold text-md"><span>RATED </span><Rating rating={5}/><span> ON</span></h2>
                         <div className="flex flex-wrap justify-center md:flex-nowrap md:justify-start gap-2 mt-4">
@@ -88,15 +112,10 @@ const HeroSection = (HeroData:any) => {
 
             {/* Form */}
             <div className="lg:w-1/2 w-full">
-                <div className="max-w-lg mx-auto bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden">
-                    <div className="text-center flex text-white flex-col gap-2 bg-oveblue/70 p-3">
-                        <h2 className="text-3xl md:text-nowrap font-bold">
-                            <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.heroformsection?.formtitle ?? "Get In Touch"}}/>
-                        </h2>
-                        <div><span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.heroformsection?.formsubtitle ?? "Same-Day Response | Strict NDA, 100% Confidential" }}/></div>
-                    </div>
-                    <hr className=""></hr>
-                    <form onSubmit={handleSubmit}  className="space-y-4 md:p-8 p-4">
+                <div className="mx-auto overflow-hidden">
+                    <h2 className="text-3xl md:text-nowrap text-center font-bold mb-2">Book Your Free Consultation</h2>
+                    <p className="text-center">Get 3 Shortlisted VAs in Just 24 Hours</p>
+                    <form onSubmit={handleSubmit}  className="space-y-4">
                         <div className="mt-1 flex w-full border overflow-hidden border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                             <label htmlFor="name" className="hidden text-sm font-medium text-gray-700">
                                 Full Name *
@@ -108,8 +127,8 @@ const HeroSection = (HeroData:any) => {
                             </span>
                             <input
                                 name="name"
-                                type="text"
                                 id="name"
+                                type="text"
                                 className="p-2 w-full rounded-e-md"
                                 placeholder="Enter Full Name"
                                 value={formData.name} onChange={handleChange}
@@ -159,8 +178,8 @@ const HeroSection = (HeroData:any) => {
                                 </svg>
                                 <textarea
                                     name="message"
-                                    rows={4}
                                     id="message"
+                                    rows={4}
                                     className="mt-1 ps-8 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
                                     placeholder="Enter Your Requirements"
                                     value={formData.message} onChange={handleChange}
@@ -173,7 +192,7 @@ const HeroSection = (HeroData:any) => {
                             type="submit"
                             className="w-full bg-blue-600 p-4 text-white uppercase cursor-pointer rounded-md font-semibold hover:bg-blue-700 transition"
                             disabled={status}
-                        >
+                            >
                             {status ? (
                                 <span className="flex items-center text-center justify-center gap-2">
                                     <svg
@@ -193,7 +212,7 @@ const HeroSection = (HeroData:any) => {
                                     Sending...
                                 </span>
                                 ) : (
-                                    <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.heroformsection?.formbuttontext ?? "Book Your Free Consultation"}}/>
+                                'Book Your Free Consultation'
                                 )}
                         </button>
                         <p className="text-center text-xs">*No strings attached, just actionable insights.</p>
@@ -204,4 +223,4 @@ const HeroSection = (HeroData:any) => {
     );
 };
 
-export default HeroSection;
+export default ModalForm;

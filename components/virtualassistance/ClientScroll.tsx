@@ -29,20 +29,20 @@ const logos = [
   '/assets/companies/company25.webp',
 ];
 
-export default function SkillsVA(Skills:any) {
+export default function ClientScroll(Skills:any) {
   let icones = Skills?.Skills?.icons ?? logos;
   const { elementRef, isVisible } = useInView();
   return (
-    <section ref={elementRef} className="py-12 flex dark:py-12 flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+    <section ref={elementRef} className="pb-12 flex dark:py-12 flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
       <div className={`flex items-center overflow-hidden animate-fade animate-once animate-ease-linear`}>
         {/* Left Static Text */}
-        <div className="min-w-[150px] pe-2">
-          <h2 className='text-lg md:text-2xl font-bold'>{Skills?.Skills?.title ?? "Our OVE Come"}</h2>
-          <p className="md:text-sm text-sm text-gray-400">{Skills?.Skills?.subtitle ?? "Fully Traind In:"}</p>
+        <div className="min-w-[150px] hidden pe-2">
+          <h2 className='text-lg md:text-2xl font-bold'>{"Our OVE Come"}</h2>
+          <p className="md:text-sm text-sm text-gray-400">{"Fully Traind In:"}</p>
         </div>
 
         {/* Marquee Section */}
-        <div className="flex-1 pe-4 border-s-2 border-gray-300 overflow-hidden relative">
+        <div className="flex-1 border-x-2 border-gray-300 overflow-hidden relative">
           <div className="relative flex-1 gap-4 overflow-hidden px-4 sm:px-6 lg:px-8 mx-auto ">
               <div className="logo-slider flex w-max md:space-x-8 space-x-4">
                   {icones.map((logo:string, index:number) => (

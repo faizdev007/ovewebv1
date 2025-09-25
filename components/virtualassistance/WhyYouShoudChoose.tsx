@@ -2,7 +2,7 @@
 import React from "react";
 import Rating from "../Rating";
 
-const WhyYourShouldChoose: React.FC = () => {
+const WhyYourShouldChoose = () => {
     return (
         <section className="flex-col hidden md:flex-row items-center justify-between md:px-6 px-2 py-12 bg-oveblue">
             {/* Text Content */}

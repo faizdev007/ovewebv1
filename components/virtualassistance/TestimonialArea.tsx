@@ -4,15 +4,15 @@ import React ,{ useEffect, useState } from "react";
 
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css'; 
-import Rating from "./Rating";
+import 'slick-carousel/slick/slick-theme.css';
+import Rating from "../Rating";
 
 
 
 function SampleNextArrow(props:any) {
   const { onClick } = props;
   return (
-    <div className='absolute z-20 h-full top-0 p-2 end-0 flex justify-end items-center' style={{background: `linear-gradient(270deg,rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%)`}}>
+    <div className='absolute z-20 h-full top-0 p-2 end-0 flex justify-end items-center'>
       <div
         className={`bg-oveblue/40 w-12 h-12 rounded-full !flex !justify-center !items-center hover:bg-oveblue/90 border-3 border-white cursor-pointer font-bold`}
         onClick={onClick}
@@ -28,7 +28,7 @@ function SampleNextArrow(props:any) {
 function SamplePrevArrow(props:any) {
   const { className, style, onClick } = props;
   return (
-    <div className='absolute z-20 h-full top-0 p-2 start-0 flex justify-end items-center' style={{background: `linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%)`}}>
+    <div className='absolute z-20 h-full top-0 p-2 start-0 flex justify-end items-center'>
       <div
         className={`bg-oveblue/40 w-12 h-12 rounded-full opacity-90 !flex !justify-center !items-center hover:!bg-blue-600 border-3 border-white cursor-pointer font-bold`}
         onClick={onClick}
@@ -50,10 +50,11 @@ const demodata = [
   {title: 'David Lee', slug: 'david-lee', content: '<p><span data-teams="true"><i>We scaled our engine…municative, and extremely skilled</i></span></p>\n', clientRating: {rating: 5}},
 ];
 
-export default function TestimonialDev(ClientTestimonials:any) {
-    const testimonials = ClientTestimonials?.ClientTestimonials ?? demodata;
-    
-    const [expended, setExpanded] = useState<number | null>(null);
+export default function TestimonialArea(ClientTestimonials:any) {
+  
+  const [expended, setExpanded] = useState<number | null>(null);
+  
+  const testimonials = ClientTestimonials?.ClientTestimonials ?? demodata;
 
     const toggle = (index: number | null = null) => {
       setExpanded(index === expended ? null : index);

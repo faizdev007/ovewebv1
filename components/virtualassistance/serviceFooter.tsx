@@ -16,9 +16,9 @@ export default function ServiceFooter() {
 
     return (
         <>
-         <div className={`relative ${loading ? ' hidden' : ''}`}>
+         <div className={`relative block`}>
             <div className="gird divide-y-2 divide-gray-300 relative">
-                <div className="px-4 py-2">
+                <div className="px-4 pt-10 pb-3">
                     <div className="container mx-auto grid gap-10 lg:grid-cols-5">
                         {/* Left Section */}
                         <div className="lg:col-span-2">
@@ -46,13 +46,8 @@ export default function ServiceFooter() {
                         <div>
                             <h3 className="font-semibold mb-4">Discover more</h3>
                             <ul className="space-y-2 text-sm text-gray-600">
-                            <li><a href="#" className="hover:text-gray-900">Industries We Serve</a></li>
-                            <li><a href="#" className="hover:text-gray-900">Why DonnaPro</a></li>
-                            <li><a href="#" className="hover:text-gray-900">Services</a></li>
-                            <li><a href="#" className="hover:text-gray-900">Countries</a></li>
-                            <li><a href="#" className="hover:text-gray-900">Pricing</a></li>
-                            <li><a href="#" className="hover:text-gray-900">Blog</a></li>
-                            <li><a href="#" className="hover:text-gray-900">Affiliate</a></li>
+                                <li><a href="#WWS" className="hover:text-gray-900">Industries We Serve</a></li>
+                                <li><a href="#SWS" className="hover:text-gray-900">Services</a></li>
                             </ul>
                         </div>
 
@@ -60,21 +55,23 @@ export default function ServiceFooter() {
                         <div>
                             <h3 className="font-semibold mb-4">Company</h3>
                             <ul className="space-y-2 text-sm text-gray-600">
-                            <li><a href="#" className="hover:text-gray-900">Our Story</a></li>
-                            <li><a href="#" className="hover:text-gray-900">Careers</a></li>
-                            <li><a href="#" className="hover:text-gray-900">FAQs</a></li>
-                            <li><a href="#" className="hover:text-gray-900">Press</a></li>
-                            <li><a href="#" className="hover:text-gray-900">Contact</a></li>
+                            <li><a href="#FAQ" className="hover:text-gray-900">FAQs</a></li>
+                            <li><a href="/contact-us" className="hover:text-gray-900">Contact Us</a></li>
                             </ul>
                         </div>
 
                         {/* Legal */}
-                        <div>
-                            <h3 className="font-semibold mb-4">Legal</h3>
-                            <ul className="space-y-2 text-sm text-gray-600">
-                            <li><a href="#" className="hover:text-gray-900">Privacy</a></li>
-                            <li><a href="#" className="hover:text-gray-900">Terms</a></li>
-                            </ul>
+                        <div className="flex flex-col justify-between">
+                            <div className="">
+                                <h3 className="font-semibold mb-4">Legal</h3>
+                                <ul className="space-y-2 text-sm text-gray-600">
+                                <li><a href="/privacy-policy" className="hover:text-gray-900">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                            <div className="flex gap-1 justify-center items-center mt-10">
+                                <Image src={'/assets/ssl-secure.webp'} width={120} height={60}  alt={'GDPR'}/>
+                                <Image src={'/assets/GDPR.webp'} width={120} height={60}  alt={'GDPR'}/>
+                            </div>
                         </div>
                         </div>
                     </div>
