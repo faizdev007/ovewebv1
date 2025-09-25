@@ -96,7 +96,7 @@ const companyM = [{
       <header className="bg-white text-sm dark:bg-gray-700 text-black dark:text-white shadow-md sticky top-0 z-50">
         <div className="mx-auto flex items-center justify-between px-4 py-2 relative">
           {/* Logo */}
-          <a href={'/'} className="flex items-center">
+          <a href={'#'} className="flex items-center">
             { darkmod ? (
               <Image loading='eager' priority src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
             ) : (
