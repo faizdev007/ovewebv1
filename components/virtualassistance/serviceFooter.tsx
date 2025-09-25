@@ -24,7 +24,7 @@ export default function ServiceFooter() {
                         <div className="lg:col-span-2">
                             {/* Logo */}
                             <div className="flex items-center gap-2 mb-4">
-                                <a href={'/'} className="flex items-center">
+                                <a href={'#'} className="flex items-center">
                                     { darkmod ? (
                                     <Image loading='eager' priority src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
                                     ) : (
