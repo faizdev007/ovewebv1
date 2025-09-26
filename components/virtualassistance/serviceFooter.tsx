@@ -18,8 +18,8 @@ export default function ServiceFooter() {
         <>
          <div className={`relative block`}>
             <div className="gird divide-y-2 divide-gray-300 relative">
-                <div className="px-4 pt-10 pb-3">
-                    <div className="container mx-auto grid gap-10 lg:grid-cols-5">
+                <div className="pb-12 flex dark:py-12 flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+                    <div className="mx-auto grid gap-10 lg:grid-cols-5">
                         {/* Left Section */}
                         <div className="lg:col-span-2">
                             {/* Logo */}
