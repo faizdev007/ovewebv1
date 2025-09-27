@@ -10,16 +10,19 @@ export async function GET() {
 export async function POST(request) {
     const data = await request.json();
     const transporter = nodemailer.createTransport({
-        service: 'gmail', // or use SMTP
+        host: "smtp.office365.com",   // Microsoft/Outlook SMTP host
+        port: 587,                    // TLS port
+        secure: false,                // Use TLS, but not SSL directly
         auth: {
-        user: 'faizdev007@gmail.com',     // Your email
-        pass: 'sekmsdpycyaonbnk',     // App password (not your real password!)
+            user: "enquiry1@optimalvirtualemployee.com",   // Your Microsoft email
+            pass: "Optimal@2025", // Password or App Password
         },
+        requireTLS: true,
     });
 
     try {
         await transporter.sendMail({
-        from: `"${data.name}" <${data.email}>`,
+        from: `"OVE" <enquiry1@optimalvirtualemployee.com>`,
         to: ['faizdev007@gmail.com','Nakul@optimalvirtualemployee.com','ronnie@optimalvirtualemployee.com','dshah@optimalvirtualemployee.com'], // Your receiving email address,'Nakul@optimalvirtualemployee.com'
         subject: 'New Form Submission',
         html: `<!DOCTYPE html>
