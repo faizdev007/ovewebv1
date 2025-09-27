@@ -1,4 +1,37 @@
-env:
-  EMAIL_USER: ${{ secrets.EMAIL_USER }}
-  EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-  EMAIL_TO: ${{ secrets.EMAIL_TO }}
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main   # Change this if your deployment branch is different
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      EMAIL_USER: ${{ secrets.EMAIL_USER }}
+      EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+      EMAIL_TO: ${{ secrets.EMAIL_TO }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18   # Adjust to match your Next.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Next.js project
+        run: npm run build
+
+      - name: Deploy to Firebase Hosting
+        uses: w9jds/firebase-action@v2.2.0
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_DEPLOY_TOKEN }}
