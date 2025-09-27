@@ -19,7 +19,7 @@ export async function POST(request) {
 
     try {
         await transporter.sendMail({
-        from: `"${data.name}" <${data.email}>`,
+        from: `"OVE" <faizdev007@gmail.com>`,
         to: ['faizdev007@gmail.com'], // Your receiving email address ,'Nakul@optimalvirtualemployee.com','ronnie@optimalvirtualemployee.com','dshah@optimalvirtualemployee.com'
         subject: 'New Form Submission',
         html: `<!DOCTYPE html>
