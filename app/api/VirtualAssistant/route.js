@@ -9,25 +9,12 @@ export async function GET() {
 
 export async function POST(request) {
     const data = await request.json();
-    // const transporter = nodemailer.createTransport({
-    //     service: 'gmail', // or use SMTP
-    //     auth: {
-    //     user: 'faizdev007@gmail.com',     // Your email
-    //     pass: 'sekmsdpycyaonbnk',     // App password (not your real password!)
-    //     },
-    // });
-
     const transporter = nodemailer.createTransport({
-        host: "smtp.office365.com",   // Microsoft/Outlook SMTP host
-        port: 587,                    // TLS port
-        secure: false,                // Use TLS, but not SSL directly
+        service: 'gmail', // or use SMTP
         auth: {
-            user: "enquiry1@optimalvirtualemployee.com",   // Your Microsoft email
-            pass: "Optimal@2025", // Password or App Password
+        user: 'faizdev007@gmail.com',     // Your email
+        pass: 'sekmsdpycyaonbnk',     // App password (not your real password!)
         },
-        tls: {
-            ciphers: "SSLv3"
-        }
     });
 
     try {
