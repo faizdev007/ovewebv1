@@ -44,7 +44,7 @@ export default function ImageSteps(StepsBlock:any) {
         </div>
         <div className="md:flex gap-2">
             {/* Left Side - Steps */}
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 flex items-center">
                 <div className="w-full space-y-4">
                     {stepdata.map((item:any, index:number) => {
                     const open = activeIndex === index;
