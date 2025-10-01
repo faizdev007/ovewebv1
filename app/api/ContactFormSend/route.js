@@ -82,7 +82,7 @@ export async function POST(request) {
                 <body>
                     <div class="email-container">
                     <div class="email-header">
-                        <h1>Contact Form Query</h1>
+                        <h1>Contact Form Inquiry</h1>
                     </div>
                     <div class="email-body">
                         <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
