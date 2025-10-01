@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/footer";
-import CookieBanner from "@/components/CookieConsentBanner";
 import Analytics from "@/components/CookieConcentcheck";
 import { generateMetadataFromSeo } from "./(main)/utils/seo";
 
@@ -60,7 +57,6 @@ export default function RootLayout({
         {/* End Google Tag Manager (noscript) */}
 
         {children}
-        <CookieBanner/>
       </body>
     </html>
   );
