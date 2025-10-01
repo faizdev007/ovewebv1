@@ -69,8 +69,8 @@ export default function ServiceFooter() {
                                 </ul>
                             </div>
                             <div className="flex gap-1 justify-center items-center mt-10">
-                                <Image src={'/assets/ssl-secure.webp'} width={120} height={60}  alt={'GDPR'}/>
-                                <Image src={'/assets/GDPR.webp'} width={120} height={60}  alt={'GDPR'}/>
+                                <Image className="dark:bg-white px-1 rounded-2xl w-auto h-auto" src={'/assets/ssl-secure.webp'} width={120} height={60}  alt={'ssl-secure'}/>
+                                <Image className="w-auto h-auto" src={'/assets/GDPR.webp'} width={120} height={60}  alt={'GDPR'}/>
                             </div>
                         </div>
                         </div>
