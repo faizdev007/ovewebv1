@@ -171,7 +171,7 @@ const HeroSection = (HeroData:any) => {
                         </div>
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 p-4 text-white uppercase cursor-pointer rounded-md font-semibold hover:bg-blue-700 transition"
+                            className="w-full gtmsubmit bg-blue-600 p-4 text-white uppercase cursor-pointer rounded-md font-semibold hover:bg-blue-700 transition"
                             disabled={status}
                         >
                             {status ? (
