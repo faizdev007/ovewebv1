@@ -6,7 +6,6 @@ import ServiceFooter from "@/components/virtualassistance/serviceFooter";
 import "@/components/main/Homepage/customstyle.css";
 import "../services/VAStyle.css";
 
-
 export default function ServicesLayout({ children }: { children: ReactNode }) {
   return (
     <>

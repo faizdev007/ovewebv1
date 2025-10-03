@@ -24,10 +24,10 @@ export function generateMetadataFromSeo(seoData: SeoProps): Metadata {
         title: seoData.opengraphTitle ?? title,
         description: seoData.opengraphDescription ?? description,
         },
-        robots: {
-            index: false,
-            follow: false,
-        },
+        // robots: {
+        //     index: true,
+        //     follow: true,
+        // },
         other: {
             "google-site-verification" : "xqpfQdsNQE8sN0vLhE3D-UOWjlDCbyl36rzarrerKZ",
         },
