@@ -10,16 +10,6 @@ export default function RootLayout({
 }>) {
   return (
       <>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-5K42N2M2"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
-        {/* End Google Tag Manager (noscript) */}
         {/* page layout data */}
         <Header/>
         {children}

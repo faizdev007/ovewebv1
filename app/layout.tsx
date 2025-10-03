@@ -49,7 +49,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} opensans antialiased scroll-smooth`}
       >
-        {/* Google Tag Manager Script for the head */}
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

@@ -10,17 +10,6 @@ import "../services/VAStyle.css";
 export default function ServicesLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      {/* Google Tag Manager (noscript) */}
-      <noscript>
-        <iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-5K42N2M2"
-          height="0"
-          width="0"
-          style={{ display: "none", visibility: "hidden" }}
-        ></iframe>
-      </noscript>
-      {/* End Google Tag Manager (noscript) */}
-      
       {/* ✅ Custom Header */}
       <ServiceHeader/>
 
