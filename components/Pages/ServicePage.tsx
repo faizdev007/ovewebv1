@@ -20,9 +20,9 @@ import ClientScroll from "../virtualassistance/ClientScroll";
 
 // src/app/(services)/services/page.tsx
 export default function ServicePage(pageData:any) {
+  
   const [isOpen, setIsOpen] = useState(false);
-    // console.log(pageData?.pageData);
-    // return;
+  
   return (
     <div className="">
       <HeroSection HeroData={pageData?.pageData?.HeroSection}/>
