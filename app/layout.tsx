@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Analytics from "@/components/CookieConcentcheck";
 import { generateMetadataFromSeo } from "./(main)/utils/seo";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,15 +37,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Google Tag Manager Script for the head */}
-        <>
-          <Analytics />
-        </>
-      </head>
+      <Script id="gtm-script" strategy="beforeInteractive">
+        {`
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-5K42N2M2');
+        `}
+      </Script>
       <body
         className={`${geistSans.variable} ${geistMono.variable} opensans antialiased scroll-smooth`}
       >
+        {/* Google Tag Manager Script for the head */}
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

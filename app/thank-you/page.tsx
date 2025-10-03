@@ -3,25 +3,25 @@ import { notFound } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function ThankYouPage() {
-   const [called, setCalled] = useState<boolean | null>(null);
+  //  const [called, setCalled] = useState<boolean | null>(null);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const value = sessionStorage.getItem("thankyoucall");
-      setCalled(value === "true");
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const value = sessionStorage.getItem("thankyoucall");
+  //     setCalled(value === "true");
 
-      const timer = setTimeout(() => {
-        sessionStorage.removeItem("thankyoucall");
-      }, 2000);
+  //     const timer = setTimeout(() => {
+  //       sessionStorage.removeItem("thankyoucall");
+  //     }, 2000);
 
-      return () => clearTimeout(timer);
-    }
-  }, []);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, []);
 
-  // ⚡ Prevent rendering until we know the value
-  if (called === null) return null;
+  // // ⚡ Prevent rendering until we know the value
+  // if (called === null) return null;
 
-  if (!called) return notFound();
+  // if (!called) return notFound();
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-oveblue p-6">
