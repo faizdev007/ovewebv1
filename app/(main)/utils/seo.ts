@@ -12,6 +12,10 @@ interface SeoProps {
   opengraphImage?: {
     sourceUrl: string;
   };
+  robots?: {
+      index: boolean;
+      follow: boolean;
+  };
 }
 
 export function generateMetadataFromSeo(seoData: SeoProps): Metadata {
@@ -24,12 +28,12 @@ export function generateMetadataFromSeo(seoData: SeoProps): Metadata {
         title: seoData.opengraphTitle ?? title,
         description: seoData.opengraphDescription ?? description,
         },
-        // robots: {
-        //     index: true,
-        //     follow: true,
-        // },
+        robots: {
+            index: seoData?.robots?.index ?? true,
+            follow: seoData?.robots?.follow ?? true,
+        },
         other: {
-            "google-site-verification" : "xqpfQdsNQE8sN0vLhE3D-UOWjlDCbyl36rzarrerKZ",
+            "google-site-verification" : "xqpfQdsNQE8sN0vLhE3D-UOWjlDCbyl36rzarrerKZ8",
         },
     };
 }

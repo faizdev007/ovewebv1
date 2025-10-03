@@ -1,6 +1,5 @@
 // app/hire/[slug]/page.tsx
 import { generateMetadataFromSeo } from "@/app/(main)/utils/seo";
-import GlobalNotFound from "@/app/global-not-found";
 import ServicePage from "@/components/Pages/ServicePage";
 import ServciePageData from "@/components/ServicePageGraphQL";
 import { notFound } from "next/navigation";
@@ -15,6 +14,7 @@ export async function generateMetadata({ params }: any) {
     notFound(); // 👈 ensures 404 metadata too
   }
   const seo = data?.seo;
+
   return generateMetadataFromSeo(seo || {});
 }
 
