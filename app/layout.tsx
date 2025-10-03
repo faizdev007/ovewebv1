@@ -36,9 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} opensans antialiased scroll-smooth`}
-      >
+      <head>
         {/* ✅ GTM script */}
         <Script id="gtm-script" strategy="beforeInteractive">
           {`
@@ -49,7 +47,10 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-5K42N2M2');
           `}
         </Script>
-
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} opensans antialiased scroll-smooth`}
+      >
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
