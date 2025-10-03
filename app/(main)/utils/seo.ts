@@ -19,14 +19,14 @@ interface SeoProps {
 }
 
 export function generateMetadataFromSeo(seoData: SeoProps): Metadata {
-    let title = seoData.title ?? seoData.opengraphTitle ?? "Find and Hire Developers for Startups — Optimal Virtual Employee — Top 3% Remote Talent";
-    let description = seoData.metaDesc ?? seoData.opengraphDescription ?? "Find and hire pre-vetted remote developers from the top 3% global talent pool. Optimal Virtual Employee helps startups build reliable tech teams fast — affordable, flexible & scalable.";
+    let title = seoData?.title ?? seoData?.opengraphTitle ?? "Find and Hire Developers for Startups — Optimal Virtual Employee — Top 3% Remote Talent";
+    let description = seoData?.metaDesc ?? seoData?.opengraphDescription ?? "Find and hire pre-vetted remote developers from the top 3% global talent pool. Optimal Virtual Employee helps startups build reliable tech teams fast — affordable, flexible & scalable.";
     return {
         title:title,
         description:description,
         openGraph: {
-        title: seoData.opengraphTitle ?? title,
-        description: seoData.opengraphDescription ?? description,
+        title: seoData?.opengraphTitle ?? title,
+        description: seoData?.opengraphDescription ?? description,
         },
         robots: {
             index: seoData?.robots?.index ?? true,
