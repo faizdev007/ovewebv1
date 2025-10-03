@@ -3,6 +3,7 @@ import "../services/VAStyle.css";
 import type { ReactNode } from "react";
 import ServiceHeader from "@/components/virtualassistance/serviceHeader";
 import ServiceFooter from "@/components/virtualassistance/serviceFooter";
+import Script from "next/script";
 
 export default function ServicesLayout({ children }: { children: ReactNode }) {
   return (
