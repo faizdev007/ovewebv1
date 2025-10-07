@@ -39,11 +39,12 @@ const HeroSection = (HeroData:any) => {
         const result = await res.json();
             if (res.ok) {
                 sessionStorage.setItem("thankyoucall", "true");
-                router.push('/thank-you');
+                // router.replace("/thank-you");
                 setFormData({ name: '', email: '', phone: '', message: '' });
                 setresMessage('Message Send Successfully!');
                 setMessageBlock(true);
                 setStatus(false);
+                window.location.href = "/thank-you";
             } else {
                 setError('Failed to send message. Please try again later.');
                 setMessageBlock(true);

@@ -46,12 +46,12 @@ const ModalForm = () => {
         const result = await res.json();
             if (res.ok) {
                 sessionStorage.setItem("thankyoucall", "true");
-                router.push('/thank-you');
-                router.refresh();
+                // router.replace("/thank-you");
                 setresMessage('Message Send Successfully!');
                 setMessageBlock(true);
                 setStatus(false);
                 setFormData({ name: '', email: '', phone: '', message: '' });
+                window.location.href = "/thank-you";
             } else {
                 setError('Failed to send message. Please try again later.');
                 setMessageBlock(true);
