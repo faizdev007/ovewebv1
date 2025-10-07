@@ -272,7 +272,7 @@ export default function ContactPage() {
                             ))}
                         </div>
                     </div>
-                    <div className="flex gap-4 mb-6 text-blue-600 font-bold md:text-sm text-xs mt-4">
+                    <div className="hidden gap-4 mb-6 text-blue-600 font-bold md:text-sm text-xs mt-4">
                         <a href={'tel:+12028499199'} aria-label={"12028499199"} className="hover:underline">📞 Book A Call</a>
                         <a href={'mailto:enquiry@optimalvirtualemployee.com'} aria-label={"enquiry@optimalvirtualemployee.com"} className="hover:underline">✉️ Email us</a>
                     </div>
