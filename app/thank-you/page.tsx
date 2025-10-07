@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { generateMetadataFromSeo } from "../(main)/utils/seo";
-import Script from "next/script";
 
 const defaultSeo = {
   title: "Thank You",

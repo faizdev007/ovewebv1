@@ -47,6 +47,7 @@ const ModalForm = () => {
             if (res.ok) {
                 sessionStorage.setItem("thankyoucall", "true");
                 router.push('/thank-you');
+                router.refresh();
                 setresMessage('Message Send Successfully!');
                 setMessageBlock(true);
                 setStatus(false);

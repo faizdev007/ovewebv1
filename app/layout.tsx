@@ -1,3 +1,8 @@
+// declare global {
+//   interface Window {
+//     dataLayer: Record<string, any>[];
+//   }
+// }
 import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -45,6 +50,21 @@ export default function RootLayout({
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-5K42N2M2');
+          `}
+        </Script>
+        {/* ✅ Global Google Tag (gtag.js) */}
+        <Script
+          id="google-ads-global"
+          strategy="afterInteractive"
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=GTM-5K42N2M2"
+        />
+        <Script id="google-ads-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'GTM-5K42N2M2');
           `}
         </Script>
       </head>
