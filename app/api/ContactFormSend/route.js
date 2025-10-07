@@ -20,7 +20,7 @@ export async function POST(request) {
     try {
         await transporter.sendMail({
         from: `"OVE" <faizdev007@gmail.com>`,
-        to: ['faizdev007@gmail.com','Nakul@optimalvirtualemployee.com'], // Your receiving email address ,'ronnie@optimalvirtualemployee.com','dshah@optimalvirtualemployee.com'
+        to: ['faizdev007@gmail.com','Nakul@optimalvirtualemployee.com','ronnie@optimalvirtualemployee.com','dshah@optimalvirtualemployee.com'], // Your receiving email address ,'ronnie@optimalvirtualemployee.com','dshah@optimalvirtualemployee.com'
         subject: 'New Contact Form Submission',
         html: `<!DOCTYPE html>
                 <html>
@@ -102,10 +102,6 @@ export async function POST(request) {
                                 <tr> 
                                     <td style="padding: 8px; border: 1px solid #ccc;">Phone</td> 
                                     <td style="padding: 8px; border: 1px solid #ccc;">${data.phone}</td> 
-                                </tr> 
-                                <tr> 
-                                    <td style="padding: 8px; border: 1px solid #ccc;">Service</td> 
-                                    <td style="padding: 8px; border: 1px solid #ccc;">${data.service}</td> 
                                 </tr> 
                                 <tr> 
                                     <td style="padding: 8px; border: 1px solid #ccc;">Message</td> 
