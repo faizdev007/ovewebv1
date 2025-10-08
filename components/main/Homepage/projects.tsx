@@ -71,8 +71,7 @@ const projects = [
   },
 ];
 
-export default function OurProjectsSlider() {
-  
+export default function OurProjectsSlider({projectslist}: any) {
   const baseSettings: Settings = {
       infinite: true,
       autoplay: true,
@@ -110,10 +109,10 @@ export default function OurProjectsSlider() {
   return (
     <section className="relative blackgradiant px-4 pb-12 dark:py-12 sm:px-6 lg:px-8 mx-auto dark:bg-gray-800 text-center">
       {/* Heading */}
-      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-5 text-white">Things We’ve Shipped</h2>
-      <p className="max-w-4xl mx-auto text-white mb-12">
-        From rapid MVPs to enterprise-grade systems—here’s what happens when great teams build right.
-      </p>
+      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-5 text-white">{projectslist?.title ?? 'Things We’ve Shipped'}</h2>
+      <div className="max-w-4xl mx-auto text-white mb-12">
+        <span dangerouslySetInnerHTML={{__html:projectslist?.subtitle ?? "From rapid MVPs to enterprise-grade systems—here’s what happens when great teams build right"}}/>
+      </div>
 
       <div className="relative container mx-auto">
         {settings ? 

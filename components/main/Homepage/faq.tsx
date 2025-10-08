@@ -42,10 +42,10 @@ const faqs =[
   }
 ];  
 
-export default function FaqSection(FAQ:any) {
+export default function FaqSection({FAQ}:any) {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
-  const faqlist = FAQ?.FAQ ?? faqs;
+  const faqlist = FAQ.length !== 0 ? FAQ : faqs;
 
   const toggle = (index: number) => {
     setActiveIndex(index === activeIndex ? null : index);

@@ -31,7 +31,8 @@ const logos = [
   '/assets/companies/company25.webp',
 ];
 
-export default function TrustedBy() {
+export default function TrustedBy({trustedbyscroll}: any) {
+  const herologos = trustedbyscroll.length !== 0 ? trustedbyscroll : logos;
   const { elementRef, isVisible } = useInView();
   return (
     <section ref={elementRef} className="pb-10 pt-4 text-center">
@@ -46,10 +47,10 @@ export default function TrustedBy() {
         <div className="flex-1 pe-4 border-s-2 border-gray-700 overflow-hidden relative">
           <div className="relative flex-1 gap-4 overflow-hidden px-4 sm:px-6 lg:px-8 mx-auto ">
               <div className="logo-slider flex w-max md:space-x-8 space-x-4">
-                  {logos.map((logo, index) => (
+                  {herologos.map((logo:string, index:number) => (
                       <img key={index} src={logo} className="h-16 p-2 border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
                   ))}
-                  {logos.map((logo, index) => (
+                  {herologos.map((logo:string, index:number) => (
                       <img key={index} src={logo} className="h-16 p-2 border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
                   ))}
               </div>

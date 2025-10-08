@@ -12,7 +12,7 @@ import WSF from "@/components/main/Hire/WhySearchFor";
 import CTable from "@/components/main/Hire/CompairTable";
 import Client from "@/components/main/Hire/Client";
 
-export default function RolePage(PageData:any) {
+export default function RolePage({PageData}:any) {
 
   if (!PageData) {
     // Loading skeleton or fallback
@@ -33,43 +33,43 @@ export default function RolePage(PageData:any) {
 
   return (
     <div className="relative 2xl:top-0">
-      <HeroSection hire={PageData?.PageData} />
-      <DevelopersSlider hire={PageData?.PageData} />
-      <HireThroughOVE hiringProcess={PageData?.PageData?.hiringProcess} />
+      <HeroSection hire={PageData} />
+      <DevelopersSlider hire={PageData} />
+      <HireThroughOVE hiringProcess={PageData?.hiringProcess} />
 
       <div className="relative">
         <div className="bg-lightblack dark:hidden">
           <Image src="/assets/white.png" alt="bg" width={1000} height={1000} className="w-full" />
         </div>
-        <Expertise Expertise={PageData?.PageData?.expertise} />
+        <Expertise Expertise={PageData?.expertise} />
       </div>
 
       <div className="relative h-full bg-oveblue w-full">
         <div className="bg-white dark:hidden">
           <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
-        <CTA CTA={PageData?.PageData?.cta?.one} />
+        <CTA CTA={PageData?.cta?.one} />
       </div>
 
       <div className="relative">
         <div className="bg-oveblue dark:hidden">
           <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
-        <WSF WhyHire={PageData?.PageData?.whyHire} />
+        <WSF WhyHire={PageData?.whyHire} />
       </div>
 
       <div className="relative blackgradiant">
         <div className="bg-white dark:hidden">
           <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
-        <CTable PriceTable={PageData?.PageData?.priceTable} />
+        <CTable PriceTable={PageData?.priceTable} />
       </div>
 
       <div className="relative">
         <div className="bg-lightblack dark:hidden">
           <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
-        <Client Testimonials={PageData?.PageData?.testimonial}/>
+        <Client Testimonials={PageData?.testimonial}/>
       </div>
 
       <HireBy />
@@ -78,14 +78,14 @@ export default function RolePage(PageData:any) {
         <div className="bg-black dark:hidden">
           <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
-        <CTA CTA={PageData?.PageData?.cta?.two} />
+        <CTA CTA={PageData?.cta?.two} />
       </div>
 
       <div className="relative">
         <div className="bg-oveblue dark:hidden">
           <Image src={'/assets/offWhite.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
-        <FaqSection FAQ={PageData?.PageData?.faq} />
+        <FaqSection FAQ={PageData?.faq} />
       </div>
     </div>
   );

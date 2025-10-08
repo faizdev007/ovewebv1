@@ -1,5 +1,5 @@
-import CookieBanner from "@/components/CookieConsentBanner";
 import "../globals.css";
+import CookieBanner from "@/components/CookieConsentBanner";
 import Header from "@/components/Header";
 import Footer from "@/components/footer";
 

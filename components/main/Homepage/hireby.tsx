@@ -4,24 +4,6 @@ import { RoleBaseSlug } from '@/app/(main)/utils/CategorySlug';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-const roles = [
-    { name: 'Hire Full-Stack Developer', logo: '/assets/hireby/roles/computer.webp', slug: '/hire/full-stack-developer'},
-    { name: 'Hire Back-End Developer', logo: '/assets/hireby/roles/backend.webp', slug: '/hire/back-end-developers'},
-    { name: 'Hire Front-End Developer', logo: '/assets/hireby/roles/ux.webp', slug: '/hire/front-end-developers'},
-    { name: 'Hire Cloud Engineer', logo: '/assets/hireby/roles/configuration.webp', slug: '/hire/cloud-engineers'},
-    { name: 'Hire Mobile Developer', logo: '/assets/hireby/roles/app-settings.webp', slug: '/hire/mobile-developer'},
-    { name: 'Hire AI Engineers', logo: '/assets/hireby/roles/cloud.webp', slug: '/hire/ai-engineers'},
-    { name: 'Hire Blockchain Developer', logo: '/assets/hireby/roles/blockchain.webp', slug: '/hire/blockchain-developers'},
-    { name: 'Hire Data Analyst', logo: '/assets/hireby/roles/analistics.webp', slug: '/hire/data-analysts'},
-    { name: 'Hire Automation QA Engineers', logo: '/assets/hireby/roles/automation.webp', slug: '/hire/automation-qa-engineers'},
-    { name: 'Hire Mechine Learning Engineers', logo: '/assets/hireby/roles/coding.webp', slug: '/hire/machine-learning-engineers'},
-    { name: 'Hire Data Scientists', logo: '/assets/hireby/roles/computer-scientist.webp', slug: '/hire/data-scientists'},
-    { name: 'Hire Data Engineers', logo: '/assets/hireby/roles/data-management.webp', slug: '/hire/data-engineers'},
-    { name: 'Hire DevOps', logo: '/assets/hireby/roles/devops.webp', slug: '/hire/devops-engineers'},
-    { name: 'Hire Game Developer', logo: '/assets/hireby/roles/game-development.webp', slug: '/hire/game-developers'},
-];
-
-
 const hirebyskill = [
   { name: 'React', logo: '/assets/hireby/skills/React.webp', slug: '#' },
   { name: 'Go', logo: '/assets/hireby/skills/golangimg.webp', slug: '#' },
@@ -47,6 +29,7 @@ const hirebyskill = [
 ];
 
 export default function HireBy() {
+    
     const [SkillCards, setSkillCards] = useState(hirebyskill);
     const [RoleCards, setRoleCards] = useState<null | Array<{ name: string; slug: string; logo: string }>>(null);;
     
