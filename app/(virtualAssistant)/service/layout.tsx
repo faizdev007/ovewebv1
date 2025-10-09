@@ -1,5 +1,5 @@
 import "@/components/main/Homepage/customstyle.css";
-import "../services/VAStyle.css";
+import "./VAStyle.css";
 import type { ReactNode } from "react";
 import ServiceHeader from "@/components/virtualassistance/serviceHeader";
 import ServiceFooter from "@/components/virtualassistance/serviceFooter";
