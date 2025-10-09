@@ -91,21 +91,7 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-5K42N2M2');
           `}
         </Script>
-        {/* ✅ Global Google Tag (gtag.js) */}
-        <Script
-          id="google-ads-global"
-          strategy="afterInteractive"
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=GTM-5K42N2M2"
-        />
-        <Script id="google-ads-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'GTM-5K42N2M2');
-          `}
-        </Script>
+        {/* ✅ JSON-LD for Organization */}
         <Script
           id="organization-schema"
           type="application/ld+json"
